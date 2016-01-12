@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <style>
+        .block {
+            height: 150px;
+            width: 150px;
+            margin: 50px auto;
+            border: 5px dotted #666;
+            border-radius: 200px;
+        }
+        
+        .b1 {
+            animation: a1 1s linear 0s infinite normal;
+            -webkit-animation: a1 1s linear 0s infinite normal;
+        }
+        
+        .b2 {
+            animation: a2 60s linear 0s infinite normal;
+            -webkit-animation: a2 60s linear 0s infinite normal;
+        }
+        
+        .block:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes a1 {
+            0% {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+                -webkit-transform: rotate(-360deg);
+            }
+        }
+        
+        @-webkit-keyframes a1 {
+            0% {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+                -webkit-transform: rotate(-360deg);
+            }
+        }
+        
+        @keyframes a2 {
+            0% {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @-webkit-keyframes a2 {
+            0% {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        .working {
+            background: url(../imgs/workingwoman.png) 0 0 no-repeat;
+            /* 图片高度 */
+            height: 140px;
+            /* 一帧图片宽度 */
+            width: 45px;
+            /* 图片中帧的总数 */
+            animation: workingrun 1s steps(14) infinite;
+            -webkit-animation: workingrun 1s steps(14) infinite;
+            margin: 0 auto;
+        }
+        
+        .working:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes workingrun {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                /* 背景图片的实际宽度 */
+                background-position: -749px 0;
+            }
+        }
+        
+        @-webkit-keyframes workingrun {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -749px 0;
+            }
+        }
+        
+        .move {
+            transition: all 1s linear 0s;
+            background: #666;
+            width: 200px;
+            padding: 10px;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="move">js控制位置，css过渡效果</div>
+    <div class="block b1">1</div>
+    <div class="block b2">2</div>
+    <!-- css 逐帧动画 -->
+    <div class="working"></div>
+    <script>
+        var move = document.getElementsByClassName('move')[0];
+        move1(move);
+        (function move1(obj) {
+            var flag = true;
+            move.addEventListener('click', function () {
+                if(flag) {
+                    this.style.left = '100px';
+                }
+                else {
+                    this.style.left = '0';
+                }
+                flag = !flag;
+            }, false); 
+        })
+    </script>
+</body>
+
+</html>

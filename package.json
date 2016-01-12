@@ -1,0 +1,16 @@
+{
+    "name": "experimentSpace",
+    "version": "1.0.0",
+    "description": "前端实验环境",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "bigfact",
+    "license": "MIT",
+    "devDependencies": {
+        "browser-sync": "^2.11.0",
+        "gulp": "github:gulpjs/gulp#4.0",
+        "gulp-watch": "^4.3.5"
+    }
+}

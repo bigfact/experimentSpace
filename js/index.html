@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>js</title>
+    <style>
+        #times {
+            font-size: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p>js api setTimeout</p>
+    <p id="times"></p>
+    <script>
+        var times = document.getElementById('times');
+        clock(1000, 1000);
+        // console.log(times);
+        function clock(i, j) {
+            if (i > 0 && j > 0) {
+                // console.log(i);
+                times.innerText = i;
+                i--;
+                setTimeout(function () {
+                    clock(i, j);
+                }, j);
+            }
+        }
+    </script>
+</body>
+
+</html>
