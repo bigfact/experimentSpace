@@ -72,6 +72,7 @@
         }
         
         .working {
+            transition: all 1s linear 0s;
             background: url(../imgs/workingwoman.png) 0 0 no-repeat;
             /* 图片高度 */
             height: 140px;
@@ -125,20 +126,39 @@
     <!-- css 逐帧动画 -->
     <div class="working"></div>
     <script>
-        var move = document.getElementsByClassName('move')[0];
-        move1(move);
-        (function move1(obj) {
-            var flag = true;
-            move.addEventListener('click', function () {
-                if(flag) {
-                    this.style.left = '100px';
-                }
-                else {
-                    this.style.left = '0';
-                }
-                flag = !flag;
-            }, false); 
-        })
+        function Move1(o) {
+            this.flag = false;
+            this.obj = o;
+            this.config = {
+                style: "position: relative; left: 0px; top: 0px;"
+            };
+        }
+        Move1.prototype = {
+            init: function (left) {
+                var _move = this;
+                _move.obj.style = _move.config.style;
+                var l1 = _move.obj.style.left;
+                var l2 = left + 'px';
+                _move.obj.addEventListener('click', function () {
+                    if(_move.flag) {
+                        this.style.left = l1;
+                    }
+                    else {
+                        this.style.left = l2;
+                    }
+                    _move.flag = !_move.flag;
+                }, false);
+                _move.obj.addEventListener('dblclick', function () {
+                     _move.showObj();
+                }, false);
+            },
+            showObj: function () {
+                console.log(this.obj);
+                // alert(this.obj);
+            }
+        }
+        new Move1(document.getElementsByClassName('move')[0]).init(300);
+        new Move1(document.getElementsByClassName('working')[0]).init(500);
     </script>
 </body>
 
