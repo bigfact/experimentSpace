@@ -5,23 +5,63 @@
     <meta charset="UTF-8">
     <title>js</title>
     <style>
+        body {
+            height: 200px;
+        }
+        
         #times {
             font-size: 50px;
             text-align: center;
+            width: 100%;
+            height: 10%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
         }
     </style>
 </head>
 
 <body>
-    <p>js api setTimeout</p>
     <p id="times"></p>
+    <a href="www.baidu.com" target="_blank">www.baidu.com</a>
     <script>
         var times = document.getElementById('times');
-        clock(1000, 1000);
-        // console.log(times);
+        var body = document.body || document.getElementsByTagName('body')[0];
+        var html = document.getElementsByTagName('html')[0];
+    </script>
+    <script>
+        //******* event 事件 *******
+        eventInit();
+        function eventInit() {
+            // 事件冒泡
+            times.addEventListener('click', eventFun, false);
+            document.getElementsByTagName('a')[0].addEventListener('click', eventFun, false);
+            // body.addEventListener('click', eventFun, false);
+            // html.addEventListener('click', eventFun, false);
+            // window.addEventListener('click', eventFun, false);
+            // 事件捕获
+            // times.addEventListener('click', eventFun, true);
+            // document.getElementsByTagName('a')[0].addEventListener('click', eventFun, true);
+            // body.addEventListener('click', eventFun, true);
+            // html.addEventListener('click', eventFun, true);
+            // window.addEventListener('click', eventFun, true);
+        }
+        function eventFun(e) {
+            // e.preventDefault();
+            e.returnValue = false;
+            e.stopPropagation();
+            console.log(this);
+            // return false;
+        }
+        //******* event 事件 *******
+        
+        //******* js 计时器实践 *******
+        // clock(1000, 1000);        
         function clock(i, j) {
             if (i > 0 && j > 0) {
-                // console.log(i);
                 times.innerText = i;
                 i--;
                 setTimeout(function () {
@@ -29,6 +69,83 @@
                 }, j);
             }
         }
+        //******* js 计时器实践 *******
+        
+        //******* 滑动实践 *******
+        // 根据事件对象获取接触点的坐标
+        function getSpotPosition(e) {
+            var touches = {};
+            if(e.touches != undefined) {
+                touches.x = e.touches[0].clientX;
+                touches.y = e.touches[0].clientY;
+            }
+            touches.x = (touches.x || e.clientX || e.pageX) + window.scrollX;
+            touches.y = (touches.y || e.clientY || e.pageY) + window.scrollY;
+            return touches;
+        }
+        // 初始化事件监听
+        // moveInit(document);
+        var data = {
+            direction: null,
+            beginSpot: {
+                x: 0,
+                y: 0
+            },
+        }
+        // 滑动初始化
+        function moveInit(obj) {
+            obj.addEventListener('mousedown', moveBegin, false);
+            obj.addEventListener('touchstart', moveBegin, false);
+        }
+        // 滑动开始
+        function moveBegin(e) {
+            e.preventDefault();
+            e.stopPropagation();    
+            console.log(e);
+            times.textContent = e.type + ',x:' + getSpotPosition(e).x + ',y:' + getSpotPosition(e).y;
+            // 数据记录
+            data.beginSpot.x = getSpotPosition(e).x;
+            data.beginSpot.y = getSpotPosition(e).y;
+            // 事件监听
+            this.addEventListener('mousemove', moving, false);
+            this.addEventListener('mouseup', moveEnd, false);
+            this.addEventListener('touchmove', moving, false);
+            this.addEventListener('touchend', moveEnd, false);
+        }
+        // 滑动中
+        function moving(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(e);
+            times.textContent = e.type + ',x:' + getSpotPosition(e).x + ',y:' + getSpotPosition(e).y;
+            // 计算方向
+            var dx = getSpotPosition(e).x - data.beginSpot.x;
+            var dy = getSpotPosition(e).y - data.beginSpot.y;
+            if(Math.abs(dx) > Math.abs(dy)) {
+                data.direction = dx > 0 ? 'right' : 'left';
+            }
+            else {
+                data.direction = dy > 0 ? 'bown' : 'up';
+            }
+            times.textContent += ',dx:' + dx + ',dy:' + dy + ',d:' + data.direction;
+        }
+        // 滑动结束
+        function moveEnd(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(e);
+            times.textContent = e.type + ',x:' + getSpotPosition(e).x + ',y:' + getSpotPosition(e).y;
+            this.removeEventListener('mousemove', moving, false);
+            this.removeEventListener('mouseup', moveEnd, false);
+            this.removeEventListener('touchmove', moving, false);
+            this.removeEventListener('touchend', moveEnd, false);
+        }
+        //******* 滑动实践 *******
+        
+        //******* 设备检测 *******
+        var u = navigator.userAgent;
+        times.textContent = 'isMobile: ' + !!u.match(/AppleWebKit.*Mobile.*/);
+        //******* 设备检测 *******
     </script>
 </body>
 

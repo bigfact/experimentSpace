@@ -1,5 +1,5 @@
 $(document).ready(function () {
-                        // ·ÖÒ³ÅäÖÃ
+                        // åˆ†é¡µé…ç½®
                         var obj = [
                         <?php 
                           foreach ($data as $k => $val):
@@ -31,14 +31,14 @@ $(document).ready(function () {
                         var pagePerNum = 10;
                         var pageIndex = 0;
                         var totalPage = Math.ceil(obj.length / pagePerNum);
-                        // ³õÊ¼»¯Êı¾İ·ÖÒ³
+                        // åˆå§‹åŒ–æ•°æ®åˆ†é¡µ
                         pageChange();                        
-                        // µ±Ç°Ò³¸Ä±ä
+                        // å½“å‰é¡µæ”¹å˜
                         function pageChange() {
                             changeTable();
                             changePagination(totalPage);
                         }
-                        // µ±Ç°Ò³¸Ä±ä£¬¸Ä±äÊı¾İ±í
+                        // å½“å‰é¡µæ”¹å˜ï¼Œæ”¹å˜æ•°æ®è¡¨
                         function changeTable() {
                             if($('#table tbody') != undefined) {
                                 $('#table tbody').remove();
@@ -60,7 +60,7 @@ $(document).ready(function () {
                             }
                             $(table).append(tbody);
                         }
-                        // µ±Ç°Ò³¸Ä±ä£¬¸Ä±ä·ÖÒ³¿Ø¼ş
+                        // å½“å‰é¡µæ”¹å˜ï¼Œæ”¹å˜åˆ†é¡µæ§ä»¶
                         function changePagination(num) {
                             $('.pinned .pagination').remove();
                             
@@ -74,7 +74,7 @@ $(document).ready(function () {
                             else {
                                 first.setAttribute('class', 'first');
                             }
-                            first.innerHTML = '<a><span>Ê×Ò³</span></a>';
+                            first.innerHTML = '<a><span>é¦–é¡µ</span></a>';
                             ul.appendChild(first);
                             var prev = document.createElement('li');
                             if(pageIndex == 0) {
@@ -83,7 +83,7 @@ $(document).ready(function () {
                             else {
                                 prev.setAttribute('class', 'prev');
                             }
-                            prev.innerHTML = '<a><span>ÉÏÒ»Ò³</span></a>';
+                            prev.innerHTML = '<a><span>ä¸Šä¸€é¡µ</span></a>';
                             ul.appendChild(prev);
                             
                             var k = (pageIndex - 4 > 0 ? pageIndex - 4 : 0);
@@ -108,7 +108,7 @@ $(document).ready(function () {
                             else {
                                 next.setAttribute('class', 'next');
                             }
-                            next.innerHTML = '<a><span>ÏÂÒ»Ò³</span></a>';
+                            next.innerHTML = '<a><span>ä¸‹ä¸€é¡µ</span></a>';
                             ul.appendChild(next);
                             var last = document.createElement('li');
                             if(pageIndex == totalPage - 1) {
@@ -117,18 +117,18 @@ $(document).ready(function () {
                             else {
                                 last.setAttribute('class', 'last');
                             }
-                            last.innerHTML = '<a><span>Ä©Ò³</span></a>';
+                            last.innerHTML = '<a><span>æœ«é¡µ</span></a>';
                             ul.appendChild(last);
                             
                             $('.pinned').append(ul);
-                            // ·ÖÒ³¿Ø¼şµã»÷ÊÂ¼ş¼àÌı
+                            // åˆ†é¡µæ§ä»¶ç‚¹å‡»äº‹ä»¶ç›‘å¬
                             $('.pagination a').each(function () {
                                 $(this).click(function() {
                                     pageClick(this);
                                 });
                             });
                         }
-                        // ¿Ø¼şµã»÷º¯Êı
+                        // æ§ä»¶ç‚¹å‡»å‡½æ•°
                         function pageClick(obj) {
                             var pageindexold = pageIndex;
                             if($(obj).parent().hasClass('first')) {
