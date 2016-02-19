@@ -13,10 +13,20 @@ gulp.task('browser', function () {
 
     return browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./",
+            //开启目录浏览
+            directory: true
         },
         port: 9080,
-        startPath: './'
+        startPath: './',
+        //在这里你可以禁用/启用每个单独的功能
+        // ghostMode: {
+        //     clicks: true,
+        //     forms: true,
+        //     scroll: false
+        // },
+        //或使它们全部关闭，一气呵成
+        ghostMode: false
     });
 });
 

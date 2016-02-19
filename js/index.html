@@ -6,7 +6,8 @@
     <title>js</title>
     <style>
         body {
-            height: 200px;
+            margin: 0;
+            padding: 0;
         }
         
         #times {
@@ -26,15 +27,32 @@
 
 <body>
     <p id="times"></p>
-    <a href="www.baidu.com" target="_blank">www.baidu.com</a>
     <script>
         var times = document.getElementById('times');
         var body = document.body || document.getElementsByTagName('body')[0];
         var html = document.getElementsByTagName('html')[0];
     </script>
     <script>
+        // ******* js函数的隐藏参数
+        // hideCaller();
+        function hideCaller() {
+            hideArg();
+        }
+        function hideArg(d) {
+            var g = 0;
+            console.log(arguments);  // 正在执行的函数和实参
+            console.log(arguments.length);  // 实参长度
+            console.log(arguments.callee);  // 正在执行的函数（本身）
+            console.log(arguments.callee.length);   // 形参长度
+            console.log(arguments.caller);   // 形参长度
+            console.log(hideArg.caller);    // 调用该函数的的函数
+            console.log(hideArg.length);    // 形参长度
+            console.log(this.g);
+        }
+        // ******* js函数的隐藏参数
+        
         //******* event 事件 *******
-        eventInit();
+        // eventInit();
         function eventInit() {
             // 事件冒泡
             times.addEventListener('click', eventFun, false);

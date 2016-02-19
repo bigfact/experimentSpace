@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ExApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>angular</title>
+</head>
+
+<body>
+    <div ng-controller="ctrl1">
+        <!--<form name="form1" method="GET" action="">-->
+        <form name="form1">
+            <label for="username">用户名</label>
+            <input type="text" name="username" ng-model="username" ng-maxlength="6" required>
+            <input type="button" value="提交" ng-click="submit()">
+        </form>
+        <div>
+            <h3 id="currencyFilter">货币格式化 - currencyFilter</h3>
+            <!-- 默认符号$，默认小数保留2位，四舍五入 -->
+            <p>{{ 12.0155 | currency }}</p>
+            <!-- 自定义符号 -->
+            <p>{{ 12.0155 | currency:'￥' }}</p>
+            <!-- 自定义符号，小数保留3位 -->
+            <p>{{ 12.0155 | currency:'CNY':3 }}</p>
+            <!-- 默认符号$，保留小数1位 -->
+            <p>{{ 12.0155 | currency:undefined:1 }}</p>
+
+            <h3 id="dateFilter">日期格式化 - dateFilter</h3>
+            <!-- 使用ISO标准日期格式 -->
+            <p>{{ '2016-02-19T10:34:00.000Z' | date:'yyyy.MM.dd HH:mm:ss.sss' }}</p>
+            <!-- 使用时间戳（单位毫秒，自1970.01.01 00:00:00:000经过的毫秒数） -->
+            <p>{{ 1 | date:'yyyy.MM.dd HH:mm:ss.sss' }}</p>
+            <!-- 使用时间戳（单位毫秒，自1970.01.01 00:00:00:000经过的毫秒数），指定timezone为UTC -->
+            <p>{{ 1 | date:'yyyy.MM.dd HH:mm:ss.sss':'UTC' }}</p>
+
+            <h3 id="filterFilter">数组过滤 - filterFilter</h3>
+            <ul ng-init="ps=[{name:'Tom', age:20}, {name:'leon', age:50}, {name:'May', age:21}, {name:'Jack', age:20}, {name:'Alice', age:22}]">
+                <h4>无过滤</h4>
+                <li ng-repeat="p in ps">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+
+                <h4 ng-init="kw0='l'">使用字符串过滤，仅显示包含{{ kw0 }}的数据</h4>
+                <li ng-repeat="p in ps | filter:kw0">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+
+                <h4 ng-init="kw1='leon'">使用自定义函数过滤，仅显示name等于{{ kw1 }}的数据</h4>
+                <li ng-repeat="p in ps | filter:f0">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+
+                <h4 ng-init="kw2={name: 'a'}">使用对象{{ kw2 }}过滤，仅显示name包含{{ kw2.name }}的数据</h4>
+                <li ng-repeat="p in ps | filter:kw2">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+
+                <h4 ng-init="kw3=false;kw4={name:'l'}">
+                    指定comparator={{ kw3 }}过滤，<span ng-show="kw3">大小写及内容均需完全匹配</span>
+                    <span ng-hide="kw3">默认值，大小写不敏感的方式匹配</span>
+                    {{ kw4 }}
+                </h4>
+                <li ng-repeat="p in ps | filter:kw4:kw3">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+
+                <h4 ng-init="kw5={age:20}">指定comparator为function进行过滤</h4>
+                <li ng-repeat="p in ps | filter:kw5:f1">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+
+            </ul>
+
+            <h3 id="limitToFilter">数据个数限制-limitToFilter</h3>
+            <ul ng-init="kw6=3; ps=[{name:'Tom', age:20}, {name:'leon', age:50}, {name:'May', age:21}, {name:'Jack', age:20}, {name:'Alice', age:22}]">
+                <h4>限制显示前{{ kw6 }}条数据</h4>
+                <li ng-repeat="p in ps | limitTo:kw6">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+            </ul>
+            
+            <h3 id="orderByFilter">排序-orderByFilter</h3>
+            <ul ng-init="kw9=['-age', 'name']; ps=[{name:'Tom', age:20}, {name:'leon', age:50}, {name:'May', age:21}, {name:'Jack', age:20}, {name:'Alice', age:22}]">
+                <h4>'-'表示这列倒叙排序，默认为顺序排序</h4>
+                <li ng-repeat="p in ps | orderBy:kw9">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+                <h4>参数reverseOrder：true表示结果集倒叙显示</h4>
+                <li ng-repeat="p in ps | orderBy:kw9:true">
+                    {{ p.name }}, {{ p.age }}
+                </li>
+            </ul>
+
+            <h3 id="xxxcaseFilter">大小写转换-xxxcaseFilter</h3>
+            <ul ng-init="kw7='WxcWcjJJJxs'">
+                <li>{{ kw7 }}</li>
+                <li>{{ kw7 | uppercase }}</li>
+                <li>{{ kw7 | lowercase }}</li>
+            </ul>
+
+            <h3 id="numberFilter">数字过滤-numberFilter</h3>
+            <ul ng-init="kw8='121213333.25736'">
+                <li>{{ kw8 }}</li>
+                <li>{{ kw8 | number }}</li>
+                <h4>保留1位小数，四舍五入</h4>
+                <li>{{ kw8 | number:1 }}</li>
+            </ul>
+
+            <h3 id="jsonFilter">JSON格式化 - jsonFilter</h3>
+            <!-- 将对象格式化成标准的JSON格式 -->
+            <h4>格式化之前</h4>
+            <p>{{ ps }}</p>
+            <h4>格式化之后</h4>
+            <p>{{ ps | json }}</p>
+            
+            <h3 id="customFilter">自定义Filter - customFilter</h3>
+            <ul ng-init="kw10='dsccc'; kw11=2; kw12='bbb'">
+                <h4>{{ kw10 }}的第{{ kw11 }}位的字符替换为{{ kw12 }}</h4>
+                <li>{{ kw10 | filter0:kw11:kw12 }}</li>
+            </div>
+
+        </div>
+    </div>
+    <script src="../bower/angular/angular.min.js"></script>
+    <script>
+        var ExApp = angular.module('ExApp', []);
+        
+        // 自定义Filter，input的index位的字符替换为ch
+        ExApp.filter('filter0', function () {
+            return function (input, index, ch) {
+                input = input || '';
+                var output = '';
+                for(var i = 0; i < input.length; i++) {
+                    if(i == index) {
+                        output += ch;
+                    }
+                    else {
+                        output += input[i];   
+                    }
+                }
+                return output;
+            }
+        });
+        
+        ExApp.controller('ctrl1', ['$scope', '$http', function (scope, http) {
+            
+            // 自定义过滤函数
+            scope.f0 = function (item) {
+                return item.name == scope.kw1;
+            }
+            
+            // 自定义comparator函数
+            scope.f1 = function (expected, actual) {
+                // console.log(expected);
+                // console.log(actual);
+                return expected == actual;
+            }
+            
+            // 表单提交
+            scope.submit = function () {
+                console.log(scope.form1.username.$error);
+                console.log(scope.form1.username.$valid);
+                console.log(scope.username);
+                if(scope.form1.username.$valid) {
+                    http({
+                        method: 'GET',
+                        url: '',
+                        params: {
+                            id: '111'
+                        },
+                        data: {
+                            username: scope.username
+                        }
+                    }).success(function () {
+                        console.log('success');
+                    }).error(function () {
+                        console.log('error');
+                    });
+                    // document.getElementsByName('form1')[0].submit();
+                }
+            }
+            
+        }]);
+        
+    </script>
+</body>
+
+</html>

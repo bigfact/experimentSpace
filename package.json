@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "bigfact",
+    "author": "bigfact<bigfact@foxmail.com>",
     "license": "MIT",
     "devDependencies": {
         "browser-sync": "^2.11.0",

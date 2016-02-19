@@ -1,7 +1,14 @@
 function ex() {
     console.log(1);
 }
-console.log(typeof ex);
+console.log(typeof ex.__proto__);
+console.log(typeof ex.prototype);
+
+console.log(typeof Object.__proto__);
+console.log(typeof Object.prototype);
+
+console.log(typeof Function.__proto__);
+console.log(typeof Function.prototype);
 // 20160114
 
 // var n1 = 2;
