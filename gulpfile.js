@@ -1,12 +1,29 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var watch = require('gulp-watch');
+var compass = require('gulp-compass');
+var cleanCSS = require('gulp-clean-css');
 
 /*******************************************************************************
  * src
  *******************************************************************************/
 
-gulp.task('browser', function () {
+gulp.task('compass', function() {
+    return gulp.src('./*.scss')
+        .pipe(compass({
+            // config_file: './config.rb',
+            css: './exthings/',
+            sass: './exthings/'
+        }));
+});
+
+gulp.task('min-css', function() {
+    return gulp.src('./exthings/**/*.css')
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./exthings/**/css'));
+});
+
+gulp.task('browser', function() {
 
     // 监听文件自动刷新
     watch(['./**/**.js', './**/**.css', './**/**.html'], browserSync.reload);
@@ -31,7 +48,7 @@ gulp.task('browser', function () {
 });
 
 // 开启服务
-gulp.task('default', gulp.series('browser'), function (callback) {
+gulp.task('default', gulp.series('browser'), function(callback) {
     callback();
 });
 
