@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 开启移动端手机屏适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>clicktimes</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 20px;
+        }
+        
+        .coin {
+            display: block;
+            position: fixed;
+            background: #213677;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            animation: coinani 1s cubic-bezier(.39,.01,.7,.38) 0s 1 normal forwards;
+            -webkit-animation: coinani 1s cubic-bezier(.39,.01,.7,.38) 0s 1 normal forwards;
+        }
+        
+        @keyframes coinani {
+            100% {
+                top: 100%;
+            }
+        }
+        
+        @-webkit-keyframes coinani {
+            100% {
+                top: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>时间(s)</div>
+    <div class="tabtime"></div>
+    <div>点击次数</div>
+    <div class="tabpoint"></div>
+    <div class="coins"></div>
+    <script>
+        // 总时间，单位 s
+        var timeall = 10;
+        // 时间显示区域
+        var tabtime = document.getElementsByClassName('tabtime')[0];
+        // 分数显示区域
+        var tabpoint = document.getElementsByClassName('tabpoint')[0];
+        // 当前分数
+        var point = 0;
+        // 当前时间
+        var time = timeall;
+        var coins = document.getElementsByClassName('coins')[0];
+        // 点击监听
+        document.addEventListener('click', onclick, false);
+        // document.addEventListener('touchstart', onclick, false);
+        tabtime.innerText = timeall;
+        tabpoint.innerText = point;
+        // 计时方法 
+        function clock(i, j, onchang) {
+            if (i > 0 && j > 0) {
+                setTimeout(function() {
+                    i--;
+                    // (typeof onchang === 'function') && onchang(i);
+                    onchang(i);
+                    clock(i, j, onchang);
+                }, j);
+            }
+        }
+        // 点击执行方法
+        function onclick(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            // 计时开始
+            point == 0 && clock(timeall, 1000, function(va) {
+                tabtime.innerText = va;
+                time = va;
+            });
+            time > 0 && point++;
+            time > 0 && newcoin(e);
+            tabpoint.innerText = point;
+        }
+        // 生成新的点
+        function newcoin(e) {
+            var coin = document.createElement('span');
+            coin.className = 'coin';
+            coin.style.top = (getSpotPosition(e).y - 50) + 'px';
+            coin.style.left = (getSpotPosition(e).x - 50) + 'px';
+            coins.appendChild(coin);
+        }
+        // 根据事件获取当前触点的位置
+        function getSpotPosition(e) {
+            var touches = {};
+            if (e.touches != undefined) {
+                touches.x = e.touches[0].clientX;
+                touches.y = e.touches[0].clientY;
+            }
+            touches.x = touches.x || e.clientX || e.pageX;
+            touches.y = touches.y || e.clientY || e.pageY;
+            return touches;
+        }
+    </script>
+</body>
+
+</html>

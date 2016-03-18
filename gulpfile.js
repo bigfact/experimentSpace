@@ -17,8 +17,8 @@ gulp.task('browser', function () {
             //开启目录浏览
             directory: true
         },
-        port: 9080,
-        startPath: './',
+        port: 4001,
+        // startPath: './',
         //在这里你可以禁用/启用每个单独的功能
         // ghostMode: {
         //     clicks: true,

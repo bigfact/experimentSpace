@@ -76,19 +76,6 @@
         }
         //******* event 事件 *******
         
-        //******* js 计时器实践 *******
-        // clock(1000, 1000);        
-        function clock(i, j) {
-            if (i > 0 && j > 0) {
-                times.innerText = i;
-                i--;
-                setTimeout(function () {
-                    clock(i, j);
-                }, j);
-            }
-        }
-        //******* js 计时器实践 *******
-        
         //******* 滑动实践 *******
         // 根据事件对象获取接触点的坐标
         function getSpotPosition(e) {
@@ -159,11 +146,6 @@
             this.removeEventListener('touchend', moveEnd, false);
         }
         //******* 滑动实践 *******
-        
-        //******* 设备检测 *******
-        var u = navigator.userAgent;
-        times.textContent = 'isMobile: ' + !!u.match(/AppleWebKit.*Mobile.*/);
-        //******* 设备检测 *******
     </script>
 </body>
 
