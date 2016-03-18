@@ -30,6 +30,7 @@
             100% {
                 transform: translate(0, 1000px);
                 -webki-transform: translate(0, 1000px);
+                display: none;
             }
         }
         
@@ -41,6 +42,7 @@
             100% {
                 transform: translate(0, 1000px);
                 -webkit-transform: translate(0, 1000px);
+                display: none;
             }
         }
     </style>
@@ -54,7 +56,6 @@
     <div>
         <button class="reset">重置</button>
     </div>
-    <div class="coins"></div>
     <script>
         // 总时间，单位 s
         var timeall = 10;
@@ -67,7 +68,7 @@
         // 当前时间
         var time = timeall;
         // 点容器
-        var coins = document.getElementsByClassName('coins')[0];
+        var coins = null;
         // 重置按钮
         var reset = document.getElementsByClassName('reset')[0];
         reset.addEventListener('click', function (e) {
@@ -87,6 +88,9 @@
             tabtime.innerText = timeall;
             tabpoint.innerText = point;
             reset.setAttribute('disabled', 'disabled');
+            coins != null && coins.parentNode.removeChild(coins);
+            coins = document.createElement('div');
+            document.body.appendChild(coins);
         }
         // 点击执行方法
         function onclick(e) {
