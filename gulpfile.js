@@ -12,15 +12,15 @@ gulp.task('compass', function() {
     return gulp.src('./*.scss')
         .pipe(compass({
             // config_file: './config.rb',
-            css: './exthings/',
-            sass: './exthings/'
+            css: './things/',
+            sass: './things/'
         }));
 });
 
 gulp.task('min-css', function() {
-    return gulp.src('./exthings/**/*.css')
+    return gulp.src('./things/**/*.css')
         .pipe(cleanCSS())
-        .pipe(gulp.dest('./exthings/**/css'));
+        .pipe(gulp.dest('./things/**/css'));
 });
 
 gulp.task('browser', function() {
