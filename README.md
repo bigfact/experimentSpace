@@ -1,6 +1,6 @@
 # frontforge
 
-前端的实验环境
+前端熔炉，bigfact 的前端实验室
 
 ## 目录
 * things: 所有实验小项目
@@ -30,4 +30,3 @@
 * [gulp 官网](http://gulpjs.com/)
 * [compass in github](https://github.com/Compass/compass)
 * [compass 官网](http://compass-style.org/)
-* 
