@@ -11,8 +11,7 @@
             text-align: center;
             font-size: 20px;
         }
-        
-        .coin {
+        /*.coin {
             position: fixed;
             background: #031262;
             width: 100px;
@@ -20,6 +19,22 @@
             border-radius: 100px;
             animation: coinani 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards;
             -webkit-animation: coinani 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards;
+        }*/
+        
+        .coin {
+            position: fixed;
+            background: #F4C600;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            animation: coinani 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards;
+            -webkit-animation: coinani 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards;
+            color: #453F45;
+            font-size: 85px;
+        }
+        
+        .coin::after {
+            content: "$";
         }
         
         @keyframes coinani {
@@ -65,10 +80,14 @@
         var tabpoint = document.getElementsByClassName('tabpoint')[0];
         // 当前分数
         var point = 0;
-        // 当前时间
+        // 当前时间，单位 s
         var time = timeall;
         // 点容器
         var coins = null;
+        // 两次点击之间的合理间隔值，单位 ms，用于限制点击过快，以已知最快点击速度（百度，高桥名人） 16/s 计算，每两次点击之间的间隔应限制为 60 毫秒左右
+        var mintime = 60;
+        // 当前点击时间，单位 ms，用于限制点击过快
+        var timenow = 0;
         // 重置按钮
         var reset = document.getElementsByClassName('reset')[0];
         reset.addEventListener('click', function (e) {
@@ -76,13 +95,19 @@
             e.stopPropagation();
             time == 0 && init();
         }, false);
+        reset.addEventListener('touchstart', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            time == 0 && init();
+        }, false);
         // 点击监听
         document.addEventListener('click', onclick, false);
-        // document.addEventListener('touchstart', onclick, false);
+        document.addEventListener('touchstart', onclick, false);
         // 初始化
         init();
         // 初始化方法
         function init() {
+            timenow = 0;
             point = 0;
             time = timeall;
             tabtime.innerText = timeall;
@@ -102,7 +127,10 @@
                 time = va;
                 time == 0 && reset.removeAttribute('disabled');
             });
-            if(time > 0) {
+            // 已经添加点击间隔时间限制，最小间隔时间为 mintime
+            if(time > 0 && Date.now() - timenow > mintime) {
+            // if(time > 0) {
+                timenow = Date.now();
                 point++;
                 newcoin(e);
             }
