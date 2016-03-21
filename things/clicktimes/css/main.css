@@ -29,10 +29,10 @@ div {
   -webkit-animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
   animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
   color: #453F45;
-  font-size: 85px;
+  font-size: 75px;
 }
 .coin::after {
-  content: "$";
+  content: "￥";
 }
 
 @-moz-keyframes coinani {
