@@ -2,32 +2,44 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var watch = require('gulp-watch');
 var compass = require('gulp-compass');
-var cleanCSS = require('gulp-clean-css');
 
 /*******************************************************************************
  * src
  *******************************************************************************/
 
-gulp.task('compass', function() {
-    return gulp.src('./*.scss')
-        .pipe(compass({
-            // config_file: './config.rb',
-            css: './things/',
-            sass: './things/'
-        }));
+// 监听 scss 文件，自动编译 scss 文件
+gulp.task('buildscss', function() {
+    return gulp.watch('./**/**.scss')
+        .on('change', function(path) {
+            gulp.src(path)
+                .pipe(compass({
+                    // config_file: './config.rb',
+                    css: path,
+                    sass: path
+                }));
+        });
 });
 
-gulp.task('min-css', function() {
-    return gulp.src('./things/**/*.css')
-        .pipe(cleanCSS())
-        .pipe(gulp.dest('./things/**/css'));
-});
-
+// 开发服务器任务
 gulp.task('browser', function() {
 
     // 监听文件自动刷新
     watch(['./**/**.js', './**/**.css', './**/**.html'], browserSync.reload);
 
+    gulp.watch('./**/**.scss')
+        .on('change', function(path) {
+            gulp.src(path)
+                .pipe(compass({
+                    // config_file: './config.rb',
+                    css: './things/',
+                    sass: './things/'
+                })).on('error', function(err) {
+                    console.log('sass Error!', err.message);
+                    this.end();
+                });
+        });
+
+    // 开发服务器
     return browserSync.init({
         server: {
             baseDir: "./",
@@ -56,3 +68,13 @@ gulp.task('default', gulp.series('browser'), function(callback) {
 /*******************************************************************************
  * dist
  *******************************************************************************/
+ 
+// var cleanCSS = require('gulp-clean-css');
+// var rename = require('gulp-rename');
+
+// gulp.task('mincss', function() {
+//     return gulp.src('./things/**/*.css')
+//         .pipe(cleanCSS())
+//         .pipe(rename({ extname: '.min.css' }))
+//         .pipe(gulp.dest('./things/'));
+// });

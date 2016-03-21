@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/*
+    作者: bigfact<bigfact0gmail.com>
+    时间: 2016.03.21
+*/
+div {
+  text-align: center;
+  font-size: 20px;
+}
+
+/*.coin {
+    position: fixed;
+    background: #031262;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    animation: coinani 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards;
+    -webkit-animation: coinani 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards;
+}*/
+.coin {
+  position: fixed;
+  background: #F4C600;
+  width: 100px;
+  height: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+  -moz-animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
+  -webkit-animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
+  animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
+  color: #453F45;
+  font-size: 85px;
+}
+.coin::after {
+  content: "$";
+}
+
+@-moz-keyframes coinani {
+  100% {
+    -moz-transform: translate(0, 1000px);
+    transform: translate(0, 1000px);
+    display: none;
+  }
+}
+@-webkit-keyframes coinani {
+  100% {
+    -webkit-transform: translate(0, 1000px);
+    transform: translate(0, 1000px);
+    display: none;
+  }
+}
+@keyframes coinani {
+  100% {
+    -moz-transform: translate(0, 1000px);
+    -ms-transform: translate(0, 1000px);
+    -webkit-transform: translate(0, 1000px);
+    transform: translate(0, 1000px);
+    display: none;
+  }
+}
