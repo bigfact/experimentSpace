@@ -10,7 +10,9 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.11.0",
-    "gulp-watch": "^4.3.5"
+    "css-loader": "^0.23.1",
+    "gulp-watch": "^4.3.5",
+    "style-loader": "^0.13.0"
   },
   "dependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
