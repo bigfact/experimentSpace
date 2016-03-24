@@ -68,21 +68,21 @@ header {
 
 // 游戏模块
 .gameblock {
-    // display: none;
+    display: none;
     height: 460px;
-}
-
-// 硬币
-.coin {
-    position: fixed;
-    background: $coin-bg;
-    width: $coinSize;
-    height: $coinSize;
-    text-align: center;
-    @include border-radius($coinSize);
-    @include animation($coinKFName 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards);
-    color: $coinColor;
-    font-size: $coinFontSize;
+    z-index: -1;
+    // 硬币
+    .coin {
+        position: fixed;
+        background: $coin-bg;
+        width: $coinSize;
+        height: $coinSize;
+        text-align: center;
+        @include border-radius($coinSize);
+        @include animation($coinKFName 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards);
+        color: $coinColor;
+        font-size: $coinFontSize;
+    }
 }
 
 // 硬币动效
@@ -124,10 +124,13 @@ header {
 
 // 活动介绍模块
 .infoblock {
+    position: relative;
     background: $info-bg-color;
-    .head {
+    .topimg {
         width: 100%;
-        position: relative;
+        position: absolute;
+        top: -60px;
+        display: none;
     }
     .title {
         text-align: center;
@@ -136,8 +139,10 @@ header {
             position: absolute;
             left: 22%;
             width: 60px;
+            z-index: 1;
         }
         button {
+            position: relative;
             font-size: 1.8rem;
             padding: 10px 40px;
             @include border-radius(7px);
@@ -158,7 +163,9 @@ header {
 
 // 游戏开始之后，活动介绍模块样式
 .infoblock2 {
-    top: 500px;
+    .topimg {
+        display: block;
+    }
 }
 
 // 页脚声明

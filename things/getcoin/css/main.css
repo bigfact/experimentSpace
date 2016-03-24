@@ -34,10 +34,11 @@ header {
 }
 
 .gameblock {
+  display: none;
   height: 460px;
+  z-index: -1;
 }
-
-.coin {
+.gameblock .coin {
   position: fixed;
   background: url(../imgs/coin.png);
   width: 100px;
@@ -109,11 +110,14 @@ header {
 }
 
 .infoblock {
+  position: relative;
   background: #F8BB40;
 }
-.infoblock .head {
+.infoblock .topimg {
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: -60px;
+  display: none;
 }
 .infoblock .title {
   text-align: center;
@@ -123,8 +127,10 @@ header {
   position: absolute;
   left: 22%;
   width: 60px;
+  z-index: 1;
 }
 .infoblock .title button {
+  position: relative;
   font-size: 1.8rem;
   padding: 10px 40px;
   -moz-border-radius: 7px;
@@ -145,8 +151,8 @@ header {
   margin: 0 15px;
 }
 
-.infoblock2 {
-  top: 500px;
+.infoblock2 .topimg {
+  display: block;
 }
 
 footer {

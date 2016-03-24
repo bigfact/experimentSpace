@@ -21,7 +21,9 @@ $(document).ready(function() {
         // 
         
         $('#makesure').hide();
-        // $('.activetime').hide();
+        $('.activetime').hide();
+        $('.gameblock').show();
+        $('.infoblock').addClass('infoblock2');
         init();
     });
     // 登录跳转
@@ -67,7 +69,7 @@ function init() {
     reset.setAttribute('disabled', 'disabled');
     coins != null && coins.parentNode.removeChild(coins);
     coins = document.createElement('div');
-    document.body.appendChild(coins);
+    document.getElementsByClassName('gameblock')[0].appendChild(coins);
     reset.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -79,8 +81,8 @@ function init() {
         time == 0 && init();
     }, false);
     // 点击监听
-    document.addEventListener('click', onclick, false);
-    document.addEventListener('touchstart', onclick, false);
+    document.getElementsByClassName('gameblock')[0].addEventListener('click', onclick, false);
+    document.getElementsByClassName('gameblock')[0].addEventListener('touchstart', onclick, false);
 }
 // 点击执行方法
 function onclick(e) {
