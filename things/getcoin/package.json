@@ -1,0 +1,23 @@
+{
+  "name": "getcoin",
+  "version": "0.0.1",
+  "description": "接金币",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bigfact<bigfact@foxmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
+    "css-loader": "^0.23.1",
+    "gulp-watch": "^4.3.5",
+    "style-loader": "^0.13.0"
+  },
+  "dependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-compass": "^2.1.0",
+    "gulp-rename": "^1.2.2"
+  }
+}

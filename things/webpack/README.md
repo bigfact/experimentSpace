@@ -10,7 +10,7 @@
 * 开发服务器
 > npm install webpack-dev-server -g
 
-## 直接开始
+## 开始
 * 项目根目录添加 webpack.config.js 文件
 ```js
 module.exports = {
