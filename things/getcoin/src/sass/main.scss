@@ -1,14 +1,14 @@
+@charset "UTF-8";
+
 /*
     作者: bigfact<bigfact0gmail.com>
     时间: 2016.03.24
 */
 
-@charset "UTF-8";
-
 @import "compass/css3";
 
 // 媒体查询
-@import "../../node_modules/include-media/dist/_include-media.scss";
+@import "_include-media.scss";
 
 // 屏幕宽度配置
 $breakpoints: (
