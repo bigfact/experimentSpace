@@ -7,47 +7,32 @@
 
 @import "compass/css3";
 
-$coinBKColor: #F4C600;
-$coinSize: 100px;
-$coinColor: #453F45;
-$coinFontSize: 75px;
-$coinContent: '￥';
-$coinEndDis: 1000px;
-$coinKFName: 'coinani';
-$coin-bg: url(../imgs/coin.png);
+// 媒体查询
+@import "../node_modules/include-media/dist/_include-media.scss";
 
-$body-bg: url(../imgs/bg-1.png);
-$body-bg-color: #342C4E;
-
-$header-bg-color: #3F4A92;
-$header-height: 55px;
-
-$activetime-button-bg-color: #FFF35E;
-$activetime-button-box-shadow-color: #CEC545;
-$activetime-button-color: #F63A4B;
-
-$info-bg-color: #F8BB40;
-$info-content-bg-color: #FFE372;
-$info-button-bg-color: #342C4E;
-$info-button-color: #FFF35E;
-
-$footer-color: #FFE372;
-
-$popup-bg-color: #393151;
-$popup-title-color: #FFF35E;
-$popup-button-bg-color: #FFF35E;
-$popup-button-color: #393151;
+// 屏幕宽度配置
+$breakpoints: (
+    iphone5: 320px, 
+    iphone6: 375px, 
+    iphone6p: 414px
+);
 
 html {
     font-size: 10px;
     color: #100E06;
+    @include media("width<=iphone5") {
+        font-size: 8px;
+    }
 }
 
+$body-bg: url(../imgs/bg-1.png);
+$body-bg-color: #342C4E;
+$body-top: 55px;
 body {
     font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: $body-bg no-repeat 0 $header-height;
+    background: $body-bg no-repeat 0 $body-top;
     background-color: $body-bg-color;
     @include background-size(100% auto);
 }
@@ -60,18 +45,33 @@ button {
     border: none;
 }
 
+// *******
 // 页头
+// *******
+$header-bg-color: #3F4A92;
+$header-height: $body-top;
 header {
     background: $header-bg-color;
     height: $header-height;
 }
 
+// *******
 // 游戏模块
+// *******
+$coinSize: 100px;
+$coinEndDis: 1000px;
+$coinKFName: 'coinani';
+$coin-bg: url(../imgs/coin.png);
+$game-color: #F4C600;
+$game-button-bg-color: #FFF35E;
+$game-button-color: #393151;
 .gameblock {
     display: none;
     height: 460px;
     z-index: -1;
-    // 硬币
+    text-align: center;
+    font-size: 2rem;
+    color: $game-color;
     .coin {
         position: fixed;
         background: $coin-bg;
@@ -80,11 +80,20 @@ header {
         text-align: center;
         @include border-radius($coinSize);
         @include animation($coinKFName 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards);
-        color: $coinColor;
-        font-size: $coinFontSize;
+        z-index: -1;
+    }
+    button {
+        background: $game-button-bg-color;
+        @include border-radius(20px);
+        padding: 8px 40px;
+        font-size: 1.6rem;
+        color: $game-button-color;
+        &[disabled] {
+            cursor: not-allowed;
+            @include opacity(0.5);
+        }
     }
 }
-
 // 硬币动效
 @include keyframes($coinKFName) {
     100% {
@@ -93,12 +102,17 @@ header {
     }
 }
 
-// 活动时间
+// *******
+// 活动时间模块
+// *******
+$activetime-button-bg-color: #FFF35E;
+$activetime-button-box-shadow-color: #CEC545;
+$activetime-button-color: #F63A4B;
 .activetime {
     position: relative;
     color: #fff;
-    font-size: 20px;
-    margin: 0 0 -5px 0;
+    font-size: 2.1rem;
+    margin: 0 0 -45px 0;
     > img {
         width: 100%;
     }
@@ -111,10 +125,13 @@ header {
         margin: auto;
         text-align: center;
     }
+    p {
+        padding: 8px 0 0 0;
+    }
     button {
         color: $activetime-button-color;
-        font-size: 1.8rem;
-        margin: 50px 0 0 0;
+        font-size: 1.9rem;
+        margin: 40px 0 0 0;
         padding: 10px 30px;
         background: $activetime-button-bg-color;
         @include border-radius(5px);
@@ -122,10 +139,16 @@ header {
     }
 }
 
+// *******
 // 活动介绍模块
+// *******
+$info-bg-color: #F8BB40;
+$info-content-bg-color: #FFE372;
+$info-button-bg-color: #342C4E;
+$info-button-color: #FFF35E;
+$info-title-bg-url: url(../imgs/redpaper.png);
 .infoblock {
     position: relative;
-    background: $info-bg-color;
     .topimg {
         width: 100%;
         position: absolute;
@@ -133,34 +156,41 @@ header {
         display: none;
     }
     .title {
+        position: relative;
+        top: -10px;
         text-align: center;
-        margin: 0 0 5px 0;
-        img {
+        width: 150px;
+        font-size: 1.8rem;
+        padding: 9px 0;
+        margin: 0 auto;
+        @include border-radius(7px);
+        background: $info-button-bg-color;
+        color: $info-button-color;
+        &::after {
+            content: '';
+            background: $info-title-bg-url  no-repeat 0 0;
+            @include background-size(100% auto);
             position: absolute;
-            left: 22%;
-            width: 60px;
-            z-index: 1;
+            top: -10px;
+            left: -40px;
+            width: 70px;
+            height: 70px;
         }
-        button {
-            position: relative;
-            font-size: 1.8rem;
-            padding: 10px 40px;
-            @include border-radius(7px);
-            background: $info-button-bg-color;
-            color: $info-button-color;
-        }
+    }
+    .contentblock {
+        background: $info-bg-color;
+        padding: 15px;
+        margin: -15px 0 0 0;
     }
     .content {
         position: relative;
         line-height: 2.5rem;
         font-size: 1.5rem;
         background: $info-content-bg-color;
-        @include border-radius(40px);
-        padding: 30px 20px;
-        margin: 0 15px;
+        @include border-radius(50px);
+        padding: 30px 25px;
     }
 }
-
 // 游戏开始之后，活动介绍模块样式
 .infoblock2 {
     .topimg {
@@ -168,16 +198,26 @@ header {
     }
 }
 
+// *******
 // 页脚声明
+// *******
+$footer-color: #FFE372;
 footer {
     font-size: 1.2rem;
     background: $info-bg-color;
     text-align: center;
-    padding: 50px 0 30px 0;
+    padding: 30px 0;
     color: $footer-color;
 }
 
+// *******
 // 弹出层
+// *******
+$popup-bg-color: #393151;
+$popup-title-color: #FFF35E;
+$popup-button-bg-color: #FFF35E;
+$popup-button-color: #393151;
+$popup-color-button-url: url(../imgs/icon-close.png);
 .popup {
     display: none;
     position: fixed;
@@ -203,6 +243,13 @@ footer {
             color: $popup-title-color;
             text-align: right;
             padding: 0 10px 0 0;
+            i {
+                background: $popup-color-button-url no-repeat 0 0;
+                @include background-size(100% auto);
+                width: 15px;
+                height: 15px;
+                display: inline-block;
+            }
         }
         .title {
             color: $popup-title-color;
@@ -211,6 +258,9 @@ footer {
             font-size: 1.7rem;
             color: #fff;
             margin: 10px 0;
+            // @include media("width<=iphone5") {
+            //     font-size: 1.3rem;
+            // }
         }
         button {
             background: $popup-button-bg-color;

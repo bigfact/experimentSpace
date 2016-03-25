@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    // 是否登录吧标记
+    var isLogin = false;
     // 游戏开始检测按钮
     $('.activetime button').click(function() {
         
@@ -6,11 +8,11 @@ $(document).ready(function() {
         // todo: 检测登录状态
         // 
         
-        $('#makesure').show();
-        // $('#login').show();
+        isLogin && $('#makesure').show();
+        !isLogin && $('#login').show();
     });
     // 关闭 makesure 弹框
-    $('#makesure .close span').click(function() {
+    $('#makesure .close i').click(function() {
         $('#makesure').hide();
     });
     // 游戏开始按钮
@@ -29,10 +31,11 @@ $(document).ready(function() {
     // 登录跳转
     $('#login button').click(function() {
         $('#login').hide();
+        isLogin = true;
     });
-    $('#login button').on('touchstart', function() {
-        $('#login').hide();
-    });
+    // $('#login button').on('touchstart', function() {
+    //     $('#login').hide();
+    // });
 });
 
 

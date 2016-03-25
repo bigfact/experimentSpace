@@ -7,6 +7,11 @@ html {
   font-size: 10px;
   color: #100E06;
 }
+@media (max-width: 320px) {
+  html {
+    font-size: 8px;
+  }
+}
 
 body {
   font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
@@ -37,6 +42,9 @@ header {
   display: none;
   height: 460px;
   z-index: -1;
+  text-align: center;
+  font-size: 2rem;
+  color: #F4C600;
 }
 .gameblock .coin {
   position: fixed;
@@ -50,8 +58,21 @@ header {
   -moz-animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
   -webkit-animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
   animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
-  color: #453F45;
-  font-size: 75px;
+  z-index: -1;
+}
+.gameblock button {
+  background: #FFF35E;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  padding: 8px 40px;
+  font-size: 1.6rem;
+  color: #393151;
+}
+.gameblock button[disabled] {
+  cursor: not-allowed;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
 }
 
 @-moz-keyframes coinani {
@@ -80,8 +101,8 @@ header {
 .activetime {
   position: relative;
   color: #fff;
-  font-size: 20px;
-  margin: 0 0 -5px 0;
+  font-size: 2.1rem;
+  margin: 0 0 -45px 0;
 }
 .activetime > img {
   width: 100%;
@@ -95,10 +116,13 @@ header {
   margin: auto;
   text-align: center;
 }
+.activetime p {
+  padding: 8px 0 0 0;
+}
 .activetime button {
   color: #F63A4B;
-  font-size: 1.8rem;
-  margin: 50px 0 0 0;
+  font-size: 1.9rem;
+  margin: 40px 0 0 0;
   padding: 10px 30px;
   background: #FFF35E;
   -moz-border-radius: 5px;
@@ -111,7 +135,6 @@ header {
 
 .infoblock {
   position: relative;
-  background: #F8BB40;
 }
 .infoblock .topimg {
   width: 100%;
@@ -120,35 +143,46 @@ header {
   display: none;
 }
 .infoblock .title {
-  text-align: center;
-  margin: 0 0 5px 0;
-}
-.infoblock .title img {
-  position: absolute;
-  left: 22%;
-  width: 60px;
-  z-index: 1;
-}
-.infoblock .title button {
   position: relative;
+  top: -10px;
+  text-align: center;
+  width: 150px;
   font-size: 1.8rem;
-  padding: 10px 40px;
+  padding: 9px 0;
+  margin: 0 auto;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   border-radius: 7px;
   background: #342C4E;
   color: #FFF35E;
 }
+.infoblock .title::after {
+  content: '';
+  background: url(../imgs/redpaper.png) no-repeat 0 0;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+  position: absolute;
+  top: -10px;
+  left: -40px;
+  width: 70px;
+  height: 70px;
+}
+.infoblock .contentblock {
+  background: #F8BB40;
+  padding: 15px;
+  margin: -15px 0 0 0;
+}
 .infoblock .content {
   position: relative;
   line-height: 2.5rem;
   font-size: 1.5rem;
   background: #FFE372;
-  -moz-border-radius: 40px;
-  -webkit-border-radius: 40px;
-  border-radius: 40px;
-  padding: 30px 20px;
-  margin: 0 15px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  padding: 30px 25px;
 }
 
 .infoblock2 .topimg {
@@ -159,7 +193,7 @@ footer {
   font-size: 1.2rem;
   background: #F8BB40;
   text-align: center;
-  padding: 50px 0 30px 0;
+  padding: 30px 0;
   color: #FFE372;
 }
 
@@ -192,6 +226,16 @@ footer {
   color: #FFF35E;
   text-align: right;
   padding: 0 10px 0 0;
+}
+.popup .main .close i {
+  background: url(../imgs/icon-close.png) no-repeat 0 0;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
 }
 .popup .main .title {
   color: #FFF35E;
