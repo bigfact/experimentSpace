@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(doc).ready(function() {
     // 是否登录吧标记
     var isLogin = false;
     // 游戏开始检测按钮
-    $('.activetime button').click(function() {
+    $('.activetime button').on('touchstart click', function(e) {
         
         // 
         // todo: 检测登录状态
@@ -12,42 +12,48 @@ $(document).ready(function() {
         !isLogin && $('#login').show();
     });
     // 关闭 makesure 弹框
-    $('#makesure .close i').click(function() {
+    $('#makesure .close i').on('touchstart click', function() {
         $('#makesure').hide();
     });
     // 游戏开始按钮
-    $('#makesure .footer').click(function() {
-        
+    $('#makesure .footer').on('touchstart click', function() {
+
         // 
         // todo: 显示游戏模块，隐藏活动时间模块，活动介绍模块向下移动
-        // 
-        
-        $('#makesure').hide();
+        //
+
         $('.activetime').hide();
         $('.gameblock').show();
         $('.infoblock').addClass('infoblock2');
-        init();
+        $('#makesure').hide();
+        $('.countdown').show();
+        clock(4, 1000, function(va) {
+            if (va == 0) {
+                $('.countdown').hide();
+                init();
+            }
+            else {
+                var tmp = va - 1;
+                tmp == 0 && (tmp = 'GO!');
+                $('.countdown span').text(tmp);
+            }
+        });
     });
     // 登录跳转
-    $('#login button').click(function() {
+    $('#login button').on('touchstart click', function() {
         $('#login').hide();
         isLogin = true;
     });
-    // $('#login button').on('touchstart', function() {
-    //     $('#login').hide();
-    // });
 });
 
-
-
-
-
+// 基础函数
+var doc = document;
 // 总时间，单位 s
 var timeall = 10;
 // 时间显示区域
-var tabtime = document.getElementsByClassName('tabtime')[0];
+var tabtime = doc.getElementsByClassName('tabtime')[0];
 // 分数显示区域
-var tabpoint = document.getElementsByClassName('tabpoint')[0];
+var tabpoint = doc.getElementsByClassName('tabpoint')[0];
 // 当前分数
 var point = 0;
 // 当前时间，单位 s
@@ -59,7 +65,7 @@ var mintime = 60;
 // 当前点击时间，单位 ms，用于限制点击过快
 var timenow = 0;
 // 重置按钮
-var reset = document.getElementsByClassName('reset')[0];
+var reset = doc.getElementsByClassName('reset')[0];
 // 初始化
 // init();
 // 初始化方法
@@ -71,8 +77,8 @@ function init() {
     tabpoint.innerText = point;
     reset.setAttribute('disabled', 'disabled');
     coins != null && coins.parentNode.removeChild(coins);
-    coins = document.createElement('div');
-    document.getElementsByClassName('gameblock')[0].appendChild(coins);
+    coins = doc.createElement('div');
+    doc.getElementsByClassName('gameblock')[0].appendChild(coins);
     reset.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -84,19 +90,19 @@ function init() {
         time == 0 && init();
     }, false);
     // 点击监听
-    document.getElementsByClassName('gameblock')[0].addEventListener('click', onclick, false);
-    document.getElementsByClassName('gameblock')[0].addEventListener('touchstart', onclick, false);
-}
-// 点击执行方法
-function onclick(e) {
-    e.preventDefault();
-    e.stopPropagation();
+    doc.getElementsByClassName('gameblock')[0].addEventListener('click', onclick, false);
+    doc.getElementsByClassName('gameblock')[0].addEventListener('touchstart', onclick, false);
     // 计时开始
     point == 0 && clock(timeall, 1000, function(va) {
         tabtime.innerText = va;
         time = va;
         time == 0 && reset.removeAttribute('disabled');
     });
+}
+// 点击执行方法
+function onclick(e) {
+    e.preventDefault();
+    e.stopPropagation();
     // 已经添加点击间隔时间限制，最小间隔时间为 mintime
     if (time > 0 && Date.now() - timenow > mintime) {
         // if(time > 0) {
@@ -117,7 +123,7 @@ function clock(i, j, onchang) {
 }
 // 生成新的点
 function newcoin(e) {
-    var coin = document.createElement('div');
+    var coin = doc.createElement('div');
     coin.className = 'coin';
     coin.style.top = (getSpotPosition(e).y - 50) + 'px';
     coin.style.left = (getSpotPosition(e).x - 50) + 'px';

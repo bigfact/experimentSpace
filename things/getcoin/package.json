@@ -1,6 +1,6 @@
 {
   "name": "getcoin",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "接金币",
   "main": "index.html",
   "scripts": {
@@ -10,12 +10,11 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.11.0",
-    "css-loader": "^0.23.1",
-    "gulp-watch": "^4.3.5",
-    "style-loader": "^0.13.0"
+    "gulp-watch": "^4.3.5"
   },
   "dependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.3",
     "gulp-compass": "^2.1.0",
     "gulp-rename": "^1.2.2",
