@@ -41,7 +41,7 @@ p {
     margin: 0;
 }
 
-button {
+button, input {
     border: none;
     outline: none;
 }
@@ -63,7 +63,7 @@ $coinSize: 80px;
 $coinEndDis: 1000px;
 $coinKFName: 'coinani';
 $coin-bg: url(../imgs/coin.png);
-$game-color: #F4C600;
+$game-color: #000;
 $game-button-bg-color: #FFF35E;
 $game-button-color: #393151;
 .gameblock {
@@ -90,17 +90,24 @@ $game-button-color: #393151;
         @include animation($coinKFName 1s cubic-bezier(.39, .01, .7, .38) 0s 1 forwards);
         z-index: -1;
     }
-    button {
-        background: $game-button-bg-color;
-        @include border-radius(20px);
-        padding: 8px 40px;
-        font-size: 1.6rem;
-        color: $game-button-color;
-        &[disabled] {
-            cursor: not-allowed;
-            @include opacity(0.5);
-        }
+    .datablock {
+        width: 30%;
+        margin: 30px auto;
+        background: #fff;
+        padding: 8px;
+        @include border-radius(50px);
     }
+    // button {
+    //     background: $game-button-bg-color;
+    //     @include border-radius(20px);
+    //     padding: 8px 40px;
+    //     font-size: 1.6rem;
+    //     color: $game-button-color;
+    //     &[disabled] {
+    //         cursor: not-allowed;
+    //         @include opacity(0.5);
+    //     }
+    // }
 }
 // 硬币动效
 @include keyframes($coinKFName) {
@@ -206,9 +213,9 @@ $info-title-bg-url: url(../imgs/redpaper.png);
     }
 }
 
-// *******
+// 
 // 页脚声明
-// *******
+// 
 $footer-color: #FFE372;
 footer {
     font-size: 1.2rem;
@@ -218,9 +225,9 @@ footer {
     color: $footer-color;
 }
 
-// *******
+// 
 // 弹出层
-// *******
+// 
 $popup-bg-color: #393151;
 $popup-title-color: #FFF35E;
 $popup-button-bg-color: #FFF35E;
@@ -265,7 +272,12 @@ $popup-color-button-url: url(../imgs/icon-close.png);
         .content {
             font-size: 1.7rem;
             color: #fff;
-            margin: 10px 0;
+            margin: 20px 0;
+        }
+        .tip {
+            font-size: 1.4rem;
+            color: #FEF24A;
+            margin: 10px;
         }
         button {
             background: $popup-button-bg-color;
@@ -273,6 +285,42 @@ $popup-color-button-url: url(../imgs/icon-close.png);
             padding: 8px 50px;
             font-size: 2rem;
             color: $popup-button-color;
+            margin: 0 0 10px 0;
+        }
+        input {
+            @include border-radius(50px);
+            width: 90%;
+            height: 35px;
+            line-height: 35px;
+            font-size: 1.7rem;
+            text-align: center;
+        }
+        label {
+            color: #fff;
+        }
+        .group {
+            height: 35px;
+            line-height: 35px;
+            .addon {
+                background: #fff;
+                @include border-radius(50px);
+                float: right;
+                width: 70%;
+                height: 100%;
+                line-height: 100%;
+                input {
+                    width: 58%;
+                    height: 95%;
+                }
+                button {
+                    float: right;
+                    padding: 0;
+                    height: 100%;
+                    line-height: 100%;
+                    font-size: 1.7rem;
+                    width: 40%;
+                }
+            }
         }
         .footer {
             position: absolute;
@@ -283,57 +331,47 @@ $popup-color-button-url: url(../imgs/icon-close.png);
             @include border-radius(0 0 8px 8px);
         }
     }
+    .main2 {
+        @include border-radius(0);
+        .footer {
+            bottom: -110px;
+            padding: 20px 0;
+            background: #fff;
+            @include border-radius(0);
+            img {
+                width: 30%;
+            }
+        }
+        .titleimg {
+            width: 50%;
+        }
+    }
 }
-// 弹框动效
-// .animated {
-//     @include animation-duration(0.8s);  
-//     @include animation-fill-mode(both);
-// }
-// @keyframes bounceIn {
-//     from, 20%, 40%, 60%, 80%, to {
-//         @include animation-timing-function(cubic-bezier(0.215, 0.610, 0.355, 1.000));
-//     } 
-//     0% {
-//         @include opacity(0);
-//         @include transform(scale3d(.3, .3, .3));
-//     }  
-//     20% {
-//         @include transform(scale3d(1.1, 1.1, 1.1));
-//     }
-//     40% {
-//         @include transform(scale3d(.9, .9, .9));
-//     } 
-//     60% {
-//         @include opacity(1);
-//         @include transform(scale3d(1.03, 1.03, 1.03));
-//     } 
-//     80% {
-//         @include transform(scale3d(.97, .97, .97));
-//     }
-//     to {
-//         @include opacity(1);
-//         @include transform(scale3d(1, 1, 1));
-//     }
-// }
-// .bounceIn {
-//     @include animation-name(bounceIn);
-// }
 
-// *******
+// 
 // 倒计时
-// *******
-$countdownName: countdownn;
-$countdownColor: #FFF35E;
+// 
+$countdownColor: #fff;
 .countdown {
-    span {
-        color: $countdownColor;
-        font-size: 7rem;
-        text-align: center;
+    text-align: center;
+    color: $countdownColor;
+    .block {
         position: absolute;
-        top: 0;
-        bottom: 0;
+        top: 20%;
+        left: 0;
+        right: 0;
         margin: auto;
+    }
+    .time {
+        color: $countdownColor;
+        font-size: 8rem;
         height: 70px;
         width: 100%;
+        position: relative;
+        top: 30%;
+        margin: 40px 0;
+    }
+    p {
+        font-size: 2.5rem;
     }
 }

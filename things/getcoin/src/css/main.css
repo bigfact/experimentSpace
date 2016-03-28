@@ -29,7 +29,7 @@ p {
   margin: 0;
 }
 
-button {
+button, input {
   border: none;
   outline: none;
 }
@@ -45,7 +45,7 @@ header {
   z-index: -1;
   text-align: center;
   font-size: 2rem;
-  color: #F4C600;
+  color: #000;
 }
 @media (max-width: 320px) {
   .gameblock {
@@ -75,19 +75,14 @@ header {
   animation: "coinani" 1s cubic-bezier(0.39, 0.01, 0.7, 0.38) 0s 1 forwards;
   z-index: -1;
 }
-.gameblock button {
-  background: #FFF35E;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  padding: 8px 40px;
-  font-size: 1.6rem;
-  color: #393151;
-}
-.gameblock button[disabled] {
-  cursor: not-allowed;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5;
+.gameblock .datablock {
+  width: 30%;
+  margin: 30px auto;
+  background: #fff;
+  padding: 8px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
 }
 
 @-moz-keyframes coinani {
@@ -258,7 +253,12 @@ footer {
 .popup .main .content {
   font-size: 1.7rem;
   color: #fff;
-  margin: 10px 0;
+  margin: 20px 0;
+}
+.popup .main .tip {
+  font-size: 1.4rem;
+  color: #FEF24A;
+  margin: 10px;
 }
 .popup .main button {
   background: #FFF35E;
@@ -268,6 +268,46 @@ footer {
   padding: 8px 50px;
   font-size: 2rem;
   color: #393151;
+  margin: 0 0 10px 0;
+}
+.popup .main input {
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  width: 90%;
+  height: 35px;
+  line-height: 35px;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.popup .main label {
+  color: #fff;
+}
+.popup .main .group {
+  height: 35px;
+  line-height: 35px;
+}
+.popup .main .group .addon {
+  background: #fff;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  float: right;
+  width: 70%;
+  height: 100%;
+  line-height: 100%;
+}
+.popup .main .group .addon input {
+  width: 58%;
+  height: 95%;
+}
+.popup .main .group .addon button {
+  float: right;
+  padding: 0;
+  height: 100%;
+  line-height: 100%;
+  font-size: 1.7rem;
+  width: 40%;
 }
 .popup .main .footer {
   position: absolute;
@@ -279,15 +319,46 @@ footer {
   -webkit-border-radius: 0;
   border-radius: 0 0 8px 8px;
 }
+.popup .main2 {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.popup .main2 .footer {
+  bottom: -110px;
+  padding: 20px 0;
+  background: #fff;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.popup .main2 .footer img {
+  width: 30%;
+}
+.popup .main2 .titleimg {
+  width: 50%;
+}
 
-.countdown span {
-  color: #FFF35E;
-  font-size: 7rem;
+.countdown {
   text-align: center;
+  color: #fff;
+}
+.countdown .block {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 20%;
+  left: 0;
+  right: 0;
   margin: auto;
+}
+.countdown .time {
+  color: #fff;
+  font-size: 8rem;
   height: 70px;
   width: 100%;
+  position: relative;
+  top: 30%;
+  margin: 40px 0;
+}
+.countdown p {
+  font-size: 2.5rem;
 }

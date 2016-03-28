@@ -1,5 +1,7 @@
 // 基础
-var touchAndClick = 'touchstart click';
+// var touchstart + ' ' + click = 'touchstart click';
+var click = 'click';
+var touchstart = 'touchstart';
 $(document).ready(function() {
     // 
     // 游戏对象
@@ -8,7 +10,7 @@ $(document).ready(function() {
     // 
     // 游戏开始按钮
     // 
-    $('.activityTime button').on(touchAndClick, function(e) {
+    $('.activityTime button').on(click, function(e) {
 
         // todo: 检测登录状态
 
@@ -18,20 +20,20 @@ $(document).ready(function() {
     // 
     // 登录跳转
     // 
-    $('#login button').on(touchAndClick, function() {
+    $('#login button').on(click, function() {
         $('#login').hide();
         Page.isLogin = true;
     });
     // 
-    // 不开始游戏
+    // 关闭弹层
     // 
-    $('#gameon .close i').on(touchAndClick, function() {
-        $('#gameon').hide();
+    $('.popup .close i').on(click, function() {
+        $('.popup').hide();
     });
     // 
     // 游戏倒计时开始，倒计时结束后，游戏开始
     // 
-    $('#gameon .footer').on(touchAndClick, function() {
+    $('#gameon .footer').on(click, function() {
         // 游戏倒计时
         clock(4, 1000, function(va) {
             if (va == 0) {
@@ -39,14 +41,14 @@ $(document).ready(function() {
                 // 游戏初始化
                 gameobj.init(function() {
 
-                    // todo: 游戏结束时执行
-
+                    // todo: 游戏结束提示
+                    $('#gameover').show();
                 });
             }
             else {
                 var tmp = va - 1;
                 tmp == 0 && (tmp = 'GO!');
-                $('.countdown span').text(tmp);
+                $('.countdown .time').text(tmp);
             }
         });
 
@@ -63,39 +65,25 @@ $(document).ready(function() {
 
 });
 
-
 // 
 // 页面对象
 // 
 function Page() {
     // 是否登录标记
     this.isLogin = false;
-    // // 弹层
-    // this.popup = {
-    //     // 登录提示
-    //     login: '',
-    //     // 游戏开始
-    //     gameon: '',
-    //     // 倒计时
-    //     countdown: '',
-    //     // 游戏结束
-    //     gameover: '',
-    //     // 短信发送
-    //     msgSend: '',
-    //     // 手机号错误
-    //     phoneError: '',
-    //     // 验证码错误
-    //     msgError: '',
-    //     // 金币领取成功
-    //     coinGeted: '',
-    //     // 金币达到 500
-    //     coinFull: '',
-    //     // 活动结束
-    //     activityEnd: ''
-    // }
+    // 是否是 APP 访问标识
+    this.isApp = false;
 }
 
 Page.prototype = {
+    // 
+    // 判断是 app 还是 微信进入该活动
+    // 
+    checkApp: function() { },
+    // 
+    // 获取当前用户参加该活动的信息
+    // 
+    getUserData: function() { },
     // 
     // 登录状态检查
     // 
@@ -111,11 +99,7 @@ Page.prototype = {
     // 
     // 活动时间检查
     // 
-    checkactivityTime: function() { },
-    // 
-    // 获取当前用户参加该活动的信息
-    // 
-    getUserData: function() { }
+    checkactivityTime: function() { }
 }
 
 // 
@@ -217,34 +201,3 @@ function getSpotPosition(e) {
     touches.y = touches.y || e.clientY || e.pageY;
     return touches;
 }
-
-// // 
-// // 弹框
-// // 
-// function Popup() {
-//     this.config = {
-//         title: '',
-//         content: '',
-//         centerBtn: '',
-//         bottomBtn: ''
-//     }
-// }
-
-// Popup.prototype = {
-//     init: function() {
-//         var ths = this;
-//         var tmp = document.createElement('div');
-//         tmp.classList = 'popup';
-//         tmp.innerHTML = '<div class="main">'
-//             + '<p class="close"><i></i></p>'
-//             + '<p class="title">' + ths.config.title + '</p>'
-//             + '<div>' + ths.config.content + '</div>';
-//         centerBtn != '' && (tmp.innerHTML += '<button class="centerBtn">' + ths.config.centerBtn + '</button>');
-//         bottomBtn != '' && (tmp.innerHTML += '<button class="footerBtn">' + ths.config.bottomBtn + '</button>');
-//         tmp.innerHTML += '</div>';
-//         tmp.getElementsByClassName('close').addEventListener('click', function() { }, false);
-//         tmp.getElementsByClassName('centerBtn').addEventListener('click', function() { }, false);
-//         tmp.getElementsByClassName('footer').addEventListener('click', function() { }, false);
-//         document.body.appendChild(tmp);
-//     }
-// }

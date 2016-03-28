@@ -13,14 +13,16 @@
 </head>
 
 <body>
-
+    <!-- 游戏模块 -->
     <div class="gameblock">
-        <br>
-        <p>时间：<i class="tabtime"></i> s</p>
-        <p>金币：<i class="tabpoint"></i> 枚</p>
-        <!--<br>
-        <button class="reset">重置</button>-->
+        <p class="datablock">
+            <span class="tabtime">10</span>
+            <i> s</i> /
+            <span class="tabpoint">0</span>
+            <i>枚</i>
+        </p>
     </div>
+    <!-- 活动时间 -->
     <div class="activityTime">
         <img src="imgs/bg-2.png" alt="">
         <div>
@@ -29,6 +31,7 @@
             <button>进入游戏</button>
         </div>
     </div>
+    <!-- 活动信息 -->
     <div class="infoblock">
         <img class="topimg" src="imgs/bg-3.png" alt="">
         <div class="title">活动规则</div>
@@ -50,16 +53,16 @@
             </div>
         </div>
     </div>
+    <!-- 页脚声明 -->
     <footer>
         <p>本活动与苹果公司无关</p>
         <p>活动最终解释权归钱升钱所有</p>
     </footer>
-
     <!-- 提示框 -->
-
     <!-- 登录提示 -->
     <div id="login" class="popup">
         <div class="main">
+            <p class="close"><i></i></p>
             <p class="title">温馨提示</p>
             <div class="content" style="margin: 30px 0;">
                 登录后才能玩游戏哦！
@@ -83,36 +86,112 @@
     </div>
     <!-- 游戏倒计时提示 -->
     <div class="popup countdown">
-        <span>3</span>
+        <div class="block">
+            <p class="time">3</p>
+            <p>拼手速！</p>
+            <p>猛戳屏幕收集金币！</p>
+        </div>
     </div>
     <!-- 游戏结束 -->
-    <div id="gameover" class="popup">
-
+    <div id="gameover" class="popup" style="display: block;">
+        <div class="main main2">
+            <img class="titleimg" src="imgs/bg-4.png" alt="">
+            <!--<div class="content">
+                <p>gameover</p>
+            </div>-->
+            <p class="tip">您已成功收集66枚金币</p>
+            <div class="footer">
+                <img src="imgs/wechat.png" alt="">
+                <img src="imgs/moments.png" alt="">
+            </div>
+        </div>
     </div>
     <!-- 短信发送 -->
     <div id="msgSend" class="popup">
-
+        <div class="main">
+            <p class="close"><i></i></p>
+            <div class="content">
+                <p>感谢您的参与，您已成功收集金币XX枚，请输入手机号后领取</p>
+            </div>
+            <input type="text" placeholder="输入手机号码立即领取">
+            <p class="tip">钱升钱不会在任何地方泄露您的手机号码</p>
+            <button>下一步</button>
+        </div>
     </div>
     <!-- 手机号错误 -->
     <div id="phoneError" class="popup">
-
+        <div class="main">
+            <p class="close"><i></i></p>
+            <div class="content">
+                <p>您的手机号有误，请重新输入</p>
+            </div>
+            <br>
+            <button>确认</button>
+        </div>
+    </div>
+    <!-- 验证码检查和重发 -->
+    <div id="smsCheck" class="popup">
+        <div class="main">
+            <p class="close"><i></i></p>
+            <div class="content">
+                <p>短信已发送至 155****1234</p>
+            </div>
+            <div class="group">
+                <label for="sms">验证码</label>
+                <div class="addon">
+                    <input name="sms" type="text" placeholder="输入验证码">
+                    <button>重新获取</button>
+                </div>
+            </div>
+            <br>
+            <button>下一步</button>
+        </div>
     </div>
     <!-- 验证码错误 -->
     <div id="msgError" class="popup">
-
+        <div class="main">
+            <p class="close"><i></i></p>
+            <div class="content">
+                <p>验证码错误，请重新输入</p>
+            </div>
+            <br>
+            <button>确认</button>
+        </div>
     </div>
-    <!-- 游戏金币领取成功 -->
+    <!-- 游戏金币领取成功，app 下载 -->
     <div id="coinGeted" class="popup">
-
+        <div class="main">
+            <p class="close"><i></i></p>
+            <div class="content">
+                <p>成功领取XX枚金币！</p>
+                <p>再送你500元理财金及100元现金红包！</p>
+            </div>
+            <br>
+            <button>下载APP查看奖励</button>
+        </div>
     </div>
     <!-- 金币收集完毕 -->
     <div id="coinFull" class="popup">
-
+        <div class="main">
+            <p class="close"><i></i></p>
+            <div class="content">
+                <p>恭喜您获得500个金币，已将18元抵用券发放至您的账户！</p>
+            </div>
+            <button>点击查看</button>
+        </div>
     </div>
     <!-- 活动结束 -->
     <div id="activityEnd" class="popup">
-
+        <div class="main">
+            <p class="close"><i></i></p>
+            <p class="title">温馨提示</p>
+            <div class="content" style="margin: 30px 0;">
+                该活动已结束，参加其他活动吧
+            </div>
+            <button>确定</button>
+        </div>
     </div>
+
 
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/main.js"></script>
