@@ -113,10 +113,10 @@ $game-button-color: #393151;
 // *******
 // 活动时间模块
 // *******
-$activetime-button-bg-color: #FFF35E;
-$activetime-button-box-shadow-color: #CEC545;
-$activetime-button-color: #F63A4B;
-.activetime {
+$activityTime-button-bg-color: #FFF35E;
+$activityTime-button-box-shadow-color: #CEC545;
+$activityTime-button-color: #F63A4B;
+.activityTime {
     position: relative;
     color: #fff;
     font-size: 2.1rem;
@@ -137,13 +137,13 @@ $activetime-button-color: #F63A4B;
         padding: 8px 0 0 0;
     }
     button {
-        color: $activetime-button-color;
+        color: $activityTime-button-color;
         font-size: 1.9rem;
         margin: 40px 0 0 0;
         padding: 10px 30px;
-        background: $activetime-button-bg-color;
+        background: $activityTime-button-bg-color;
         @include border-radius(5px);
-        @include box-shadow(0 3px 0 0 $activetime-button-box-shadow-color);
+        @include box-shadow(0 3px 0 0 $activityTime-button-box-shadow-color);
     }
 }
 

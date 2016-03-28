@@ -13,15 +13,15 @@
 </head>
 
 <body>
-    <!--<header></header>-->
+
     <div class="gameblock">
         <br>
         <p>时间：<i class="tabtime"></i> s</p>
         <p>金币：<i class="tabpoint"></i> 枚</p>
-        <br>
-        <button class="reset">重置</button>
+        <!--<br>
+        <button class="reset">重置</button>-->
     </div>
-    <div class="activetime">
+    <div class="activityTime">
         <img src="imgs/bg-2.png" alt="">
         <div>
             <p>活动时间</p>
@@ -54,29 +54,66 @@
         <p>本活动与苹果公司无关</p>
         <p>活动最终解释权归钱升钱所有</p>
     </footer>
+
+    <!-- 提示框 -->
+
+    <!-- 登录提示 -->
     <div id="login" class="popup">
         <div class="main">
             <p class="title">温馨提示</p>
-            <p class="content" style="margin: 30px 0;">登录后才能玩游戏哦！</p>
+            <div class="content" style="margin: 30px 0;">
+                登录后才能玩游戏哦！
+            </div>
             <button>确定</button>
         </div>
     </div>
-    <div id="makesure" class="popup">
+    <!-- 游戏开始提示 -->
+    <div id="gameon" class="popup">
         <div class="main">
             <p class="close"><i></i></p>
             <p class="title">游戏规则</p>
-            <div style="text-align: left;">
-                <p class="content">1. 在游戏框内点击屏幕即可往宝箱收集金币，点击一次，即收集一枚金币</p>
-                <p class="content">2. 游戏结束后填写手机号登录领取金币</p>
-                <p class="content">3. 每个用户参与游戏只可领取金币1次</p>
-                <p class="content">4. 集满500枚金币可获得1张钱升钱18元抵用券</p>
+            <div class="content" style="text-align: left;">
+                <p>1. 在游戏框内点击屏幕即可往宝箱收集金币，点击一次，即收集一枚金币</p>
+                <p>2. 游戏结束后填写手机号登录领取金币</p>
+                <p>3. 每个用户参与游戏只可领取金币1次</p>
+                <p>4. 集满500枚金币可获得1张钱升钱18元抵用券</p>
             </div>
             <button class="footer">确定！开始游戏</button>
         </div>
     </div>
+    <!-- 游戏倒计时提示 -->
     <div class="popup countdown">
         <span>3</span>
     </div>
+    <!-- 游戏结束 -->
+    <div id="gameover" class="popup">
+
+    </div>
+    <!-- 短信发送 -->
+    <div id="msgSend" class="popup">
+
+    </div>
+    <!-- 手机号错误 -->
+    <div id="phoneError" class="popup">
+
+    </div>
+    <!-- 验证码错误 -->
+    <div id="msgError" class="popup">
+
+    </div>
+    <!-- 游戏金币领取成功 -->
+    <div id="coinGeted" class="popup">
+
+    </div>
+    <!-- 金币收集完毕 -->
+    <div id="coinFull" class="popup">
+
+    </div>
+    <!-- 活动结束 -->
+    <div id="activityEnd" class="popup">
+
+    </div>
+
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/main.js"></script>
 </body>
