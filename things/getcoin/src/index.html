@@ -1,3 +1,7 @@
+<!--
+    Author: bigfact<bigfact0@gmail.com>
+    Time: 2016.03.24
+-->
 <!DOCTYPE html>
 <html>
 
@@ -58,7 +62,33 @@
         <p>本活动与苹果公司无关</p>
         <p>活动最终解释权归钱升钱所有</p>
     </footer>
+    <!-- APP 下载和提示，APP 中不显示 -->
+    <div class="logotip">
+        <img src="imgs/logo.png" alt="" class="logo">
+        <div class="content">
+            <p class="top">钱升钱</p>
+            <p class="bottom">注册立得100元红包</p>
+        </div>
+        <button class="download">立即下载</button>
+    </div>
     <!-- 提示框 -->
+    <!-- 已经玩过游戏提示 -->
+    <div id="gameplayed" class="popup">
+        <div class="main main2">
+            <p class="close"><i></i></p>
+            <img class="titleimg" src="imgs/bg-5.png" alt="">
+            <p class="tip">每个用户只能收集一次金币哦～</p>
+            <div class="footer">
+                <p class="tip">快拉上好友来帮您收集更多金币吧！</p>
+                <span class="left">
+                    <img class="wechat" src="imgs/wechat.png" alt="">
+                </span>
+                <span class="right">
+                    <img class="moments" src="imgs/moments.png" alt="">
+                </span>
+            </div>
+        </div>
+    </div>
     <!-- 登录提示 -->
     <div id="login" class="popup">
         <div class="main">
@@ -71,7 +101,7 @@
         </div>
     </div>
     <!-- 游戏开始提示 -->
-    <div id="gameon" class="popup">
+    <div id="gameontip" class="popup">
         <div class="main">
             <p class="close"><i></i></p>
             <p class="title">游戏规则</p>
@@ -93,16 +123,19 @@
         </div>
     </div>
     <!-- 游戏结束 -->
-    <div id="gameover" class="popup" style="display: block;">
+    <div id="gameover" class="popup">
         <div class="main main2">
+            <p class="close"><i></i></p>
             <img class="titleimg" src="imgs/bg-4.png" alt="">
-            <!--<div class="content">
-                <p>gameover</p>
-            </div>-->
-            <p class="tip">您已成功收集66枚金币</p>
+            <p class="tip">您已成功收集<span id="point">0</span>枚金币</p>
             <div class="footer">
-                <img src="imgs/wechat.png" alt="">
-                <img src="imgs/moments.png" alt="">
+                <p class="tip">还差<span id="shortof">500</span>个金币就能拿到18元抵用券哦！</p>
+                <span class="left">
+                    <img class="wechat" src="imgs/wechat.png" alt="">
+                </span>
+                <span class="right">
+                    <img class="moments" src="imgs/moments.png" alt="">
+                </span>
             </div>
         </div>
     </div>
@@ -111,7 +144,7 @@
         <div class="main">
             <p class="close"><i></i></p>
             <div class="content">
-                <p>感谢您的参与，您已成功收集金币XX枚，请输入手机号后领取</p>
+                <p>感谢您的参与，您已成功收集金币<span id="point">0</span>枚，请输入手机号后领取</p>
             </div>
             <input type="text" placeholder="输入手机号码立即领取">
             <p class="tip">钱升钱不会在任何地方泄露您的手机号码</p>
@@ -139,12 +172,12 @@
             <div class="group">
                 <label for="sms">验证码</label>
                 <div class="addon">
-                    <input name="sms" type="text" placeholder="输入验证码">
-                    <button>重新获取</button>
+                    <input type="text" placeholder="输入验证码">
+                    <button class="reget">重新获取</button>
                 </div>
             </div>
             <br>
-            <button>下一步</button>
+            <button class="next">下一步</button>
         </div>
     </div>
     <!-- 验证码错误 -->

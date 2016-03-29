@@ -1,9 +1,9 @@
-@charset "UTF-8";
-
 /*
-    作者: bigfact<bigfact0gmail.com>
-    时间: 2016.03.24
+    Author: bigfact<bigfact0@gmail.com>
+    Time: 2016.03.24
 */
+
+@charset "UTF-8";
 
 @import "compass/css3";
 
@@ -226,6 +226,40 @@ footer {
 }
 
 // 
+// APP 下载和提示，APP 中不显示
+// 
+.logotip {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 15px 20px;
+    margin: -80px 0 0 0;
+    .logo {
+        width: 50px;
+        float: left;
+    }
+    .content {
+        display: inline-block;
+        font-size: 1.3rem;
+        margin: 0 0 0 15px;
+        height: 50px;
+        line-height: 25px;
+        .top {
+            font-size: 1.8rem;
+        }
+    }
+    .download {
+        background: #FC124A;
+        @include border-radius(5px);
+        padding: 10px 20px;
+        font-size: 1.7rem;
+        color: #fff;
+        float: right;
+        margin: 5px 0 0 0;
+    }
+}
+
+// 
 // 弹出层
 // 
 $popup-bg-color: #393151;
@@ -309,7 +343,7 @@ $popup-color-button-url: url(../imgs/icon-close.png);
                 height: 100%;
                 line-height: 100%;
                 input {
-                    width: 58%;
+                    width: 45%;
                     height: 95%;
                 }
                 button {
@@ -318,7 +352,7 @@ $popup-color-button-url: url(../imgs/icon-close.png);
                     height: 100%;
                     line-height: 100%;
                     font-size: 1.7rem;
-                    width: 40%;
+                    width: 45%;
                 }
             }
         }
@@ -333,17 +367,37 @@ $popup-color-button-url: url(../imgs/icon-close.png);
     }
     .main2 {
         @include border-radius(0);
+        .tip {
+            color: #F5BB29;
+            font-size: 1.8rem;
+            margin: 20px 0;
+        }
         .footer {
-            bottom: -110px;
+            bottom: -145px;
             padding: 20px 0;
             background: #fff;
             @include border-radius(0);
+            .left {
+                display: inline-block;
+                width: 48%;
+            }
+            .right {
+                display: inline-block;
+                width: 47%;
+                border-left: 1px solid #332C4F;
+            }
             img {
-                width: 30%;
+                width: 50%;
+            }
+            .tip {
+                color: #332C4F;
+                margin: 0 0 20px 0;
+                font-size: 1.5rem;
             }
         }
         .titleimg {
-            width: 50%;
+            width: 45%;
+            margin: -90px 0 0 0;
         }
     }
 }

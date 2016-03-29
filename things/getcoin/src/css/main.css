@@ -1,7 +1,6 @@
-@charset "UTF-8";
 /*
-    作者: bigfact<bigfact0gmail.com>
-    时间: 2016.03.24
+    Author: bigfact<bigfact0@gmail.com>
+    Time: 2016.03.24
 */
 html {
   font-size: 10px;
@@ -207,6 +206,39 @@ footer {
   color: #FFE372;
 }
 
+.logotip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 15px 20px;
+  margin: -80px 0 0 0;
+}
+.logotip .logo {
+  width: 50px;
+  float: left;
+}
+.logotip .content {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 0 0 15px;
+  height: 50px;
+  line-height: 25px;
+}
+.logotip .content .top {
+  font-size: 1.8rem;
+}
+.logotip .download {
+  background: #FC124A;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.7rem;
+  color: #fff;
+  float: right;
+  margin: 5px 0 0 0;
+}
+
 .popup {
   display: none;
   position: fixed;
@@ -298,7 +330,7 @@ footer {
   line-height: 100%;
 }
 .popup .main .group .addon input {
-  width: 58%;
+  width: 45%;
   height: 95%;
 }
 .popup .main .group .addon button {
@@ -307,7 +339,7 @@ footer {
   height: 100%;
   line-height: 100%;
   font-size: 1.7rem;
-  width: 40%;
+  width: 45%;
 }
 .popup .main .footer {
   position: absolute;
@@ -324,19 +356,39 @@ footer {
   -webkit-border-radius: 0;
   border-radius: 0;
 }
+.popup .main2 .tip {
+  color: #F5BB29;
+  font-size: 1.8rem;
+  margin: 20px 0;
+}
 .popup .main2 .footer {
-  bottom: -110px;
+  bottom: -145px;
   padding: 20px 0;
   background: #fff;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
 }
+.popup .main2 .footer .left {
+  display: inline-block;
+  width: 48%;
+}
+.popup .main2 .footer .right {
+  display: inline-block;
+  width: 47%;
+  border-left: 1px solid #332C4F;
+}
 .popup .main2 .footer img {
-  width: 30%;
+  width: 50%;
+}
+.popup .main2 .footer .tip {
+  color: #332C4F;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
 }
 .popup .main2 .titleimg {
-  width: 50%;
+  width: 45%;
+  margin: -90px 0 0 0;
 }
 
 .countdown {

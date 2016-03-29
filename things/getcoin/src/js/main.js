@@ -1,49 +1,114 @@
+// 
+// Author: bigfact<bigfact0gmail.com>
+// Time: 2016.03.24
+// 
+
+// 
 // 基础
-// var touchstart + ' ' + click = 'touchstart click';
+// 
 var click = 'click';
 var touchstart = 'touchstart';
+
+// 
+// 主流程
+// 
 $(document).ready(function() {
-    // 
-    // 游戏对象
-    // 
-    var gameobj = new Game();
-    // 
-    // 游戏开始按钮
-    // 
-    $('.activityTime button').on(click, function(e) {
 
-        // todo: 检测登录状态
-
-        Page.isLogin && $('#gameon').show();
-        !Page.isLogin && $('#login').show();
-    });
     // 
-    // 登录跳转
-    // 
-    $('#login button').on(click, function() {
-        $('#login').hide();
-        Page.isLogin = true;
-    });
-    // 
-    // 关闭弹层
+    // 所有弹层关闭
     // 
     $('.popup .close i').on(click, function() {
         $('.popup').hide();
     });
+
+    // 
+    // 游戏对象
+    // 
+    var gameobj = new Game();
+    gameobj.timeall = 1;
+
+    // 
+    // 页面对象
+    // 
+    var pageobj = new Page();
+
+    // 
+    // 检查访问设备，是否为 APP 访问
+    // 
+    pageobj.checkApp();
+
+    // 
+    // 游戏开始按钮
+    // 
+    $('.activityTime button').on(click, function(e) {
+        // 检查活动时间，如果活动已经过期，则提示
+        if (pageobj.checkactivityTime()) {
+            $('#activityEnd').show();
+            return;
+        }
+        // 如果为 APP 访问，则需检查登录状态
+        if (pageobj.isApp) {
+            // todo: 检测登录状态
+            pageobj.isLogin && $('#gameontip').show();
+            !pageobj.isLogin && $('#login').show();
+        }
+        // 否则，不检查登录状态
+        else {
+            $('#gameontip').show();
+        }
+    });
+
+    // 
+    // 活动过期确认按钮点击
+    // 
+    $('#activityEnd button').on(click, function() {
+        $('#activityEnd').hide();
+    });
+
+    // 
+    // 登录跳转 - APP
+    // 
+    $('#login button').on(click, function() {
+        $('#login').hide();
+        pageobj.isLogin = true;
+    });
+
     // 
     // 游戏倒计时开始，倒计时结束后，游戏开始
-    // 
-    $('#gameon .footer').on(click, function() {
+    //      
+    $('#gameontip button').on(click, function() {
+        $('.activityTime').hide();
+        $('.gameblock').show();
+        $('.infoblock').addClass('infoblock2');
+        $('#gameontip').hide();
+        $('.countdown').show();
         // 游戏倒计时
         clock(4, 1000, function(va) {
             if (va == 0) {
                 $('.countdown').hide();
                 // 游戏初始化
                 gameobj.init(function() {
-
-                    // todo: 游戏结束提示
-                    $('#gameover').show();
+                    // 游戏结束之后的流程 
+                    // 用户未登陆
+                    if (pageobj.userdata.phone == null) {
+                        $('#msgSend #point').text(gameobj.point);
+                        $('#msgSend').show();
+                    }
+                    // 用户未参加过该活动
+                    else if (pageobj.activitydata == null) {
+                        $('#gameover #point').text(gameobj.point);
+                        $('#gameover #shortof').text(gameobj.fullcoin - gameobj.point);
+                        $('#gameover').show();
+                    }
+                    // 用户已经参加过该活动
+                    else {
+                        $('#gameplayed').show();
+                    }
                 });
+                // 检查登录状态，获取用户数据
+                pageobj.getUserData();
+                // 用户已登录，则获取用户参加该活动的数据
+                pageobj.userdata != null && pageobj.getActivityData();
             }
             else {
                 var tmp = va - 1;
@@ -51,16 +116,45 @@ $(document).ready(function() {
                 $('.countdown .time').text(tmp);
             }
         });
-
-        $('.activityTime').hide();
-        $('.gameblock').show();
-        $('.infoblock').addClass('infoblock2');
-        $('#gameon').hide();
-        $('.countdown').show();
     });
 
+    // 
+    // 验证码发送
+    // 
+    $('#msgSend button').on(click, function() {
+        pageobj.userdata.phone = $('#msgSend input').val();
+        $('#msgSend').hide();
+        if (pageobj.checkPhone(pageobj.userdata.phone)) {
+            pageobj.sendMsg(function() {
+                $('#smsCheck').show();
+            });
+        }
+        else {
+            $('#phoneError').show();
+        }
+    });
 
+    // 
+    // 手机号码错误重新填写
+    // 
+    $('#phoneError button').on(click, function() {
+        $('#msgSend').show();
+        $('#phoneError').hide();
+    });
 
+    // 
+    // 验证码检查
+    // 
+    $('#smsCheck .next').on(click, function() {
+        pageobj.userdata.sms = $('#smsCheck input').val();
+    });
+
+    // 
+    // 验证码重新获取
+    // 
+    $('#smsCheck .reget').on(click, function() {
+
+    });
 
 
 });
@@ -69,29 +163,72 @@ $(document).ready(function() {
 // 页面对象
 // 
 function Page() {
+    var ths = this;
     // 是否登录标记
-    this.isLogin = false;
+    ths.isLogin = false;
     // 是否是 APP 访问标识
-    this.isApp = false;
+    ths.isApp = false;
+    // 用户数据
+    ths.userdata = {
+        phone: null,
+        sms: null,
+        token: null
+    };
+    // 活动数据
+    ths.activitydata = null;
 }
-
 Page.prototype = {
     // 
-    // 判断是 app 还是 微信进入该活动
+    // 判断是 app 还是微信进入该活动页面
     // 
-    checkApp: function() { },
+    checkApp: function() {
+        this.isApp = false;
+    },
     // 
-    // 获取当前用户参加该活动的信息
+    // 获取打开该页面的用户的信息
     // 
     getUserData: function() { },
     // 
-    // 登录状态检查
+    // 获取当前用户参加改活动的信息
     // 
-    checkLogin: function() { },
+    getActivityData: function() {
+        $.ajax({
+            url: '/ss',
+            type: 'POST',
+            data: {
+                phone: '18829872887',
+                token: 'f42c4v43t54'
+            },
+            success: function(data) {
+                // ths.activitydata = JSON.parse(data);
+                console.log('success');
+                console.log(data);
+            },
+            error: function(error) {
+                console.log('error');
+                console.log(error);
+            }
+        });
+    },
+    // 
+    // 检查手机号码
+    // 
+    checkPhone: function(phone) {
+        return true;
+    },
     // 
     // 发送短信验证码
     // 
-    sendMsg: function() { },
+    sendMsg: function(callback) {
+        callback();
+    },
+    // 
+    // 检查验证码
+    // 
+    checkSms: function(callback) {
+        callback();
+        return true;
+    },
     // 
     // 提交收集的金币信息
     // 
@@ -99,7 +236,9 @@ Page.prototype = {
     // 
     // 活动时间检查
     // 
-    checkactivityTime: function() { }
+    checkactivityTime: function() {
+        return (Date.parse('2016.04.30 23:59:59') < Date.now());
+    }
 }
 
 // 
@@ -107,6 +246,8 @@ Page.prototype = {
 // 
 function Game() {
     var ths = this;
+    // 总金币数
+    ths.fullcoin = 500;
     // 游戏区域
     ths.gameblock = document.getElementsByClassName('gameblock')[0];
     // 总时间，单位 s
