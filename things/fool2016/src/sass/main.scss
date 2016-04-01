@@ -1,0 +1,173 @@
+/*
+    Author: bigfact<bigfact0@gmail.com>
+    Time: 2016.04.01
+*/
+
+@charset "UTF-8";
+
+@import "compass/css3";
+
+// 媒体查询
+@import "_include-media.scss";
+
+// 屏幕宽度配置
+$breakpoints: (
+    iphone4: 320px, 
+    iphone5: 320px, 
+    iphone6: 375px, 
+    iphone6p: 414px,
+    iphone4h: 480px,
+    iphone5h: 568px,  
+    iphone6h: 667px, 
+    iphone6ph: 736px
+);
+
+// html {
+//     font-size: 10px;
+//     @include media("width<=iphone5") {
+//         font-size: 8px;
+//     }
+// }
+
+button {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    &[disabled] {
+        @include opacity(.45);
+    }
+}
+
+$body-bg-color: #503149;
+// $body-bg-color: #8EB8C8;
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $body-bg-color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// 
+// 中心按钮
+// 
+$centerBtn-bg-color: #EAD757;
+$centerBtn-size: 78px;
+$centerBtn-color: #503149;
+.centerbtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: $centerBtn-size;
+    height: $centerBtn-size;
+    @include border-radius(50%);
+    background: $centerBtn-bg-color;
+    text-align: center;
+    line-height: $centerBtn-size;
+    color: $centerBtn-color;
+}
+
+// 
+// loading 动画
+// 
+$loading-bg-color: #FFF35E;
+$loading-time-diff: .3;
+$loading-size: $centerBtn-size * 3;
+.loading {
+    width: $loading-size;
+    height: $loading-size;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    .container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .circle {
+            position: absolute;
+            width: 35%;
+            height: 35%;
+            @include border-radius(50%);
+            @include animation(bounce (8 * $loading-time-diff + 0s) infinite ease-in-out);
+            @include animation-fill-mode(both);
+            img {
+                width: 100%;
+                height: 100%;
+                @include border-radius(50%);
+            }
+            &:nth-of-type(1) {
+                left: 0;
+            }
+            &:nth-of-type(2) {
+                right: 0;
+            }
+            &:nth-of-type(3) {
+                right: 0;
+                bottom: 0;
+            }
+            &:nth-of-type(4) {
+                left: 0;
+                bottom: 0;
+            }
+        }
+        &:nth-of-type(1) {
+            .circle {
+                &:nth-of-type(1) {
+                    @include animation-delay(0 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+                &:nth-of-type(2) {
+                    @include animation-delay(2 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+                &:nth-of-type(3) {
+                    @include animation-delay(4 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+                &:nth-of-type(4) {
+                    @include animation-delay(6 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+            }
+        }
+        &:nth-of-type(2) {
+            @include transform(rotate(45deg));
+            .circle {
+                &:nth-of-type(1) {
+                    @include animation-delay(1 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+                &:nth-of-type(2) {
+                    @include animation-delay(3 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+                &:nth-of-type(3) {
+                    @include animation-delay(5 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+                &:nth-of-type(4) {
+                    @include animation-delay(7 * $loading-time-diff + 0s);
+                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                }
+            }
+        }
+    }
+}
+@include keyframes(bounce) {
+    0%, 100% { 
+        @include transform(scale(0.0)); 
+    }
+    50% { 
+        @include transform(scale(1.0)); 
+    }
+}

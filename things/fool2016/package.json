@@ -1,0 +1,25 @@
+{
+    "name": "fool2016",
+    "version": "0.0.1",
+    "description": "fool2016",
+    "main": "dist/index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "bigfact<bigfact@foxmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "browser-sync": "^2.11.0",
+        "gulp-watch": "^4.3.5"
+    },
+    "dependencies": {
+        "gulp": "github:gulpjs/gulp#4.0",
+        "gulp-clean": "^0.3.2",
+        "gulp-clean-css": "^2.0.3",
+        "gulp-compass": "^2.1.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-uglify": "^1.5.3",
+        "gulp-rev-collector": "^1.0.2",
+        "gulp-rev": "^7.0.0"
+    }
+}
