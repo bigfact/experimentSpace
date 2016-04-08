@@ -1,0 +1,1634 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a,
+a:focus,
+a:hover, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img, a:focus img, a:hover img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 'Helvetica', 'Helvetica';
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  color: #000;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.pink-btn, .pink-btn:hover, .pink-btn:visited, .pink-btn:active {
+  background: #EFC228 !important;
+  color: #fff;
+  border-color: #EFC228 !important;
+}
+.pink-btn:hover, .pink-btn:visited, .pink-btn:active {
+  color: #FFF6F6 !important;
+}
+.pink-btn:active:hover {
+  color: #FFF6F6 !important;
+}
+
+/************************************************
+* 重置bootstrap的部分样式
+************************************************/
+a, a:focus, a:hover {
+  color: #000;
+}
+a:focus, a:hover {
+  text-decoration: none;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.form-horizontal .form-group {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.control-label {
+  font-weight: normal;
+  height: 34px;
+  line-height: 34px;
+  text-align: left !important;
+}
+
+.form-control {
+  color: #000;
+}
+.form-control:focus {
+  border-color: #E2E2E2 !important;
+}
+
+.btn:hover, .btn:active:focus, .btn:focus {
+  outline: none;
+}
+
+.btn-default:hover, .btn-default:active:focus, .btn-default:focus {
+  background: #fff;
+  border-color: #ccc;
+}
+
+/************************************************
+* layer 消息提示框样式
+************************************************/
+.layermchild {
+  margin-bottom: 45%;
+}
+
+.layermbtn {
+  position: relative;
+  height: 30px !important;
+  line-height: 40px !important;
+  font-size: 0;
+  text-align: center;
+  border-top: 1px solid #EBEBEB;
+  margin-top: 15px;
+}
+
+.laymshade {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.need-login {
+  display: none;
+}
+
+.blur {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+
+/************************************************
+* 用户登录页面
+************************************************/
+.page-login img {
+  width: 100%;
+}
+.page-login form {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 85%;
+}
+.page-login form .login-links a {
+  border-bottom: 1px solid #000;
+}
+.page-login form .regist-link {
+  text-align: center;
+  margin-top: 30px;
+}
+.page-login form .next-btn, .page-login .page-real-name form .ignore-btn, .page-real-name .page-login form .ignore-btn {
+  margin-top: 15px;
+  background: #C5C5C5;
+  color: #fff;
+}
+
+/************************************************
+ * 用户注册页面
+ ************************************************/
+.page-regist img {
+  width: 100%;
+}
+.page-regist form {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 85%;
+}
+.page-regist form .sms_token {
+  width: 100%;
+}
+.page-regist form .next-btn, .page-regist .page-real-name form .ignore-btn, .page-real-name .page-regist form .ignore-btn {
+  background: #C5C5C5;
+  color: #fff;
+  margin-top: 15px;
+}
+.page-regist p {
+  font-size: 0.8em;
+  margin-top: 70px;
+  text-align: center;
+}
+.page-regist p a {
+  display: block;
+  margin: 5px 0;
+  color: #FF6A6F;
+}
+
+/************************************************
+ * 用户注册设置密码页面
+ ************************************************/
+.page-regist-password form {
+  margin: 0 auto;
+  margin-top: 49px;
+  width: 85%;
+}
+.page-regist-password form .form-group img {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.page-regist-password form .next-btn, .page-regist-password .page-real-name form .ignore-btn, .page-real-name .page-regist-password form .ignore-btn {
+  background: #C5C5C5;
+  color: #fff;
+  margin-top: 7px;
+}
+
+/************************************************
+ * 用户实名认证界面
+ ************************************************/
+.page-real-name form {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 85%;
+}
+.page-real-name form .title {
+  font-size: 0.9em;
+}
+.page-real-name form .next-btn, .page-real-name form .ignore-btn {
+  background: #C5C5C5;
+  color: #fff;
+  margin-top: 7px;
+}
+.page-real-name form .ignore-btn {
+  margin-top: 0px;
+  background: #fff;
+  color: #333;
+}
+.page-real-name form .form-group {
+  background: #fff;
+  -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 5px;
+}
+.page-real-name form .form-control {
+  border: none;
+  height: 28px;
+}
+.page-real-name form .input-group-addon {
+  background: #fff;
+  border: none;
+  padding: 0 12px;
+  -moz-box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+}
+.page-real-name form .input-group-addon img {
+  width: 18px;
+}
+
+/************************************************
+ * 实名已认证，实名认证等待 和 实名认证失败
+ ************************************************/
+.page-real-wait .real-wrap, .page-real-failed .real-wrap, .page-real-authed .real-wrap {
+  width: 100%;
+  padding: 60px 0 10px 0;
+}
+.page-real-wait .real-wrap .real-bg, .page-real-failed .real-wrap .real-bg, .page-real-authed .real-wrap .real-bg {
+  width: 25%;
+  display: block;
+  margin: 0 auto;
+}
+.page-real-wait .real-wrap p, .page-real-failed .real-wrap p, .page-real-authed .real-wrap p {
+  text-align: center;
+  margin: 27px 0;
+}
+.page-real-wait .real-info-wrap, .page-real-failed .real-info-wrap, .page-real-authed .real-info-wrap {
+  margin: 0 auto;
+  width: 90%;
+}
+.page-real-wait .real-info-wrap .form-group, .page-real-failed .real-info-wrap .form-group, .page-real-authed .real-info-wrap .form-group {
+  margin: 0 0 17px 0;
+}
+.page-real-wait .real-info-wrap .input-group-addon, .page-real-failed .real-info-wrap .input-group-addon, .page-real-authed .real-info-wrap .input-group-addon {
+  background: #fff;
+  border: none;
+  padding: 0 12px;
+  -moz-box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+}
+.page-real-wait .real-info-wrap .input-group-addon img, .page-real-failed .real-info-wrap .input-group-addon img, .page-real-authed .real-info-wrap .input-group-addon img {
+  width: 18px;
+}
+.page-real-wait .real-info-wrap .form-control, .page-real-failed .real-info-wrap .form-control, .page-real-authed .real-info-wrap .form-control {
+  border: none;
+  font-size: 0.9em;
+  height: 28px;
+}
+.page-real-wait .real-info-wrap .form-control .pull-right, .page-real-failed .real-info-wrap .form-control .pull-right, .page-real-authed .real-info-wrap .form-control .pull-right {
+  color: #666;
+}
+.page-real-wait .real-btn-wrap, .page-real-failed .real-btn-wrap, .page-real-authed .real-btn-wrap {
+  width: 80%;
+  margin: 37px auto;
+}
+.page-real-wait .real-btn-wrap a, .page-real-failed .real-btn-wrap a, .page-real-authed .real-btn-wrap a {
+  display: block;
+  color: #FFF6F6;
+}
+
+/************************************************
+ * 实名已认证，实名认证等待 和 实名认证失败
+ ************************************************/
+.page-auth-intro {
+  text-align: center;
+}
+.page-auth-intro .banner {
+  background: #fff;
+}
+.page-auth-intro .bn {
+  width: 35%;
+  margin: 25px 0;
+}
+.page-auth-intro .bg {
+  background: #fff;
+  width: 100%;
+}
+.page-auth-intro p {
+  margin: 10px 0;
+}
+.page-auth-intro .title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 25px 0;
+}
+.page-auth-intro .btn {
+  width: 80%;
+  border-radius: 20px;
+  margin: 30px 0;
+}
+
+/************************************************
+ * 用户忘记密码页面
+ ************************************************/
+.page-password form {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 85%;
+}
+.page-password form .sms_token {
+  width: 100%;
+}
+.page-password form .next-btn, .page-password .page-real-name form .ignore-btn, .page-real-name .page-password form .ignore-btn {
+  background: #C5C5C5;
+  color: #fff;
+  margin-top: 15px;
+}
+
+/************************************************
+ * 重设密码
+ ************************************************/
+.page-password-set form {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 85%;
+}
+.page-password-set form .form-group img {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.page-password-set form .next-btn, .page-password-set .page-real-name form .ignore-btn, .page-real-name .page-password-set form .ignore-btn {
+  background: #C5C5C5;
+  color: #fff;
+  margin-top: 20px;
+}
+.page-password-set form .sms_token {
+  width: 100%;
+}
+.page-password-set form .form-control {
+  background: #fff;
+}
+
+/************************************************
+ * 个人中心
+ ************************************************/
+.page-center a {
+  color: #333;
+}
+.page-center .go {
+  width: 6px;
+  height: 10px;
+  margin-top: 0px;
+  margin-left: 7px;
+  display: inline-block;
+}
+.page-center .bg {
+  background: #f3f3f3;
+  position: fixed;
+  height: 500%;
+  width: 100%;
+  z-index: -1;
+}
+.page-center .title {
+  height: 30px;
+  line-height: 30px;
+  margin: 0;
+  padding-left: 20px;
+}
+.page-center .banner {
+  height: 150px;
+  text-align: center;
+  background: #f3f3f3;
+  position: relative;
+  overflow: hidden;
+}
+.page-center .banner .avatar {
+  position: relative;
+  top: 30px;
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 40px;
+  background-image: url(../images/missing.png);
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+.page-center .banner .avatar img {
+  width: 70px;
+  height: 70px;
+  border-radius: 40px;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+.page-center .banner p {
+  position: relative;
+  top: 45px;
+}
+.page-center img.qr-code-img {
+  width: 18px;
+}
+.page-center .banner-bg {
+  position: absolute;
+  height: 105%;
+  width: 105%;
+  top: -10px;
+  left: -10px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=8);
+  opacity: 0.08;
+}
+.page-center .banner-bg img {
+  position: relative;
+  width: 100%;
+  top: -90px;
+}
+.page-center .no-logo {
+  background: #fff;
+}
+.page-center .no-logo a {
+  display: block;
+  height: 47px;
+  line-height: 47px;
+  margin-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+}
+.page-center .no-logo a:last-child {
+  border-style: none;
+}
+.page-center .no-logo .border {
+  height: 1px;
+  -moz-box-shadow: inset 0 1px 1px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 1px 1px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 1px -1px rgba(0, 0, 0, 0.5);
+  margin-left: 20px;
+}
+.page-center .has-logo {
+  background: #fff;
+  position: relative;
+}
+.page-center .has-logo .item {
+  position: relative;
+}
+.page-center .has-logo a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-right: 20px;
+  overflow: hidden;
+  margin-left: 57px;
+}
+.page-center .has-logo .item:last-child a {
+  border-style: none;
+}
+.page-center .has-logo .icon {
+  position: absolute;
+  left: 20px;
+  top: 7.5px;
+  width: 25px;
+}
+.page-center .logout {
+  display: block;
+  height: 40px;
+  margin-top: 20px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #E0E0E0;
+  line-height: 40px;
+}
+
+/************************************************
+ * 修改昵称
+ ************************************************/
+.page-nickname form {
+  margin: 10px 0;
+}
+.page-nickname input {
+  background-color: #fff;
+  margin-top: 15px;
+  border-radius: 0px;
+  border-style: solid none;
+  height: 45px;
+  -moz-transition-property: margin-top;
+  -o-transition-property: margin-top;
+  -webkit-transition-property: margin-top;
+  transition-property: margin-top;
+}
+.page-nickname input:focus {
+  margin-top: 50px;
+}
+.page-nickname input:focus + img {
+  top: 50px;
+}
+.page-nickname button {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  background: #CACACA;
+  color: #fff;
+}
+.page-nickname .clear {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  height: 45px;
+  -moz-transition-property: margin-top;
+  -o-transition-property: margin-top;
+  -webkit-transition-property: margin-top;
+  transition-property: margin-top;
+}
+
+/************************************************
+ * 邀请码
+ ************************************************/
+.page-invite #tips {
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.page-invite #tips img {
+  width: 50%;
+  float: right;
+  margin-right: 20px;
+}
+.page-invite .banner {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.page-invite p {
+  text-align: center;
+}
+.page-invite .title {
+  font-size: 1.4em;
+  margin-top: 20px;
+}
+.page-invite .tip {
+  padding: 30px 30px 40px 30px;
+  line-height: 20px;
+  font-size: 0.9em;
+}
+.page-invite .share-tip {
+  font-size: 0.8em;
+  color: #333;
+}
+.page-invite .form-group {
+  width: 80%;
+  margin: 20px auto;
+}
+.page-invite .form-group .form-control {
+  border: none;
+  background: #fff;
+  border-bottom: 2px solid #ddd;
+  height: 37px;
+}
+.page-invite .form-group .input-group-addon {
+  padding: 0px 12px;
+  background: #EFC228;
+  border: none;
+  border-bottom: 2px solid #D9B01F;
+}
+.page-invite .form-group .input-group-addon img {
+  width: 20px;
+}
+.page-invite .link {
+  font-size: 0.8em;
+  margin: 50px 10px 20px 10px;
+}
+.page-invite .link a {
+  margin: 10px 0 0 0;
+  display: block;
+}
+.page-invite .link i {
+  color: #EFC228;
+  font-size: 1.5em;
+}
+.page-invite .right-line {
+  display: inline-block;
+  height: 1px;
+  width: 50%;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #f6f6f6), color-stop(100%, #cccccc));
+  background: -moz-linear-gradient(left, #f6f6f6, #cccccc);
+  background: -webkit-linear-gradient(left, #f6f6f6, #cccccc);
+  background: linear-gradient(to right, #f6f6f6, #cccccc);
+}
+.page-invite .left-line {
+  display: inline-block;
+  height: 1px;
+  width: 50%;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjEuMCIgeTE9IjAuNSIgeDI9IjAuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 100% 50%, 0% 50%, color-stop(0%, #f6f6f6), color-stop(100%, #cccccc));
+  background: -moz-linear-gradient(right, #f6f6f6, #cccccc);
+  background: -webkit-linear-gradient(right, #f6f6f6, #cccccc);
+  background: linear-gradient(to left, #f6f6f6, #cccccc);
+}
+
+/************************************************
+ * 邀请记录
+ ************************************************/
+.page-invite-record {
+  font-size: 0.9em;
+}
+.page-invite-record .head {
+  height: 35px;
+  line-height: 35px;
+  padding: 0 20px;
+  background: #F8F8F8;
+  border-bottom: 1px solid #E6E6E6;
+}
+.page-invite-record .head img {
+  position: relative;
+  top: 6px;
+  width: 22px;
+}
+.page-invite-record .item {
+  height: 60px;
+  line-height: 60px;
+  padding: 0 40px 0 0;
+  margin: 0 0 0 10px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.page-invite-record .right {
+  float: right;
+}
+.page-invite-record .photo {
+  position: relative;
+  top: 12px;
+  width: 40px;
+  border-radius: 4px;
+  float: left;
+  margin-right: 15px;
+}
+
+/************************************************
+ * 二维码/虚拟卡 v3.0
+ ************************************************/
+/************************************************
+ * 二维码/虚拟卡 v2.3
+ ************************************************/
+.page-qr-code {
+  text-align: center;
+}
+.page-qr-code p {
+  line-height: 20px;
+}
+.page-qr-code .banner {
+  width: 100%;
+}
+.page-qr-code .tip {
+  margin-top: 15px;
+  padding: 0 30px;
+  font-size: 12px;
+}
+.page-qr-code .qr-code {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.page-qr-code .qr-img {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.page-qr-code .more {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+  padding: 0 50px;
+}
+.page-qr-code .introblock p {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+.page-qr-code .introblock img {
+  width: 90%;
+  display: block;
+  margin: 60px 0 30px 0;
+}
+.page-qr-code .introblock .btn {
+  width: 80%;
+  margin: 20px auto;
+}
+
+/************************************************
+ * 地区
+ ************************************************/
+.page-address p {
+  background-color: #EFEFF4;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 20px;
+  border-bottom: 1px solid #E0E0E0;
+  margin: 0;
+}
+.page-address a {
+  display: block;
+  width: 95%;
+  margin-left: 5%;
+  overflow: hidden;
+  border-bottom: 1px solid #E0E0E0;
+  height: 40px;
+  line-height: 40px;
+  color: #000;
+  font-size: 15px;
+  padding-right: 30px;
+}
+.page-address .go {
+  color: #C7C7CB;
+}
+
+/************************************************
+ * 我的消费养老金
+ ************************************************/
+.page-coins a {
+  color: #333;
+}
+.page-coins .head {
+  height: 20px;
+  line-height: 30px;
+  margin-top: 15px !important;
+  padding-left: 20px;
+  position: relative;
+  padding: 0;
+}
+.page-coins .head span {
+  border-radius: 25px;
+  padding: 0px 15px;
+  color: #333;
+}
+.page-coins .head .coins {
+  float: left;
+  margin-left: 20px;
+}
+.page-coins .head .coins.active {
+  background: #EFC228;
+  color: #fff;
+}
+.page-coins .head .bank-coins {
+  float: right;
+  margin-right: 20px;
+}
+.page-coins .head .bank-coins.active {
+  background: #EFC228;
+  color: #fff;
+}
+.page-coins .banner {
+  height: 290px;
+  text-align: center;
+  background: #f3f3f3;
+  position: relative;
+  overflow: hidden;
+}
+.page-coins .banner p {
+  position: relative;
+}
+.page-coins .banner .avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 60px;
+}
+.page-coins .banner .coin-type {
+  margin-top: 15px;
+}
+.page-coins .banner .coin-total {
+  margin-top: 19px;
+  font-size: 32px;
+}
+.page-coins .banner .coin-total span {
+  padding: 0 0 0 3px;
+  font-size: 0.4em;
+}
+.page-coins .banner .coin-tip {
+  font-size: 0.8em;
+  margin-top: 19px;
+}
+.page-coins .banner .coin-tip img {
+  width: 20px;
+  margin: 0 0 0 4px;
+}
+.page-coins .banner .coin-tip span {
+  position: relative;
+  top: -5px;
+}
+.page-coins .banner .bank-account-state {
+  font-size: 15px;
+  background: #3A3A3A;
+  width: 60px;
+  margin: 0 auto;
+  margin-top: 45px;
+  color: #fff;
+}
+.page-coins .banner .bank-total {
+  margin-top: -7px;
+  font-size: 35px;
+}
+.page-coins .banner .bank-total span {
+  font-size: 11px;
+  margin-left: 2px;
+}
+.page-coins .banner .bank-tip {
+  font-size: 12px;
+  margin-top: 0px;
+}
+.page-coins .banner .bank-tip img {
+  width: 15px;
+  margin: -2px 0 0 3px;
+}
+.page-coins .banner-bg {
+  position: absolute;
+  height: 105%;
+  width: 105%;
+  top: -10px;
+  left: -10px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=7);
+  opacity: 0.07;
+}
+.page-coins .banner-bg img {
+  position: relative;
+  width: 130%;
+  left: -15%;
+}
+.page-coins .coins-wrap .itemhead {
+  padding: 10px 10px 10px 30px;
+  background: #f3f3f3;
+  border-top: 1px solid #E0E0E0;
+  font-size: 0.8em;
+}
+.page-coins .coins-wrap .item {
+  height: 65px;
+  line-height: 55px;
+  border-bottom: 1px solid #E0E0E0;
+  margin-left: 20px;
+  position: relative;
+  padding-left: 45px;
+  overflow: hidden;
+}
+.page-coins .coins-wrap .item .icon {
+  position: absolute;
+  top: 15px;
+  left: 3px;
+  width: 35px;
+  border-radius: 35px;
+}
+.page-coins .coins-wrap .item .pull-left {
+  margin-left: 10px;
+  font-size: 1.1em;
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-coins .coins-wrap .item .pull-left i {
+  display: block;
+  margin-top: -34px;
+  font-size: 0.7em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-coins .coins-wrap .item .pull-right {
+  text-align: right;
+  margin-right: 15px;
+  font-size: 1.2em;
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-coins .coins-wrap .item .pull-right i {
+  display: block;
+  margin-top: -35px;
+  text-align: right;
+  font-size: 0.6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-coins .banks-wrap .item {
+  height: 65px;
+  line-height: 55px;
+  border-bottom: 1px solid #E0E0E0;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.page-coins .banks-wrap .item .pull-left {
+  font-weight: bold;
+}
+.page-coins .banks-wrap .item .pull-left span {
+  display: block;
+  height: 15px;
+  line-height: 15px;
+  font-weight: normal;
+  margin-top: -12px;
+  font-size: 11px;
+}
+.page-coins .banks-wrap .item .pull-right {
+  font-weight: bold;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+.page-coins .banks-wrap .item .pull-right span {
+  font-weight: normal;
+  font-size: 11px;
+}
+.coins_info h2 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.coins_info p {
+  margin-left: 10px;
+}
+.coins_info a {
+  color: #FF7777;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.page-coins .more {
+  display: block;
+  padding: 16px 0 25px 0;
+  text-align: center;
+}
+.page-coins .more img {
+  position: relative;
+  top: 5px;
+  height: 23px;
+  margin-right: 5px;
+}
+.page-coins .tip {
+  -moz-box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  width: 94%;
+  position: relative;
+  top: -53px;
+  border-radius: 5px;
+  background: #fff;
+  line-height: 18px;
+}
+.page-coins .tip button {
+  color: #fff;
+  margin-top: 10px;
+  height: 40px;
+}
+
+/************************************************
+ * 未授权银行卡页面
+ ************************************************/
+.page-bank-no-cards {
+  text-align: center;
+}
+.page-bank-no-cards img {
+  width: 46%;
+  margin-top: 30%;
+}
+.page-bank-no-cards p.status {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+.page-bank-no-cards .btn {
+  width: 46%;
+  margin-top: 40px;
+  border-radius: 2px;
+  background: #EFC228 !important;
+  color: #fff;
+  border-color: #EFC228 !important;
+}
+.page-bank-no-cards p.explain {
+  width: 60% !important;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  font-size: 0.8em;
+  line-height: 18px;
+}
+
+/************************************************
+ * 输入银行卡号
+ ************************************************/
+.page-bank-card-no {
+  text-align: center;
+  padding: 0 7%;
+}
+.page-bank-card-no p {
+  text-align: left;
+  margin-top: 30px;
+  font-size: 15px;
+}
+.page-bank-card-no .form-group {
+  -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 5px;
+}
+.page-bank-card-no .form-control {
+  border: none;
+  height: 30px;
+}
+.page-bank-card-no .input-group-addon {
+  padding: 0 12px;
+  background: #fff;
+  border: none;
+  -moz-box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.4);
+  box-shadow: inset -2px 0px 1px -2px rgba(0, 0, 0, 0.4);
+}
+.page-bank-card-no .input-group-addon img {
+  width: 18px;
+}
+.page-bank-card-no .btn {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 2px;
+}
+.page-bank-card-no a.link {
+  color: #EFC228;
+  float: right;
+}
+
+/************************************************
+ * 银行列表
+ ************************************************/
+.banklist ul {
+  margin: 0;
+  padding: 0;
+}
+.banklist ul > li {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding: 7px 15px;
+  height: 45px;
+}
+.banklist ul > li > img {
+  width: 30px;
+  margin-right: 10px;
+}
+.banklist ul > li > span {
+  position: absolute;
+  top: 15px;
+}
+.banklist .more {
+  text-align: center;
+  margin: 15px;
+  display: block;
+}
+
+/************************************************
+ * 输入银行卡信息
+ ************************************************/
+.page-bank-card-input {
+  text-align: center;
+  padding: 0 7%;
+}
+.page-bank-card-input p {
+  height: 45px;
+  line-height: 45px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.page-bank-card-input p:first-child {
+  margin-top: 10px;
+  border-bottom: 1px solid #CECECE;
+}
+.page-bank-card-input .form-group {
+  position: relative;
+}
+.page-bank-card-input .form-group span {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
+.page-bank-card-input .form-control {
+  margin-top: 12px;
+  border-radius: 3px;
+  background-color: #fff !important;
+  padding-left: 90px;
+  color: #bbb;
+}
+.page-bank-card-input a.licence {
+  color: #000;
+  font-size: 0.8em;
+}
+.page-bank-card-input a.licence i {
+  font-style: normal;
+  color: #EFC228;
+}
+.page-bank-card-input .btn {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 2px;
+}
+
+/************************************************
+ * 我的银行卡
+ ************************************************/
+.page-banks .bank-types {
+  height: 40px;
+  text-align: center;
+  margin: 20px 0 15px 0;
+}
+.page-banks .bank-types span {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #FF6A6F;
+  color: #FF6A6F;
+}
+.page-banks .bank-types span.active {
+  color: #fff;
+  background: #FF6A6F;
+}
+.page-banks .bank-types span:first-child {
+  border-radius: 5px 0 0 5px;
+  margin-right: -2px;
+}
+.page-banks .bank-types span:last-child {
+  border-radius: 0px 5px 5px 0px;
+  margin-left: -2px;
+}
+.page-banks .bank {
+  background-color: #fff;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 10px 10px 10px;
+  border: 1px solid #ECECEC;
+  border-style: solid solid none solid;
+  overflow: hidden;
+}
+.page-banks .bank:first-of-type {
+  border-radius: 5px 5px 0 0;
+}
+.page-banks .bank:last-of-type {
+  border-radius: 0 0 5px 5px;
+  border-bottom-style: solid;
+}
+.page-banks .bank:only-of-type {
+  border-radius: 5px;
+}
+.page-banks .bank div {
+  display: inline-block;
+}
+.page-banks .bank .icon {
+  width: 27px;
+  margin-right: 5px;
+}
+.page-banks .bank .type {
+  font-size: 0.9em;
+  color: #929292;
+}
+.page-banks .bank .num {
+  font-size: 1.1em;
+  float: right;
+}
+.page-banks .search {
+  text-align: center;
+  display: block;
+  width: 90%;
+  margin: 20px auto !important;
+  border: 1px solid #ECECEC;
+  color: #FF6A6F;
+  border-radius: 3px;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+}
+.page-banks .search .icon {
+  margin-right: 10px;
+  height: 12px;
+}
+.page-banks p.explain {
+  width: 60% !important;
+  margin: 0 auto;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 30px;
+  font-size: 0.8em;
+  line-height: 18px;
+  text-align: center;
+}
+
+/************************************************
+ * 搜索银行卡
+ ************************************************/
+.page-banks-search .bank-types {
+  height: 40px;
+  text-align: center;
+  margin: 20px 0 15px 0;
+}
+.page-banks-search .bank-types span {
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #FF6A6F;
+  color: #FF6A6F;
+}
+.page-banks-search .bank-types span:first-child {
+  border-radius: 5px 0 0 5px;
+  margin-right: -2px;
+}
+.page-banks-search .bank-types span:last-child {
+  border-radius: 0px 5px 5px 0px;
+  margin-left: -2px;
+}
+.page-banks-search .bank-types span.active {
+  background: #FF6A6F;
+  color: #fff;
+}
+.page-banks-search .search-wrap {
+  width: 90%;
+  margin: 0 auto 10px auto;
+  position: relative;
+}
+.page-banks-search .search-wrap img {
+  position: absolute;
+  width: 17px;
+  top: 14px;
+  left: 20px;
+}
+.page-banks-search .search-wrap input {
+  height: 45px;
+  border-radius: 5px;
+  padding-left: 45px;
+  border-color: #E0E0E0;
+}
+.page-banks-search .bank {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #E0E0E0;
+  border-style: solid solid none solid;
+  overflow: hidden;
+  height: 65px;
+  line-height: 65px;
+  position: relative;
+}
+.page-banks-search .bank:first-of-type {
+  border-radius: 5px 5px 0 0;
+}
+.page-banks-search .bank:last-of-type {
+  border-radius: 0 0 5px 5px;
+  border-bottom-style: solid;
+}
+.page-banks-search .bank .icon {
+  position: absolute;
+  width: 50px;
+  left: 10px;
+  top: 4px;
+}
+.page-banks-search .bank .pull-left {
+  margin-left: 70px;
+  font-weight: bold;
+  color: #333;
+  line-height: 44px;
+  font-size: 16px;
+}
+.page-banks-search .bank .pull-left i {
+  font-style: normal;
+  font-weight: normal;
+  display: block;
+  margin-top: -20px;
+  font-size: 12px;
+  color: #929292;
+}
+.page-banks-search .bank .pull-right {
+  text-align: right;
+  margin-right: 15px;
+}
+.page-banks-search .bank .pull-right img {
+  width: 8px;
+}
+
+/************************************************
+ * 授权银行卡页面 / 绑定银行卡
+ ************************************************/
+.page-bank-auth .bank-wrap {
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 10px;
+  position: relative;
+  color: #fff;
+}
+.page-bank-auth .bank-wrap p {
+  position: absolute;
+  bottom: 40%;
+  margin-left: 7.5%;
+  font-size: 12px;
+  font-weight: 100;
+}
+.page-bank-auth .bank-wrap input {
+  position: absolute;
+  bottom: 18%;
+  width: 85%;
+  margin-left: 7.5%;
+  height: 37px;
+}
+.page-bank-auth .bank-bg {
+  width: 100%;
+}
+.page-bank-auth .bank-name {
+  position: absolute;
+  color: #fff;
+  top: 8%;
+  left: 22%;
+  font-size: 16px;
+}
+.page-bank-auth .bank-authed {
+  position: absolute;
+  top: 23%;
+  left: 22%;
+  font-size: 12px;
+  font-weight: 100;
+}
+.page-bank-auth .col-xs-8 {
+  width: 67.67%;
+}
+.page-bank-auth .form-group {
+  padding-left: 10%;
+}
+.page-bank-auth form {
+  margin-top: 15px;
+  width: 100%;
+  float: left;
+}
+.page-bank-auth form .control-label {
+  text-align: left;
+  padding: 0;
+  width: 26%;
+  margin-top: 7px;
+  font-size: 15px;
+}
+.page-bank-auth form .next-btn, .page-bank-auth .page-real-name form .ignore-btn, .page-real-name .page-bank-auth form .ignore-btn {
+  width: 89.3%;
+  background: #F5F5F5;
+  color: #333;
+  margin-top: 20px;
+  font-weight: bold;
+  height: 40px;
+}
+
+/************************************************
+ * 解绑银行卡
+ ************************************************/
+.page-bank-unbind .bank-wrap-new {
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+}
+.page-bank-unbind .bank-wrap-new .block {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+}
+.page-bank-unbind .bank-wrap-new .bank-bg {
+  width: 100%;
+}
+.page-bank-unbind .bank-wrap-new .bank-logo {
+  width: 45px;
+  margin: 0 auto;
+  display: block;
+}
+.page-bank-unbind .bank-wrap-new .bank-info {
+  text-align: center;
+  padding: 15px 0;
+}
+.page-bank-unbind .bank-wrap-new .bank-name {
+  font-size: 1.1em;
+}
+.page-bank-unbind .bank-wrap-new .bank-type {
+  margin-left: 5px;
+  color: #666;
+}
+.page-bank-unbind .bank-wrap-new .bank-no {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 25px 0 0 0;
+  letter-spacing: 3px;
+}
+.page-bank-unbind .next-btn, .page-bank-unbind .page-real-name form .ignore-btn, .page-real-name form .page-bank-unbind .ignore-btn {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 3px;
+  border-color: #ECECEC;
+}
+
+/************************************************
+ * 小金兑换
+ ************************************************/
+.page-coin-invite form {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 90%;
+}
+.page-coin-invite form .btn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.page-coin-invite form .first {
+  margin-left: 0;
+  list-style: none;
+  font-weight: bold;
+}
+.page-coin-invite form .first img {
+  width: 20px;
+  margin-right: 10px;
+}
+.page-coin-invite form li {
+  margin: 10px 0 0 30px;
+  list-style: initial;
+  font-size: 0.8em;
+}
+
+/************************************************
+ * 好金相送
+ ************************************************/
+.page-coin-presentation {
+  position: relative;
+  height: 100%;
+}
+.page-coin-presentation .bg {
+  width: 100%;
+  height: 100%;
+}
+.page-coin-presentation .avatar {
+  position: absolute;
+  top: 7%;
+  width: 65px;
+  height: 65px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+}
+.page-coin-presentation .phone {
+  position: absolute;
+  top: 21.5%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+}
+.page-coin-presentation .form-group {
+  position: absolute;
+  top: 34%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 70%;
+}
+.page-coin-presentation .form-group input {
+  text-align: left !important;
+  height: 35px;
+  border-radius: 2px;
+}
+.page-coin-presentation .form-group span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 35px;
+  line-height: 38px;
+  background: #FFCB4F;
+  color: #D44D35;
+  padding: 0 10px;
+  font-size: 14px;
+  border-radius: 2px;
+}
+.page-coin-presentation .share {
+  position: absolute;
+  top: 82%;
+  background: #F6D80C;
+  color: #fff;
+  border-color: #F6D80C;
+  height: 35px;
+  width: 60%;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+/************************************************
+ * 小金二维码扫描
+ ************************************************/
+.wechatScanCoin {
+  text-align: center;
+}
+.wechatScanCoin img {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.wechatScanCoin p {
+  margin-top: 10px;
+  color: #fff;
+}
+
+/************************************************
+ * 微信分享
+ ************************************************/
+.wechatShare {
+  text-align: center;
+  color: #fff;
+}
+.wechatShare .avatar {
+  margin: 40px 0 30px 0;
+  width: 80px;
+  border-radius: 60px;
+}
+.wechatShare .title {
+  font-size: 1.1em;
+}
+.wechatShare .title span {
+  font-size: 1.1em;
+}
+.wechatShare .content {
+  width: 85%;
+  margin: 30px auto;
+  font-size: 0.8em;
+  line-height: 17px;
+}
+.wechatShare .form {
+  width: 75%;
+  margin: 0 auto;
+}
+.wechatShare .input-group-addon {
+  background: #fff;
+  color: #EFC228;
+  border: none;
+}
+.wechatShare .form-control {
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+.wechatShare .form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+.wechatShare .btn {
+  background: #EFC228;
+  outline: none !important;
+  margin: 10px 0 0 0;
+}
+.wechatShare .btn:focus,
+.wechatShare .btn:hover {
+  color: #fff;
+}

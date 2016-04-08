@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+    <style>
+        img {
+            display: block;
+            position: relative;
+            margin: 0 auto;
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="https://avatars1.githubusercontent.com/u/11718965?v=3&s=460">
+    <img src="http://img1.gtimg.com/15/1539/153913/15391327_980x1200_0.jpg" style="display: none;">
+    <button onclick="imgChange()">切换图片</button>
+    <script>
+        (function (window) {
+            // 参数
+            var event_state = {};
+            var zoomNum = 1;
+            var maxWidth = window.screen.availWidth;
+            var minWidth = 300;
+            // 构造函数
+            function ImagePreview(obj) {
+                this.obj = obj;
+                this.config = {
+                    zoomNum: 1,
+                    maxWidth: window.screen.availWidth,
+                    minWidth: 300
+                }
+            }
+            // 方法
+            ImagePreview.prototype = {
+                // 初始化
+                init: function (config) {
+                    // 配置
+                    config = config || {};
+                    this.config.zoomNum = config.zoomNum || this.config.zoomNum;
+                    this.config.maxWidth = config.maxWidth || this.config.maxWidth;
+                    this.config.minWidth = config.minWidth || this.config.minWidth;
+                    zoomNum = this.config.zoomNum;
+                    maxWidth = this.config.maxWidth;
+                    minWidth = this.config.minWidth;
+                    // 移动开始监听事件
+                    this.obj.addEventListener('mousedown', moveStart, false);
+                    // 缩放监听
+                    this.obj.addEventListener('mousewheel', imgZoom, false);
+                    this.obj.addEventListener('DOMMouseScroll', imgZoom, false);
+                },
+                // 改变对象
+                changeObj: function (obj) {
+                    this.obj = obj;
+                    this.init();
+                }
+            }
+            // 移动开始
+            function moveStart(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                event_state.x = this.offsetLeft - getSpotPosition(e).x;
+                event_state.y = this.offsetTop - getSpotPosition(e).y;
+                this.addEventListener('mousemove', moving, false);
+                this.addEventListener('mouseup', moveEnd, false);
+            }
+            // 移动中
+            function moving(e) { 
+                var mouse = {};
+                e.preventDefault();
+                e.stopPropagation();
+                mouse.x = getSpotPosition(e).x;
+                mouse.y = getSpotPosition(e).y;
+                this.style.margin = '0';
+                this.style.left = mouse.x + event_state.x + 'px';
+                this.style.top = mouse.y + event_state.y + 'px';
+            }
+            // 移动结束
+            function moveEnd(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.removeEventListener('mousemove', moving, false);
+                this.removeEventListener('mouseup', moveEnd, false);
+            }
+            // 缩放
+            function imgZoom(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.delta = (e.wheelDelta) ? e.wheelDelta / 120 : -(e.detail || 0) / 3;
+                if(e.delta > 0 && ((zoomNum - 0.1) * this.naturalWidth) >= minWidth) {
+                    zoomNum -= 0.1;
+                }
+                else if(e.delta < 0 && ((zoomNum + 0.1) * this.naturalWidth) <= maxWidth) {
+                    zoomNum += 0.1;
+                }
+                this.style.transform = "scale(" + zoomNum + ")";
+            }
+            // 根据事件对象获取接触点的坐标
+            function getSpotPosition(e) {
+                var touches = {};
+                if(e.touches != undefined) {
+                    touches.x = e.touches[0].clientX;
+                    touches.y = e.touches[0].clientY;
+                }
+                touches.x = (touches.x || e.clientX || e.pageX) + window.scrollX;
+                touches.y = (touches.y || e.clientY || e.pageY) + window.scrollY;
+                return touches;
+            }
+            window.ImagePreview = ImagePreview;
+            return ImagePreview;
+        })(window);
+        
+        var index = 0;
+        var imgs = document.getElementsByTagName('img');
+        var imr = new ImagePreview(imgs[index]);
+        imr.init();
+        
+        function imgChange() {
+            imgs[index].style.display = 'none';
+            index = index + 1 > imgs.length - 1 ? 0 : index + 1;
+            imgs[index].style.display = 'block';
+            imr.changeObj(imgs[index]);
+        }
+
+    </script>
+</body>
+
+</html>

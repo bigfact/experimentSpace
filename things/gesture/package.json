@@ -1,0 +1,36 @@
+{
+  "name": "gesture",
+  "version": "0.1.0",
+  "description": "js手势",
+  "main": "src/js/gesture.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigfact/frontforge.git"
+  },
+  "keywords": [
+    "js",
+    "pulugin",
+    "gesture",
+    "插件",
+    "手势"
+  ],
+  "author": "bigfact <bigfact0@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigfact/frontforge/issues"
+  },
+  "homepage": "https://github.com/bigfact/frontforge/things/gesture#readme",
+  "dependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp-watch": "^4.3.5"
+  }
+}

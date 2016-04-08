@@ -2,3 +2,4 @@ node_modules
 bower
 example
 .sass-cache
+template
