@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>pagination example</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="src/pagination.js"></script>
+    <script>
+        // 分页控件
+        var ex = new Pagination(document.getElementById('container'));
+        
+        // 初始化分页控件
+        ex.init({
+            totalpage: 10,      // 设置总页数
+            currentpage: 6,     // 设置当前页
+            btnlength: 8        // 页数按钮显示长度
+        });
+        
+        // 当分页控件状态改变时执行的方法
+        ex.onChange(function () {
+            console.log(ex.config);
+        });
+    </script>
+</body>
+
+</html>
