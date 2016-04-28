@@ -1,10 +1,11 @@
 {
   "name": "gesture",
-  "version": "0.1.0",
-  "description": "js手势",
-  "main": "src/js/gesture.js",
+  "version": "1.0.0",
+  "description": "js 手势判断",
+  "main": "./src/gesture.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "debug": "gulp"
   },
   "repository": {
     "type": "git",

@@ -23,8 +23,8 @@ gulp.task('browser', function() {
       baseDir: root,
       directory: true
     },
-    port: 9080,
-    startPath: root + 'examples/'
+    port: 4001,
+    startPath: root
   });
 });
 
@@ -67,7 +67,7 @@ gulp.task('bulidjs', function() {
     .pipe(gulp.dest(distRoot));
 });
 
-gulp.task('dist', gulp.series(
+gulp.task('build', gulp.series(
   'cleandist',
   'copyjs',
   'bulidjs'

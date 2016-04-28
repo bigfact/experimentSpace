@@ -1,14 +1,25 @@
-# Gesture
+<!DOCTYPE html>
+<html lang="en">
 
-js 手势判断，移动端和 pc 端均支持
+<head>
+  <meta charset="UTF-8">
+  <title>gesture</title>
+  <style>
+    .info {
+      text-align: center;
+      font-size: 37px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 100px;
+      margin: auto;
+    }
+  </style>
+</head>
 
-## 类型
-* 点击 click
-* 滑动 up, down, left, right 
-* 缩放 zoom
-
-## [例子](https://bigfact.github.io/frontforge/things/gesture/index.html)
-```html
+<body>
   <p class="info">massage</p>
   <!--<script src="dist/gesture.min.js"></script>-->
   <script src="src/gesture.js"></script>
@@ -32,13 +43,6 @@ js 手势判断，移动端和 pc 端均支持
       }
     });
   </script>
-```
+</body>
 
-## 数据
-* type: String, ('up', 'down', 'left', 'right', 'zoom', 'click'), 记录每次手势结束后的手势类型
-* scale: Number, 1, 记录每次缩放后的比例
-* points
-    * first: Array, (first[0].x, first[0].y), 记录手势开始时触点的点集
-    * current: Array, (current[0].x, current[0].y), 记录手势时当前触点的点集
-    * last: Array, (last[0].x, last[0].y), 记录手势结束时触点的点集
-
+</html>
