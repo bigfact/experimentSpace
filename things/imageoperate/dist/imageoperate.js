@@ -7,7 +7,7 @@
     // 参数
     var originPoint = {};       // 鼠标点击开始坐标
     // 构造函数
-    function ImageOprate(obj) {
+    function ImageOperate(obj) {
         this.obj = obj;         // 当前预览对象
         this.config = {         // 默认配置
             zoomTimes: 1,       // 缩放倍数
@@ -18,7 +18,7 @@
         }
     }
     // 方法
-    ImageOprate.prototype = {
+    ImageOperate.prototype = {
         // 初始化
         init: function(config) {
             var ths = this;
@@ -138,6 +138,6 @@
         }
         return Array.prototype.slice.call(obj, offset);
     }
-    window.ImageOprate = ImageOprate;
-    return ImageOprate;
+    window.ImageOperate = ImageOperate;
+    return ImageOperate;
 })(window);

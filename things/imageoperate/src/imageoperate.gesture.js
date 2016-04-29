@@ -6,7 +6,7 @@
 
 (function (window) {
     // 构造函数
-    function ImageOprate(obj) {
+    function ImageOperate(obj) {
         var _this = this;
         _this.obj = obj;         // 当前预览对象
         _this.gesture = new Gesture(_this.obj);
@@ -20,7 +20,7 @@
         }
     }
     // 方法
-    ImageOprate.prototype = {
+    ImageOperate.prototype = {
         // 初始化
         init: function (config) {
             var _this = this;
@@ -78,6 +78,6 @@
             }
         },
     }
-    window.ImageOprate = ImageOprate;
-    return ImageOprate;
+    window.ImageOperate = ImageOperate;
+    return ImageOperate;
 })(window);

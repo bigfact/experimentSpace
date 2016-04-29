@@ -3,20 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title id="title">ImageOprate demo</title>
+    <title id="title">ImageOperate demo</title>
 </head>
 
 <body>
     <button onclick="clockwise()">顺时针</button>
     <button onclick="anticlockwise()">逆时针</button>
     <img src="https://avatars1.githubusercontent.com/u/11718965?v=3&s=460" style="position: absolute;">
-    <script src="src/imageoprate.js"></script>
+    <script src="src/imageoperate.js"></script>
     <script>
         var index = 0;
         var imgs = document.getElementsByTagName('img');
         var imgops = [];
         for(var i = 0; i < imgs.length; i++) {
-            imgops[i] = new ImageOprate(imgs[i]);
+            imgops[i] = new ImageOperate(imgs[i]);
             imgops[i].init();
         }
         function clockwise () {
