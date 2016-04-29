@@ -1,0 +1,33 @@
+{
+  "name": "imageoprate",
+  "version": "1.1.0",
+  "description": "js 图片操作",
+  "main": "./src/imageoprate.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigfact/frontforge.git"
+  },
+  "keywords": [
+    "js",
+    "pulugin",
+    "imageoprate",
+    "插件",
+    "图片操作"
+  ],
+  "author": "bigfact <bigfact0@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigfact/frontforge/issues"
+  },
+  "homepage": "https://github.com/bigfact/frontforge/things/imageoprate#readme",
+  "dependencies": {
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1"
+  },
+  "devDependencies": {}
+}

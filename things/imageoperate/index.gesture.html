@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="title">ImageOprate gesture demo</title>
+</head>
+
+<body>
+    <img src="https://avatars1.githubusercontent.com/u/11718965?v=3&s=460" style="position: absolute;">
+    <!--<script src="/bower/vConsole/dist/vconsole.min.js"></script>-->
+    <script src="../gesture/dist/gesture.min.js"></script>
+    <script src="src/imageoprate.gesture.js"></script>
+    <script>
+        var img = document.getElementsByTagName('img')[0];
+        var imgp = new ImageOprate(img);
+        img.onload = function() {          
+          imgp.init();
+        }
+    </script>
+</body>
+
+</html>
