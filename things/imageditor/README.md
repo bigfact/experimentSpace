@@ -6,8 +6,6 @@
 <button id="cut">剪切</button>
 <img id="himg" src="../../imgs/11718965.png" style="display: block; width: 100%; position: absolute;">
 <!--<script src="/bower/vConsole/dist/vconsole.min.js"></script>-->
-<script src="../gesture/dist/gesture.min.js"></script>
-<script src="../imageoperate/dist/imageoperate.gesture.min.js"></script>
 <script src="src/imageditor.js"></script>
 <script>
   var img = document.getElementById('himg');
@@ -26,11 +24,13 @@
 
 ```css
 .imageditor {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+  background: #fff;
+  overflow: hidden;
 }
 
 .imageditor img {
@@ -49,8 +49,6 @@
 
 .imageditor .box {
   position: absolute;
-  opacity: .1;
-  background: #fff;
   width: 200px;
   height: 200px;
   margin: auto;
@@ -58,17 +56,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-.imageditor .cover {
-  position: absolute;
-  background: #fff;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.7);
+  border: 1px solid #666;
 }
 ```
