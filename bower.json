@@ -1,10 +1,8 @@
 {
     "name": "frontforge",
     "version": "1.1.0",
-    "homepage": "",
-    "authors": [
-        "bigfact<bigfact@foxmail.com>"
-    ],
+    "homepage": "https://github.com/bigfact/frontforge#readme",
+    "author": "bigfact <bigfact@foxmail.com>",
     "description": "前端实验环境",
     "main": "",
     "moduleType": [],
@@ -16,8 +14,5 @@
         "test",
         "tests"
     ],
-    "dependencies": {
-        // "angular": "~1.4.7",
-        // "angular-ui-router": "~0.2.15"
-    }
+    "dependencies": {}
 }

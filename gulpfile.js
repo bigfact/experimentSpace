@@ -3,13 +3,17 @@ var browserSync = require('browser-sync').create();
 var watch = require('gulp-watch');
 var compass = require('gulp-compass');
 
+var root = './';
+
 /*******************************************************************************
  * src
  *******************************************************************************/
+ 
+ var src = root + 'things/';
 
 // 监听 scss 文件，自动编译 scss 文件
 gulp.task('buildscss', function() {
-    return gulp.watch('./**/**.scss')
+    return gulp.watch(src + '**/**.scss')
         .on('change', function(path) {
             gulp.src(path)
                 .pipe(compass({
@@ -24,15 +28,15 @@ gulp.task('buildscss', function() {
 gulp.task('browser', function() {
 
     // 监听文件自动刷新
-    watch(['./**/**.js', './**/**.css', './**/**.html'], browserSync.reload);
+    watch([src + '**/**.js', src + '**/**.css', src + '**/**.html'], browserSync.reload);
 
-    gulp.watch('./**/**.scss')
+    gulp.watch(src + '**/**.scss')
         .on('change', function(path) {
             gulp.src(path)
                 .pipe(compass({
                     // config_file: './config.rb',
-                    css: './things/',
-                    sass: './things/'
+                    css: src,
+                    sass: src
                 })).on('error', function(err) {
                     console.log('sass Error!', err.message);
                     this.end();
@@ -42,7 +46,7 @@ gulp.task('browser', function() {
     // 开发服务器
     return browserSync.init({
         server: {
-            baseDir: "./",
+            baseDir: root,
             //开启目录浏览
             directory: true
         },
@@ -63,18 +67,3 @@ gulp.task('browser', function() {
 gulp.task('default', gulp.series('browser'), function(callback) {
     callback();
 });
-
-
-/*******************************************************************************
- * dist
- *******************************************************************************/
- 
-// var cleanCSS = require('gulp-clean-css');
-// var rename = require('gulp-rename');
-
-// gulp.task('mincss', function() {
-//     return gulp.src('./things/**/*.css')
-//         .pipe(cleanCSS())
-//         .pipe(rename({ extname: '.min.css' }))
-//         .pipe(gulp.dest('./things/'));
-// });
