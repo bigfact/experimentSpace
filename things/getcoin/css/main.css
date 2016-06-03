@@ -1,7 +1,8 @@
 /*
-    Author: bigfact<bigfact0@gmail.com>
-    Time: 2016.03.24
-*/
+ * @version 0.2.0
+ * @author bigfact
+ * @date 2016.03.24
+ */
 html {
   font-size: 10px;
   color: #100E06;
@@ -16,7 +17,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url(../imgs/bg-1.png) no-repeat 0 0;
+  background: url(../img/bg-1.png) no-repeat 0 0;
   background-color: #342C4E;
   -moz-background-size: 100% auto;
   -o-background-size: 100% auto;
@@ -58,7 +59,7 @@ header {
 }
 .gameblock .coin {
   position: fixed;
-  background: url(../imgs/coin.png);
+  background: url(../img/coin.png);
   -moz-background-size: 105%;
   -o-background-size: 105%;
   -webkit-background-size: 105%;
@@ -167,7 +168,7 @@ header {
 }
 .infoblock .title::after {
   content: '';
-  background: url(../imgs/redpaper.png) no-repeat 0 0;
+  background: url(../img/redpaper.png) no-repeat 0 0;
   -moz-background-size: 100% auto;
   -o-background-size: 100% auto;
   -webkit-background-size: 100% auto;
@@ -270,7 +271,7 @@ footer {
   padding: 0 10px 0 0;
 }
 .popup .main .close i {
-  background: url(../imgs/icon-close.png) no-repeat 0 0;
+  background: url(../img/icon-close.png) no-repeat 0 0;
   -moz-background-size: 100% auto;
   -o-background-size: 100% auto;
   -webkit-background-size: 100% auto;

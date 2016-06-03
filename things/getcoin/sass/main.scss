@@ -1,14 +1,15 @@
 /*
-    Author: bigfact<bigfact0@gmail.com>
-    Time: 2016.03.24
-*/
+ * @version 0.2.0
+ * @author bigfact
+ * @date 2016.03.24
+ */
 
 @charset "UTF-8";
 
 @import "compass/css3";
 
 // 媒体查询
-@import "_include-media.scss";
+@import "../../../sass/_include-media.scss";
 
 // 屏幕宽度配置
 $breakpoints: (
@@ -25,7 +26,7 @@ html {
     }
 }
 
-$body-bg: url(../imgs/bg-1.png);
+$body-bg: url(../img/bg-1.png);
 $body-bg-color: #342C4E;
 $body-top: 0;
 body {
@@ -62,7 +63,7 @@ header {
 $coinSize: 80px;
 $coinEndDis: 1000px;
 $coinKFName: 'coinani';
-$coin-bg: url(../imgs/coin.png);
+$coin-bg: url(../img/coin.png);
 $game-color: #000;
 $game-button-bg-color: #FFF35E;
 $game-button-color: #393151;
@@ -161,7 +162,7 @@ $info-bg-color: #F8BB40;
 $info-content-bg-color: #FFE372;
 $info-button-bg-color: #342C4E;
 $info-button-color: #FFF35E;
-$info-title-bg-url: url(../imgs/redpaper.png);
+$info-title-bg-url: url(../img/redpaper.png);
 .infoblock {
     position: relative;
     .topimg {
@@ -266,7 +267,7 @@ $popup-bg-color: #393151;
 $popup-title-color: #FFF35E;
 $popup-button-bg-color: #FFF35E;
 $popup-button-color: #393151;
-$popup-color-button-url: url(../imgs/icon-close.png);
+$popup-color-button-url: url(../img/icon-close.png);
 .popup {
     display: none;
     position: fixed;
