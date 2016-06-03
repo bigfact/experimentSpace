@@ -1,14 +1,15 @@
 /*
-    Author: bigfact<bigfact0@gmail.com>
-    Time: 2016.04.01
-*/
+ * @version 0.1.0
+ * @author bigfact
+ * @date 2016.04.01
+ */
 
 @charset "UTF-8";
 
 @import "compass/css3";
 
 // 媒体查询
-@import "_include-media.scss";
+@import "../../../sass/_include-media.scss";
 
 // 屏幕宽度配置
 $breakpoints: (
@@ -124,19 +125,19 @@ $loading-size: $centerBtn-size * 3;
             .circle {
                 &:nth-of-type(1) {
                     @include animation-delay(0 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
                 &:nth-of-type(2) {
                     @include animation-delay(2 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
                 &:nth-of-type(3) {
                     @include animation-delay(4 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
                 &:nth-of-type(4) {
                     @include animation-delay(6 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
             }
         }
@@ -145,19 +146,19 @@ $loading-size: $centerBtn-size * 3;
             .circle {
                 &:nth-of-type(1) {
                     @include animation-delay(1 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
                 &:nth-of-type(2) {
                     @include animation-delay(3 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
                 &:nth-of-type(3) {
                     @include animation-delay(5 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
                 &:nth-of-type(4) {
                     @include animation-delay(7 * $loading-time-diff + 0s);
-                    background: url(../imgs/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
+                    background: url(../img/b01a44e9c2742f974fc7a645a0946d10.jpg) no-repeat 0 0 / 100%;
                 }
             }
         }
