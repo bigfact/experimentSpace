@@ -1,6 +1,6 @@
 /**
  * 单页面应用
- * @version 0.0.1
+ * @version 0.0.2
  * @author bigfact
  * @date 2016.06.06
  */
@@ -11,14 +11,9 @@
    * 路由
    */
   var routers = {
-    '/index': {
-      'tpl': 'tpl/index.html',
-      'ctrl': 'ctrlIndex',
-    },
-    '/test': {
-      'tpl': 'tpl/test.html',
-      'ctrl': 'ctrlTest',
-    },
+    '/index': 'tpl/index.html',
+    '/test': 'tpl/test.html',
+    '/test2': 'tpl/test2.html',
   }
 
   /**
@@ -28,17 +23,14 @@
     default: routers['/index'],
     router: '',
     view: document.querySelector('[bi-view]'),
+    v: '0.0.2',
   }
-
-  /**
-   * 导出 app 为全局对象
-   */
-  window.app = app;
 
   /**
    * 初始化
    */
   init(window.location.href);
+  bi_click(app.view);
 
   /**
    * 监听 hash 改变 （路由改变）
@@ -48,13 +40,6 @@
   };
 
   /**
-   * 控制器 index
-   */
-  function ctrlIndex() {
-    console.log(this);
-  }
-
-  /**
    * 根据当前页面的 url 地址初始化应用
    * @param url 当前页面的地址
    */
@@ -62,13 +47,18 @@
     app.router = routers[getHash(url)] || app.default;
     // 获取模板
     ajax({
-      url: app.router.tpl,
+      url: app.router + '?v=' + app.v,
       success: function (response) {
-        app.view.innerHTML = response;
-        var script = document.createElement('script');
-        script.innerHTML = response.substring(response.indexOf('<script>') + 8, response.indexOf('</script>'));;
-        app.view.replaceChild(script, app.view.querySelector('script'));
-        typeof app[app.router.ctrl] === 'function' && app[app.router.ctrl]();
+        try {
+          eval(response.substring(response.indexOf('<script>') + 8, response.indexOf('</script>')))(app);
+          app.view.innerHTML = response;
+          // var i = eval(response.substring(response.indexOf('<script>') + 8, response.indexOf('</script>')))(app);
+          // console.log(i);
+          // typeof app[app.router.ctrl] === 'function' && app[app.router.ctrl]();
+        }
+        catch (err) {
+          console.log(err);
+        }
       }
     });
   }
@@ -158,6 +148,19 @@
       return tmp;
     }
 
+  }
+
+  /**
+   * 监听元素的点击事件，利用事件委托，执行子元素动作
+   * @param node 需要监听 click 事件的元素
+   */
+  function bi_click(node) {
+    node.addEventListener('click', function (e) {
+      // 子元素回退动作
+      if (e.target.hasAttribute('bi-back')) {
+        history.go(-1);
+      }
+    }, false);
   }
 
 } (window)

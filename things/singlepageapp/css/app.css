@@ -1,0 +1,439 @@
+@charset "UTF-8";
+/**
+ * 样式
+ * @author bigfact
+ * @version 0.0.2
+ * @date 2016.05.24
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  font-size: 10px;
+  color: #333;
+}
+
+body {
+  background: #EFEFEF;
+  font-size: 1.6rem;
+}
+
+button, input {
+  background: none;
+  border: 0;
+  outline: 0;
+}
+button[disabled], input[disabled] {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+  opacity: 0.6;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: #333;
+}
+a:hover, a:active, a:focus {
+  outline: 0;
+  color: #333;
+}
+
+/**
+ * 浮动
+ */
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+/**
+ * 字体颜色
+ */
+.c-white {
+  color: #FFFFFF;
+}
+
+.c-gray {
+  color: #888888;
+}
+
+.c-blue {
+  color: #0090FF;
+}
+
+.c-red {
+  color: #E84E40;
+}
+
+/**
+ * 对齐
+ */
+.ta-c {
+  text-align: center;
+}
+
+/**
+ * 字号
+ */
+.fs-14 {
+  font-size: 1.4rem;
+}
+
+.fs-16 {
+  font-size: 1.6rem;
+}
+
+.fs-18 {
+  font-size: 1.8rem;
+}
+
+.fs-20 {
+  font-size: 2rem;
+}
+
+.fs-22 {
+  font-size: 2.2rem;
+}
+
+/**
+ * 宽度
+ */
+.w-1 {
+  width: 100%;
+}
+
+.w-2 {
+  width: 50%;
+}
+
+.w-3 {
+  width: 33.33333333%;
+}
+
+.w-4 {
+  width: 25%;
+}
+
+/*
+ * 箭头
+ */
+/* 公共 */
+.i-arrow::after {
+  content: ' ';
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* 上 */
+.i-arrow-t::after {
+  border-top: 0.2em solid #C7C7C7;
+  border-left: 0.2em solid #C7C7C7;
+}
+
+/* 下 */
+.i-arrow-b::after {
+  border-bottom: 0.2em solid #C7C7C7;
+  border-right: 0.2em solid #C7C7C7;
+}
+
+/* 左 */
+.i-arrow-l::after {
+  border-bottom: 0.2em solid #C7C7C7;
+  border-left: 0.2em solid #C7C7C7;
+}
+
+/* 右 */
+.i-arrow-r::after {
+  border-top: 0.2em solid #C7C7C7;
+  border-right: 0.2em solid #C7C7C7;
+}
+
+/*
+ * 勾
+ */
+.i-right::after {
+  content: '';
+  display: inline-block;
+  width: 0.4em;
+  height: 0.8em;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-bottom: 0.25em solid #C7C7C7;
+  border-right: 0.25em solid #C7C7C7;
+}
+
+.i-right-active::after {
+  border-color: #FF8B80;
+}
+
+/**
+ * 行
+ */
+.row {
+  display: block;
+  position: relative;
+  background: #FFF;
+  padding: 1.2rem 1.5rem;
+}
+.row::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.row:last-of-type::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.row-title {
+  padding: 1rem 1.5rem;
+}
+
+.row-empty {
+  padding: 1rem;
+}
+
+/**
+ * 格子容器
+ */
+.grid {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+.grid::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.grid::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+/**
+ * 格子
+ */
+.cell {
+  position: relative;
+  background: #FFF;
+  float: left;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+.cell::before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-left: 1px solid #D9D9D9;
+  -moz-transform: scaleX(0.5);
+  -ms-transform: scaleX(0.5);
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+.cell::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+/**
+ * 弹窗
+ */
+.pop .mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2000px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/**
+ * 下拉菜单
+ */
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 40%;
+  overflow-y: scroll;
+}
+
+/**
+ * 对话框
+ */
+.dialog {
+  position: fixed;
+  top: 30%;
+  background: #FFF;
+  width: 80%;
+  margin: 0 10%;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.dialog .title {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+}
+.dialog .content {
+  padding: 0 1.5rem 1.5rem;
+}
+.dialog .footer {
+  position: relative;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+.dialog .footer::before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  border-top: 1px solid #D9D9D9;
+}
+.dialog .footer > * {
+  height: 100%;
+  float: left;
+  width: 49%;
+}
+.dialog .footer > *:first-of-type {
+  border-right: 1px solid #D9D9D9;
+}
+.dialog .footer > *:only-of-type {
+  width: 100%;
+  border: none;
+}
+
+/**
+ * loading 效果
+ */
+.loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 3rem;
+  text-align: center;
+}
+.loading > * {
+  width: 3rem;
+  height: 3rem;
+  background-color: #FFF;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  display: inline-block;
+  -moz-animation: "kfs-loading" 1.4s infinite ease-in-out;
+  -webkit-animation: "kfs-loading" 1.4s infinite ease-in-out;
+  animation: "kfs-loading" 1.4s infinite ease-in-out;
+  -moz-animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.loading > *:first-of-type {
+  -moz-animation-delay: -0.16s;
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loading > *:last-of-type {
+  -moz-animation-delay: 0.16s;
+  -webkit-animation-delay: 0.16s;
+  animation-delay: 0.16s;
+}
+
+@-moz-keyframes kfs-loading {
+  0%, 80%, 100% {
+    -moz-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes kfs-loading {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes kfs-loading {
+  0%, 80%, 100% {
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

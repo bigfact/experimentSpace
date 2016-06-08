@@ -4,10 +4,32 @@
   }
 </style>
 
-<h1>index</h1>
+<section class="index">
+  <div class="row">
+    <h1 class="ta-c">index</h1>
+  </div>
+  <br>
+  <a href="#/test" class="row">
+    test
+    <i class="i-arrow i-arrow-r fr"></i>
+  </a>
+  <a href="#/test2" class="row">
+    test2
+    <i class="i-arrow i-arrow-r fr"></i>
+  </a>
+</section>
 
 <script>
-  app.ctrlIndex = function () {
-    console.log(this, 'ctrlIndex');
-  }
+  (function () {
+    return function (app) {
+      console.log('ctrlIndex');
+      console.log(app);
+    }
+  }());
+  
+  // ctrl = function(app) {
+  //   console.log('Index');
+  //   console.log(app);
+  // }
+
 </script>
