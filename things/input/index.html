@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<title>input</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no minimal-ui" />
+	<style>
+		body {
+			font-size: 16px;
+		}
+		
+		input,
+		button {
+			border: 1px solid;
+			font-size: 100%;
+		}
+	</style>
+</head>
+<style>
+
+</style>
+
+<body>
+	<h1>input 示例</h1>
+	<hr>
+	<h2>input watch</h2>
+	<div>
+		<label for="phone0">phone number</label>
+		<input name="phone0" type="text" data-watch="^1\d{0,10}$" placeholder="请输入手机号码">
+	</div>
+	<div>
+		<p>只能输入以 1 开头最长 11 位的数字</p>
+		<pre><code>data-watch="^1\d{0,10}$"</code></pre>
+	</div>
+	<div>
+		<label for="">number</label>
+		<input type="text" data-watch="^80{0,4}$|^80{4}(\.0{0,2})?$|^[3-9]\d{0,3}$|^[3-9]\d{3}(\.\d{0,2})$|^[1-7]\d{0,4}$|^[1-7]\d{4}(\.\d{0,2})$">
+	</div>
+	<div>
+		<p>只能输入 3000 - 80000 的数字</p>
+		<pre><code>data-watch="^80{0,4}$|^80{4}(\.0{0,2})?$|^[3-9]\d{0,3}$|^[3-9]\d{3}(\.\d{0,2})$|^[1-7]\d{0,4}$|^[1-7]\d{4}(\.\d{0,2})$"</code></pre>
+	</div>
+	<hr>
+	<h2>input validate</h2>
+	<div>
+		<div>
+			<label for="phone1">phone number</label>
+			<input name="phone1" type="text" data-valid="^1\d{10}$" data-tip="请输入正确的手机号码" placeholder="请输入手机号码">
+		</div>
+	</div>
+	<div>
+		<p>验证输入值为 1 开头 11 位的数字</p>
+		<pre><code>data-valid="^1\d{10}$"</code></pre>
+	</div>
+	<div>
+		<label for="">number</label>
+		<input type="text" data-valid="^([3-9]\d{3}|[1-7]\d{4})(\.\d{1,2})?$|^80{4}(\.0{1,2})?$" data-tip="请输入 3000-80000 的数字" placeholder="请输入 3000-80000 的数字">
+	</div>
+	<div>
+		<p>验证输入值为 3000 - 80000 的数字</p>
+		<pre><code>data-valid="^([3-9]\d{3}|[1-7]\d{4})(\.\d{1,2})?$|^80{4}(\.0{1,2})?$"</code></pre>
+	</div>
+	<div>
+		<button class="valid">验证</button>
+	</div>
+	<hr>
+	<script src="watch.js"></script>
+	<script src="validate.js"></script>
+	<script>
+		// 监听输入值改变验证
+		qsqtools.watch(document.body);
+		// 输入完毕点击按钮触发验证
+		qsqtools.validate({
+			node: document.body,
+			trigger: document.querySelector('.valid'),
+			cb: function(valid, inputs, i) {
+				if(!valid) {
+					alert(inputs[i].getAttribute('data-tip') || inputs[i].placeholder);
+					inputs[i].focus();
+				}
+				else {
+					alert('验证成功！');
+				}
+				console.log(valid, inputs, i);
+			},
+		});
+  	</script>
+</body>
+
+</html>
