@@ -1,5 +1,5 @@
 /**
- * @version 1.4.0
+ * @version 1.4.1
  * @author bigfact
  * @date 2016.3.18
  */
@@ -8,6 +8,8 @@
  * gulp
  */
 var gulp = require('gulp');
+var through = require('through2');
+var path = require('path');
 
 /**
  * 开发服务器加载
@@ -53,28 +55,69 @@ var src = root + (thing ? thing + '/' : '');
 /**
  * 编译 sass 文件
  */
-gulp.task('build-sass', function () {
-	return gulp.src(src + 'sass/**/*.scss')
-		.pipe(compass({
-			css: src + 'css',
-			sass: src + 'sass'
-		})).on('error', (err) => {
-			console.log('sass Error!', err.message);
-		});
+gulp.task('sass', function () {
+	return gulp.src(src + 'things/**/**.scss')
+		.pipe(through.obj(function collectRevs(file, enc, cb) {
+			console.log(path.relative(src, file.path));
+			func_sass(path.relative(src, file.path));
+			cb();
+		}));
 });
+
+// gulp.task('sass', function () {
+// 	return gulp.src(src + 'sass/**/*.scss')
+// 		.pipe(compass({
+// 			css: src + 'css',
+// 			sass: src + 'sass'
+// 		})).on('error', (err) => {
+// 			console.log('sass Error!', err.message);
+// 		});
+// });
+
+/**
+ * 编译 sass 文件
+ * @param {String} path 需要被编译的 sass 文件的路径
+ */
+function func_sass(path) {
+		var tmp = path.replace(/\\\w*.scss/, '');
+		gulp.src(src + path)
+		.pipe(compass({
+			css: src + tmp,
+			sass: src + tmp
+		}))
+		.on('error', function (err) {
+			// console.log('sass Error!', err.message);
+			this.emit('end');
+		});
+}
 
 /**
  * 开发服务器任务、文件监听
  */
 gulp.task('browser', function () {
 
-	// 监听文件自动刷新
-	watch([src + '**/**.js', src + '**/**.css', src + '**/**.html'], browserSync.reload);
+		// 监听文件自动刷新
+		watch([src + '**/**.js', src + '**/**.css', src + '**/**.html'], browserSync.reload);
 
-	gulp.watch(src + 'sass/**/*.scss', gulp.parallel('build-sass'));
+		// gulp.watch(src + 'sass/**/*.scss', gulp.parallel('sass'));
 
-	// 开发服务器
-	return browserSync.init({
+		// 监听 sass 文件，自动编译
+		gulp.watch(src + '**/**.scss')
+		.on('add', function (path) {
+			console.log('File ' + path + ' was added');
+			func_sass(path);
+		})
+		.on('change', function (path, stats) {
+			console.log('File ' + path + ' was changed');
+			func_sass(path);
+		})
+		.on('unlink', function (path) {
+			console.log('File ' + path + ' was removed');
+			func_sass(path);
+		});
+
+		// 开发服务器
+		return browserSync.init({
 		server: {
 			baseDir: root,
 			//开启目录浏览
@@ -90,14 +133,14 @@ gulp.task('browser', function () {
 		// },
 		// 禁用操作同步
 		ghostMode: false
-	});
+		});
 });
 
 /**
  * 开启开发任务
  */
-gulp.task('debug', gulp.series('build-sass', 'browser'), function (callback) {
-	callback();
+gulp.task('debug', gulp.series('sass', 'browser'), function (callback) {
+		callback();
 });
 
 /**
@@ -153,7 +196,7 @@ var uglify = require('gulp-uglify');
  * js 文件处理
  */
 gulp.task('js', function () {
-	return gulp.src([src + '**/*.js', '!' + src + '**/*.min.js'])
+		return gulp.src([src + '**/*.js', '!' + src + '**/*.min.js'])
 		// .pipe(gulp.dest(dist))
 		// 丑化
 		.pipe(uglify())
@@ -174,7 +217,7 @@ gulp.task('js', function () {
  *  css 文件处理
  */
 gulp.task('css', function () {
-	return gulp.src([src + '**/*.css', '!' + src + '**/*.min.css'])
+		return gulp.src([src + '**/*.css', '!' + src + '**/*.min.css'])
 		// .pipe(gulp.dest(dist))
 		.pipe(cleancss())
 		.pipe(rename({ suffix: '.min' }))
@@ -207,10 +250,10 @@ gulp.task('css', function () {
  * 发布任务
  */
 gulp.task('build', gulp.series(
-	// 'clean',
-	// 'html',
-	// 'img',
-	'build-sass',
-	'css',
-	'js'
+		// 'clean',
+		// 'html',
+		// 'img',
+		'sass',
+		'css',
+		'js'
 ));
