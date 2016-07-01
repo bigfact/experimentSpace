@@ -4,21 +4,20 @@
   "description": "前端实验环境",
   "main": "",
   "scripts": {
-    "debug": "gulp"
+    "debug": "gulp debug",
+    "build": "gulp build"
   },
   "author": "bigfact <bigfact0@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.11.0",
     "css-loader": "^0.23.1",
-    "gulp-watch": "^4.3.5",
     "style-loader": "^0.13.0"
   },
   "dependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^2.0.3",
     "gulp-compass": "^2.1.0",
+    "gulp-cssnano": "^2.1.2",
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^7.0.0",
     "gulp-rev-collector": "^1.0.2",
