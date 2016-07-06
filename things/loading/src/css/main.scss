@@ -8,7 +8,7 @@
 @import "compass/css3";
 
 // 媒体查询
-@import "_include-media.scss";
+@import "../../public/css/_include-media.scss";
 
 // 屏幕宽度配置
 $breakpoints: (
