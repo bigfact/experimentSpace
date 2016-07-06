@@ -11,7 +11,7 @@
  	 * 当包含 data-watch 属性的输入框输入值改变时对其进行验证，直到其值通过 data-watch 所包含的正则表达式的验证 
  	 * @param {Node} node 需要监听验证的输入框或其父级元素
 	 * @example
-	 * qsqtools.watch(node);
+	 * validator.watch(node);
  	 */
 	function watch(node) {
 		node instanceof Node && node.addEventListener('input', function (e) {
@@ -22,8 +22,8 @@
 		}), false;
 	}
 
-	w.qsqtools = w.qsqtools || {};
+	w.Validator = w.Validator || {};
 
-	w.qsqtools.watch = watch;
+	w.Validator.watch = watch;
 
 } (window);

@@ -14,7 +14,7 @@
 	 * @param {Node} options.trigger 触发验证的元素
 	 * @param {function} options.cb 验证完成回调函数，包含三个参数 (valid, inputs, i) - (是否验证通过, 输入框数组, 验证失败的输入框位置)
  	 * @example
- 	 * qsqtools.validate({
+ 	 * Validator.validate({
  	 *     node: node,
  	 *     trigger: button,
  	 *     cb: function (valid, inputs, i) {
@@ -41,8 +41,8 @@
 		}
 	}
 
-	w.qsqtools = w.qsqtools || {};
+	w.Validator = w.Validator || {};
 
-	w.qsqtools.validate = validate;
+	w.Validator.validate = validate;
 
 } (window);

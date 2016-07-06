@@ -22,7 +22,7 @@
 </style>
 
 <body>
-	<h1>input 示例</h1>
+	<h1>Validator 示例</h1>
 	<hr>
 	<h2>input watch</h2>
 	<div>
@@ -69,9 +69,9 @@
 	<script src="validate.js"></script>
 	<script>
 		// 监听输入值改变验证
-		qsqtools.watch(document.body);
+		Validator.watch(document.body);
 		// 输入完毕点击按钮触发验证
-		qsqtools.validate({
+		Validator.validate({
 			node: document.body,
 			trigger: document.querySelector('.valid'),
 			cb: function(valid, inputs, i) {
