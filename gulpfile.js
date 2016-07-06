@@ -85,7 +85,6 @@ gulp.task('browser', function () {
 		})
 		.on('unlink', function (path) {
 			console.log('File ' + path + ' was removed');
-			func_sass(path);
 		});
 
 	// 开发服务器
