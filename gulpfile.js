@@ -39,7 +39,6 @@ var src = root + 'things/';
 gulp.task('sass', function () {
 	return gulp.src(src + '**/**.scss')
 		.pipe(through.obj(function collectRevs(file, enc, cb) {
-			// console.log(path.relative(root, file.path));
 			func_sass(path.relative(root, file.path));
 			cb();
 		}));
@@ -163,7 +162,6 @@ gulp.task('css', function () {
  * 发布任务
  */
 gulp.task('build', gulp.series(
-	'sass',
 	'css',
 	'js'
 ));

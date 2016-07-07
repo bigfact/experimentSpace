@@ -1,26 +1,11 @@
-/*
-  Author: bigfact<bigfact0@gmail.com>
-  Time: 2016.04.05
-*/
-
 @charset "UTF-8";
 
+/*
+ * @author: bigfact
+ * @date: 2016.04.05
+*/
+
 @import "compass/css3";
-
-// 媒体查询
-@import "../../public/css/_include-media.scss";
-
-// 屏幕宽度配置
-$breakpoints: (
-  iphone4: 320px, 
-  iphone5: 320px, 
-  iphone6: 375px, 
-  iphone6p: 414px,
-  iphone4h: 480px,
-  iphone5h: 568px,  
-  iphone6h: 667px, 
-  iphone6ph: 736px
-);
 
 $body-bg-color: #503149;
 body {
@@ -35,9 +20,9 @@ body {
   padding: 0;
 }
 
-// 
-// loading 动画
-// 
+/**
+ * loading 动画
+ */
 $loading-time-diff: .3;
 $loading-size-w: 100%;
 $loading-size-h: 100px;
@@ -48,114 +33,67 @@ $square-size-child-size: 32%;
 $square-time: 3s;
 $square-timing-function: ease;
 $square-diff: 68%;
+
 .loading {
   width: $loading-size-w;
   height: $loading-size-h;
   position: relative;
-  // 
-  // loading 九宫格 动画
-  // 
-  .square {
+}
+
+/**
+ * loading 九宫格 动画
+ */
+.square {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: $square-size;
+  height: $square-size;
+  > * {
+    display: block;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
-    width: $square-size;
-    height: $square-size;
-    > * {
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: $square-size-child-size;
-      height: $square-size-child-size;
-      background: $square-size-child-bg-color;
-      @include animation-fill-mode(both);
-      &:nth-of-type(1) {
-        @include animation(m1 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(2) {
-        @include animation(m2 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(3) {
-        @include animation(m3 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(4) {
-        @include animation(m4 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(6) {
-        @include animation(m6 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(7) {
-        @include animation(m7 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(8) {
-        @include animation(m8 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(9) {
-        @include animation(m9 $square-time infinite $square-timing-function);
-      }
+    width: $square-size-child-size;
+    height: $square-size-child-size;
+    background: $square-size-child-bg-color;
+    @include animation-fill-mode(both);
+    &:nth-of-type(1) {
+      @include animation(m1 $square-time infinite $square-timing-function);
     }
-  }
-  // 
-  // loading 九宫格 动画 2
-  //
-  .square2 {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: $square-size;
-    height: $square-size;
-    > * {
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      width: $square-size-child-size;
-      height: $square-size-child-size;
-      background: $square-size-child-bg-color;
-      @include animation-fill-mode(both);
-      &:nth-of-type(1) {
-        @include animation(m10 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(2) {
-        @include animation(m20 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(3) {
-        @include animation(m30 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(4) {
-        @include animation(m40 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(6) {
-        @include animation(m60 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(7) {
-        @include animation(m70 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(8) {
-        @include animation(m80 $square-time infinite $square-timing-function);
-      }
-      &:nth-of-type(9) {
-        @include animation(m90 $square-time infinite $square-timing-function);
-      }
+    &:nth-of-type(2) {
+      @include animation(m2 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(3) {
+      @include animation(m3 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(4) {
+      @include animation(m4 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(6) {
+      @include animation(m6 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(7) {
+      @include animation(m7 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(8) {
+      @include animation(m8 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(9) {
+      @include animation(m9 $square-time infinite $square-timing-function);
     }
   }
 }
-// 
-// loading 九宫格 动画 
-//
+
+/**
+ * loading 九宫格 动画 
+ */
 @include keyframes(m1) {
   0% {
     top: 0;
@@ -460,9 +398,61 @@ $square-diff: 68%;
     right: 0;
   }
 }
-// 
-// loading 九宫格 动画 2
-//
+
+/**
+ * loading 九宫格 动画 2
+ */
+.square2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: $square-size;
+  height: $square-size;
+  > * {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $square-size-child-size;
+    height: $square-size-child-size;
+    background: $square-size-child-bg-color;
+    @include animation-fill-mode(both);
+    &:nth-of-type(1) {
+      @include animation(m10 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(2) {
+      @include animation(m20 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(3) {
+      @include animation(m30 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(4) {
+      @include animation(m40 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(6) {
+      @include animation(m60 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(7) {
+      @include animation(m70 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(8) {
+      @include animation(m80 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(9) {
+      @include animation(m90 $square-time infinite $square-timing-function);
+    }
+  }
+}
+
+/**
+ * loading 九宫格 动画 2
+ */
 @include keyframes(m10) {
   0% {
     top: 0;

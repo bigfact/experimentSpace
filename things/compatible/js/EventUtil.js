@@ -1,11 +1,9 @@
-// *******
-// 
-// 标题: EventUtil.js
-// 描述: 事件处理兼容对象
-// 创建者: bigfact
-// 创建时间: 2016.01.20
-// 
-// *******
+/**
+ * EventUtil.js
+ * 事件处理兼容对象
+ * @author bigfact
+ * @date 2016.01.20
+ */
 
 (function (w) {
     'use strict';

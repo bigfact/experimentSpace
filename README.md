@@ -5,16 +5,14 @@
 ## 目录
 
 * things: 所有实验小项目
-* css: 公用的 css 文件
-* sass: 公用的 sass 文件
-* js: 公用的 js 文件
-* img: 公用的图片文件
+* things/public: 公用文件
 
 ## 约定
 
 * 每一次 git 提交，只涉及一个小项目内容
 * 提交 git 备注格式，小项目名 + 版本 + 更新信息
 * 类名大写
+* sass 文件和 css 文件放在一个文件夹下
 
 ## 环境配置
 
@@ -37,7 +35,7 @@ $ bower install
 * debug
 
 ```
-$ gulp debug (--thing=things/**)
+$ gulp debug
 ```
 
 * 移动端调试引入 [vconsole](https://github.com/WechatFE/vConsole) (前端调试面板)
@@ -49,7 +47,7 @@ $ gulp debug (--thing=things/**)
 ## 发布
 
 ```
-$ gulp dist (--thing=things/**)
+$ gulp build
 ```
 
 ## 参考
