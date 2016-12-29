@@ -4,8 +4,8 @@
 
 ## 目录
 
-* things: 所有实验小项目
-* things/public: 公用文件
+* src: 所有实验小项目
+  * public: 公用文件
 
 ## 约定
 
@@ -16,32 +16,24 @@
 
 ## 环境配置
 
-* 全局环境
+* 全局
 
 ```
-$ npm install gulp // 版本参照 /package.json
-$ gem install compass
+$ npm install -g gulp // 版本参照 ./package.json 文件中 gulp 的版本
 ```
 
-* 本地环境
+* 项目
 
 ```
 $ npm install
-$ bower install
 ```
 
 ## 开发
 
-* debug
+* dev
 
 ```
-$ gulp debug
-```
-
-* 移动端调试引入 [vconsole](https://github.com/WechatFE/vConsole) (前端调试面板)
-
-```html
-<script src="/node_modules/vconsole/dist/vconsole.min.js"></script>
+$ gulp dev
 ```
 
 ## 发布
@@ -50,9 +42,15 @@ $ gulp debug
 $ gulp build
 ```
 
+## 代码相关
+
+* 移动端调试引入 [vconsole](https://github.com/WechatFE/vConsole) (前端调试面板)
+
+```html
+<script src="/node_modules/vconsole/dist/vconsole.min.js"></script>
+```
+
 ## 参考
 
 * [gulp in github](https://github.com/gulpjs/gulp)
 * [gulp 官网](http://gulpjs.com/)
-* [compass in github](https://github.com/Compass/compass)
-* [compass 官网](http://compass-style.org/)
