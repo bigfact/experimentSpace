@@ -10,6 +10,11 @@
 var gulp = require('gulp')
 
 /**
+ * html 压缩器
+ */
+var htmlmin = require('gulp-htmlmin')
+
+/**
  * css 压缩器
  */
 var cssnano = require('gulp-cssnano')
@@ -145,6 +150,12 @@ var dist = root + 'dist/'
  */
 gulp.task('html', function () {
 	return gulp.src(src + '**/**.html')
+		.pipe(htmlmin({
+			collapseWhitespace: true,
+			minifyCSS: true,
+			minifyJS: true,
+			removeComments: true,
+		}))
 		.pipe(gulp.dest(dist))
 })
 
@@ -181,7 +192,8 @@ gulp.task('build', gulp.series(
 	'css',
 	'js',
 	'img',
-	'css'
+	'css',
+	'html'
 ))
 
 /**
