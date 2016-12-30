@@ -41,6 +41,11 @@ var fs = require('fs')
 var path = require('path')
 
 /**
+ * sass 编译器
+ */
+var sass = require('node-sass')
+
+/**
  * 根路径
  */
 var root = './'
@@ -201,32 +206,33 @@ gulp.task('build', gulp.series(
  */
 
 /**
- * 编译 sass 文件
- * @param {String} path 需要被编译的 sass 文件的路径
+ * 编译 sass 文件，默认 css 输出目录为 sass 文件目录
+ * @param {String} inputPath 需要被编译的 sass 文件的路径
  */
-function compileSass(path) {
-	if (path.indexOf('/_') >= 0 || path.indexOf('_') == 0) {
-		console.log('This file "' + path + '" won\'t compile.')
+function compileSass(inputPath) {
+	if (/\/_|^_/.test(inputPath)) {
+		console.log('This file "' + inputPath + '" won\'t compile.')
 		return
 	}
-	var prefix = path.substr(0, path.length - 4)
+	var prefix = inputPath.substr(0, inputPath.length - 4)
 	var outputFilePath = {
 		css: prefix + 'css',
 		map: prefix + 'css.map',
 	}
 	sass.render({
-		file: path,
+		file: inputPath,
 		outputStyle: 'expanded', // Default: nested Values: nested, expanded, compact, compressed
-		sourceMap: outputFilePath.map
+		// sourceMap: outputFilePath.map
 	}, function (error, result) { // node-style callback from v3.0.0 onwards
 		if (error) {
-			console.log(error.status) // used to be "code" in v2x and below
-			console.log(error.column)
-			console.log(error.message)
-			console.log(error.line)
+			console.log(JSON.stringify(error), '\n')
+			// console.log(error.status) // used to be "code" in v2x and below
+			// console.log(error.column)
+			// console.log(error.message)
+			// console.log(error.line)
 		}	else {
 			fs.writeFile(outputFilePath.css, result.css)
-			fs.writeFile(outputFilePath.map, JSON.stringify(result.map))
+			// fs.writeFile(outputFilePath.map, JSON.stringify(result.map))
 			console.log(result.stats)
 		}
 	})
