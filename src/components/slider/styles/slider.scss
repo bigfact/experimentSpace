@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+.slider {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  &-item {
+    position: absolute;
+    float: left;
+    width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    transition-property: transform;
+    transition-duration: 0;
+    transition-timing-function: linear;
+  }
+  &-dots {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    margin: 0 auto;
+  }
+  $dot-size: 10px;
+  &-dot {
+    display: inline-block;
+    background: rgba(0, 0, 0, .4);
+    width: $dot-size;
+    height: $dot-size;
+    margin: 0 5px;
+    border-radius: $dot-size;
+    transition: background 300ms linear;
+    &.active {
+      background: rgba(0, 0, 0, .1);
+    }
+  }
+}

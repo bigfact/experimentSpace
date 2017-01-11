@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.slider {
+  text-align: center;
+  &-item {
+    border: 1px solid #666;
+    box-sizing: border-box;
+  }
+}
