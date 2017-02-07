@@ -95,7 +95,7 @@ gulp.task('browser', function () {
 		})
 		.on('unlink', function (path) {
 			console.log('File ' + path + ' was removed')
-			injectCss(path)
+			// injectCss(path)
 		})
 
 	// 监听 sass 文件，自动编译

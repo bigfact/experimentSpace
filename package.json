@@ -25,6 +25,7 @@
     "through2": "^2.0.1"
   },
   "dependencies": {
+    "compass-mixins": "^0.12.10",
     "include-media": "^1.4.2",
     "vconsole": "wechatfe/vConsole"
   },
