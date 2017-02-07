@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+/**
+ * 步进 loading 动画
+ * @author: bigfact
+ * @date: 2017.02.07
+ */
+
+// 导入 compass
+@import "../../../../node_modules/compass-mixins/lib/compass";
+@import "../../../../node_modules/compass-mixins/lib/animation/core";
+
+// 配置属性兼容前缀
+$experimental-support-for-mozilla: false;
+$experimental-support-for-webkit: true;
+$experimental-support-for-microsoft: false;
+$experimental-support-for-opera: false;
+$experimental-support-for-khtml: false;
+
+// 动画持续的总时间
+$time: 2;
+// 子元素宽度
+$width: 10;
+// 子元素高度
+$height: 50;
+// 动画每个子元素每次移动的距离
+$distance: 15;
+// loading 颜色
+$color: #FF5353;
+
+.loading-step {
+  position: relative;
+  display: inline-block;
+  width: $width * 7 + ($distance - $width) * 4 + ($distance * 2 - $width) * 2 + px;
+  height: $height + px;
+  // 子元素样式
+  > * {
+    background: $color;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+    width: $width + px;
+    height: $height + px;
+    @include animation-duration($time * 5 + s);
+    @include animation-timing-function(ease-in);
+    @include animation-iteration-count(infinite);
+  }
+  // 循环输出每个子元素单独的样式
+  @for $i from 0 to 7 {
+    .i#{$i} {
+      @include animation-name(i + $i);
+    }
+  }
+}
+
+// 子元素动画
+@include keyframes(i0) {
+  0%, 89%, 100% {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: 0;
+  }
+  4%, 14% {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: .5;
+  }
+  18%, 28% {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: 1;
+  }
+  32%, 42% {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: 1;
+  }
+  46%, 56% {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: 1;
+  }
+  60%, 70% {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: .5;
+  }
+  74%, 85% {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: 0;
+  }
+}
+@include keyframes(i1) {
+  0%, 89%, 100% {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: .5;
+  }
+  4%, 14% {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: 1;
+  }
+  18%, 28% {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: 1;
+  }
+  32%, 42% {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: 1;
+  }
+  46%, 56% {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: .5;
+  }
+  60%, 70% {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: 0;
+  }
+  74%, 85% {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: 0;
+  }
+}
+@include keyframes(i2) {
+  0%, 89%, 100% {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: 1;
+  }
+  4%, 14% {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: 1;
+  }
+  18%, 28% {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: 1;
+  }
+  32%, 42% {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: .5;
+  }
+  46%, 56% {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: 0;
+  }
+  60%, 70% {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: 0;
+  }
+  74%, 85% {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: .5;
+  }
+}
+@include keyframes(i3) {
+  0%, 89%, 100% {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: 1;
+  }
+  4%, 14% {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: 1;
+  }
+  18%, 28% {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: .5;
+  }
+  32%, 42% {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: 0;
+  }
+  46%, 56% {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: 0;
+  }
+  60%, 70% {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: .5;
+  }
+  74%, 85% {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: 1;
+  }
+}
+@include keyframes(i4) {
+  0%, 89%, 100% {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: 1;
+  }
+  4%, 14% {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: .5;
+  }
+  18%, 28% {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: 0;
+  }
+  32%, 42% {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: 0;
+  }
+  46%, 56% {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: .5;
+  }
+  60%, 70% {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: 1;
+  }
+  74%, 85% {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: 1;
+  }
+}
+@include keyframes(i5) {
+  0%, 89%, 100% {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: .5;
+  }
+  4%, 14% {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: 0;
+  }
+  18%, 28% {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: 0;
+  }
+  32%, 42% {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: .5;
+  }
+  46%, 56% {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: 1;
+  }
+  60%, 70% {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: 1;
+  }
+  74%, 85% {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: 1;
+  }
+}
+@include keyframes(i6) {
+  0%, 89%, 100% {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: 0;
+  }
+  4%, 14% {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: 0;
+  }
+  18%, 28% {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: .5;
+  }
+  32%, 42% {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: 1;
+  }
+  46%, 56% {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: 1;
+  }
+  60%, 70% {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: 1;
+  }
+  74%, 85% {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: .5;
+  }
+}
