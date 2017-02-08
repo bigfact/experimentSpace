@@ -1,30 +1,20 @@
-@charset "UTF-8";
-
 /**
  * 步进 loading 动画
  * @author: bigfact
  * @date: 2017.02.07
  */
 
-// 导入 compass
-@import "../../../../node_modules/compass-mixins/lib/compass";
-@import "../../../../node_modules/compass-mixins/lib/animation/core";
-
-// 配置属性兼容前缀
-$experimental-support-for-mozilla: false;
-$experimental-support-for-webkit: true;
-$experimental-support-for-microsoft: false;
-$experimental-support-for-opera: false;
-$experimental-support-for-khtml: false;
+// 导入全局配置文件
+@import "global";
 
 // 动画持续的总时间
 $time: 2;
 // 子元素宽度
-$width: 10;
+$width: 20;
 // 子元素高度
-$height: 50;
+$height: 20;
 // 动画每个子元素每次移动的距离
-$distance: 15;
+$distance: 25;
 // loading 颜色
 $color: #FF5353;
 
@@ -43,6 +33,7 @@ $color: #FF5353;
     float: left;
     width: $width + px;
     height: $height + px;
+    border-radius: 50%;
     @include animation-duration($time * 5 + s);
     @include animation-timing-function(ease-in);
     @include animation-iteration-count(infinite);

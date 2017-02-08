@@ -1,0 +1,674 @@
+/**
+ * 九宫格 loading 动画
+ * @author: bigfact
+ * @date: 2016.04.05
+ */
+
+// 导入全局配置文件
+@import "global";
+
+/**
+ * loading 动画
+ */
+$loading-time-diff: .3;
+$loading-size-w: 100%;
+$loading-size-h: 100px;
+
+$square-size: 66px;
+$square-children-bg-color: #FFF35E;
+$square-children-size: 32%;
+$square-time: 3s;
+$square-timing-function: ease;
+$square-diff: 68%;
+
+.loading-square {
+  width: $loading-size-w;
+  height: $loading-size-h;
+  position: relative;
+}
+
+/**
+ * loading 九宫格 动画
+ */
+.loading-square-0 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: $square-size;
+  height: $square-size;
+  > * {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $square-children-size;
+    height: $square-children-size;
+    background: $square-children-bg-color;
+    @include animation-fill-mode(both);
+    &:nth-of-type(1) {
+      @include animation(m1 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(2) {
+      @include animation(m2 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(3) {
+      @include animation(m3 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(4) {
+      @include animation(m4 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(6) {
+      @include animation(m6 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(7) {
+      @include animation(m7 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(8) {
+      @include animation(m8 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(9) {
+      @include animation(m9 $square-time infinite $square-timing-function);
+    }
+  }
+}
+
+/**
+ * loading 九宫格 动画 
+ */
+@include keyframes(m1) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  24% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  36% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: 0;
+  }
+  48% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: $square-diff;
+  }
+  60% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  72% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  84% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m6) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12%, 24%, 36%, 48%, 60% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  72% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  84% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m7) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  24%, 26%, 48%, 60%, 72% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  84% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m8) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  24% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  36%, 48%, 60%, 72%, 84% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m9) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  24% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  36% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  48% {
+    top: $square-diff;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  60% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  72% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  84% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m4) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12%, 24%, 36%, 48%, 60% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  72% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  84% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m3) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  24%, 36%, 48%, 60%, 72% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  84% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m2) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  12% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  24% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  36%, 48%, 60%, 72%, 84% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+/**
+ * loading 九宫格 动画 2
+ */
+.loading-square-1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: $square-size;
+  height: $square-size;
+  > * {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $square-children-size;
+    height: $square-children-size;
+    background: $square-children-bg-color;
+    @include animation-fill-mode(both);
+    &:nth-of-type(1) {
+      @include animation(m10 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(2) {
+      @include animation(m20 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(3) {
+      @include animation(m30 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(4) {
+      @include animation(m40 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(6) {
+      @include animation(m60 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(7) {
+      @include animation(m70 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(8) {
+      @include animation(m80 $square-time infinite $square-timing-function);
+    }
+    &:nth-of-type(9) {
+      @include animation(m90 $square-time infinite $square-timing-function);
+    }
+  }
+}
+
+/**
+ * loading 九宫格 动画 2
+ */
+@include keyframes(m10) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  40% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  60% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: 0;
+  }
+  80% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: $square-diff;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m20) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  40% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  60%, 80% {
+    top: 0;
+    bottom: $square-diff;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m30) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  40%, 60%, 80% {
+    top: 0;
+    bottom: $square-diff;
+    left: $square-diff;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m40) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20%, 40%, 60%, 80% {
+    top: 0;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m90) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  40% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  60% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  80% {
+    top: $square-diff;
+    bottom: 0;
+    left: $square-diff;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m80) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  40% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  60%, 80% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m70) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  40%, 60%, 80% {
+    top: $square-diff;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@include keyframes(m60) {
+  0% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  20%, 40%, 60%, 80% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $square-diff;
+  }
+  100% {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
