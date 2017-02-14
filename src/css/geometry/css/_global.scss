@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/**
+ * 全局配置
+ * @author bigfact
+ * @date 2017.02.13
+ */
+
+// 导入 compass
+@import "../../../../node_modules/compass-mixins/lib/compass";
+@import "../../../../node_modules/compass-mixins/lib/animation/core";
+
+// 配置属性兼容前缀
+$experimental-support-for-mozilla: false;
+$experimental-support-for-webkit: true;
+$experimental-support-for-microsoft: false;
+$experimental-support-for-opera: false;
+$experimental-support-for-khtml: false;
