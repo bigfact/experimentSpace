@@ -178,14 +178,27 @@ gulp.task('index', () => {
 			minifyJS: true,
 			removeComments: true,
 		})))
-		.pipe(gulp.dest(dist));
+		.pipe(gulpif('*.js', gulp.dest(function (file) {
+			var tmp = file.path.replace(/\/js\/.*/, '')
+			tmp = path.relative(root, tmp).replace(/^src\//, dist)
+			console.log(tmp)
+			return tmp
+		})))
+		.pipe(gulpif('*.html', gulp.dest(dist)));
 });
 
+/**
+ * 图片文件处理
+ */
+gulp.task('img', function () {
+	return gulp.src([src + '**/*.png'])
+		.pipe(gulp.dest(dist));
+});
 
 /**
  * 发布任务
  */
-gulp.task('build', gulp.series('sass', 'clean', 'index'))
+gulp.task('build', gulp.series('sass', 'clean', 'img', 'index'))
 
 /**
  * 方法
