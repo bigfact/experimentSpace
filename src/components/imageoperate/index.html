@@ -2,30 +2,35 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <title id="title">ImageOperate demo</title>
+	<meta charset="UTF-8">
+	<title>ImageOperate demo</title>
+	<style>
+		.img0 {
+			position: absolute;
+	 	}
+	</style>
 </head>
 
 <body>
-    <button onclick="clockwise()">顺时针</button>
-    <button onclick="anticlockwise()">逆时针</button>
-    <img src="../public/img/11718965.png" style="position: absolute;">
-    <script src="./js/imageoperate.js"></script>
-    <script>
-        var index = 0;
-        var imgs = document.getElementsByTagName('img');
-        var imgops = [];
-        for(var i = 0; i < imgs.length; i++) {
-            imgops[i] = new ImageOperate(imgs[i]);
-            imgops[i].init();
-        }
-        function clockwise () {
-            imgops[index].rotate(true);
-        }
-        function anticlockwise () {
-            imgops[index].rotate(false);
-        }
-    </script>
+	<button onclick="clockwise()">顺时针</button>
+	<button onclick="anticlockwise()">逆时针</button>
+	<img class="img0" src="../../public/img/11718965.png">
+	<script src="./js/imageoperate.js"></script>
+	<script>
+		var index = 0;
+		var imgs = document.getElementsByTagName('img');
+		var imgops = [];
+		for (var i = 0; i < imgs.length; i++) {
+			imgops[i] = new ImageOperate(imgs[i]);
+			imgops[i].init();
+		}
+		function clockwise() {
+			imgops[index].rotate(true);
+		}
+		function anticlockwise() {
+			imgops[index].rotate(false);
+		}
+	</script>
 </body>
 
 </html>

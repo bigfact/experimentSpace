@@ -1,8 +1,8 @@
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// author: "bigfact <bigfact0@gmail.com>"
-// date: 2016.04.29
-// 依赖 ../gesture/dist/gesture.min.js
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/**
+ * @author bigfact<bigfact0@gmail.com>
+ * @date 2016.04.29
+ * @dependency ../gesture/dist/gesture.min.js
+ */
 
 (function (window) {
     // 构造函数

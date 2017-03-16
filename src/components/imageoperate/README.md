@@ -1,13 +1,14 @@
-#ImageOperate
-图片操作的组件
+# ImageOperate
+
+图片预览操作的组件
 
 ## 功能
   * 鼠标滚轮或手势放大、缩小
   * 鼠标点击或手势拖动图片
   * 图片旋转
+	* 仅支持 PC 端
   
 ## imageoperate.js 参数及说明
-* 仅支持 PC 端
 
 ```js
 config = {            // 默认配置
@@ -20,6 +21,7 @@ config = {            // 默认配置
 ```
 
 ## imageoperate.gesture.js 参数及说明
+
 * 依赖 gesture.js
 * 支持移动端和 PC 端
 * 暂不支持旋转
@@ -33,41 +35,52 @@ config = {          // 默认配置
 ```
 
 ## 例子
-* [imageoperate.js 例子](https://bigfact.github.io/frontforge/things/imageoperate/index.html)
+
+* [imageoperate.js 例子](https://bigfact.github.io/frontforge/src/components/imageoperate/index.html)
 
 ```html
+<style>
+	.img0 {
+		position: absolute;
+	}
+</style>
 <button onclick="clockwise()">顺时针</button>
 <button onclick="anticlockwise()">逆时针</button>
-<img src="https://avatars1.githubusercontent.com/u/11718965?v=3&s=460" style="position: absolute;">
-<script src="src/imageoperate.js"></script>
+<img class="img0" src="../../public/img/11718965.png">
+<script src="./src/imageoperate.js"></script>
 <script>
-    var index = 0;
-    var imgs = document.getElementsByTagName('img');
-    var imgops = [];
-    for(var i = 0; i < imgs.length; i++) {
-        imgops[i] = new ImageOperate(imgs[i]);
-        imgops[i].init();
-    }
-    function clockwise () {
-        imgops[index].rotate(true);
-    }
-    function anticlockwise () {
-        imgops[index].rotate(false);
-    }
+	var index = 0;
+	var imgs = document.getElementsByTagName('img');
+	var imgops = [];
+	for (var i = 0; i < imgs.length; i++) {
+		imgops[i] = new ImageOperate(imgs[i]);
+		imgops[i].init();
+	}
+	function clockwise() {
+		imgops[index].rotate(true);
+	}
+	function anticlockwise() {
+		imgops[index].rotate(false);
+	}
 </script>
 ```
 
-* [imageoperate.gesture.js 例子](https://bigfact.github.io/frontforge/things/imageoperate/index.gesture.html)
+* [imageoperate.js 例子](https://bigfact.github.io/frontforge/src/components/imageoperate/index.html)
 
 ```html
-<img src="https://avatars1.githubusercontent.com/u/11718965?v=3&s=460" style="position: absolute;">
-<script src="../gesture/dist/gesture.min.js"></script>
-<script src="src/imageoperate.gesture.js"></script>
+<style>
+	.img0 {
+		position: absolute;
+	}
+</style>
+<img class="img0" src="../../public/img/11718965.png" style="position: absolute;">
+<script src="../gesture/js/gesture.js"></script>
+<script src="./js/imageoperate.gesture.js"></script>
 <script>
-    var img = document.getElementsByTagName('img')[0];
-    var imgp = new ImageOperate(img);
-    img.onload = function() {
-      imgp.init();
-    }
+	g = document.getElementsByTagName('img')[0];
+	var imgp = new ImageOperate(img);
+	img.onload = function () {
+		imgp.init();
+	}
 </script>
 ```
