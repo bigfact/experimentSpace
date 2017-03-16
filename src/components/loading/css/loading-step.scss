@@ -1,0 +1,297 @@
+/**
+ * 步进 loading 动画
+ * @author: bigfact
+ * @date: 2017.02.07
+ */
+
+// 导入全局配置文件
+@import "global";
+
+// 动画持续的总时间
+$time: 1.2;
+// 子元素宽度
+$width: 20;
+// 子元素高度
+$height: 60;
+// 动画每个子元素每次移动的距离
+$distance: 25;
+// 动画过渡方法
+$timing_function: ease;
+// loading 子元素背景
+// $bg: #FF5353;
+$bg: url(../img/loading-item-bg.png) no-repeat center;
+
+// loading 动画容器
+.loading-step {
+  position: relative;
+  display: inline-block;
+  width: $width * 7 + ($distance - $width) * 4 + ($distance * 2 - $width) * 2 + px;
+  height: $height + px;
+  // 子元素样式
+  > * {
+    background: $bg;
+    background-size: contain;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+    width: $width + px;
+    height: $height + px;
+    @include animation-duration($time * 5 + s);
+    @include animation-timing-function($timing_function);
+    @include animation-iteration-count(infinite);
+  }
+  // 循环输出每个子元素单独的样式
+  @for $i from 0 to 7 {
+    .i#{$i} {
+      @include animation-name(i + $i);
+    }
+  }
+}
+
+// 切换时间和停顿时间比例计算
+$diff_switch_time: 80;
+$diff_switch: $diff_switch_time / 7;
+$diff_pause: (100 - $diff_switch_time) / 7;
+
+// 动画时间段计算
+$t0: 0%;
+
+$t1: $t0 + $diff_switch + $diff_pause;
+$time1: $t0 + $diff_switch, $t1;
+
+$t2: $t1 + $diff_switch + $diff_pause;
+$time2: $t1 + $diff_switch, $t2;
+
+$t3: $t2 + $diff_switch + $diff_pause;
+$time3: $t2 + $diff_switch, $t3;
+
+$t4: $t3 + $diff_switch + $diff_pause;
+$time4: $t3 + $diff_switch, $t4;
+
+$t5: $t4 + $diff_switch + $diff_pause;
+$time5: $t4 + $diff_switch, $t5;
+
+$t6: $t5 + $diff_switch + $diff_pause;
+$time6: $t5 + $diff_switch, $t6;
+
+$t7: $t6 + $diff_switch + $diff_pause;
+$time0: $t0, $t6 + $diff_switch, $t7;
+
+// 动画透明度
+$op_0: 0;
+$op_5: .3;
+$op_10: 1;
+
+// 子元素动画
+@include keyframes(i0) {
+  #{$time0} {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time1} {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time2} {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time3} {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time4} {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time5} {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time6} {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: $op_0;
+  }
+}
+@include keyframes(i1) {
+  #{$time0} {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time1} {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time2} {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time3} {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time4} {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time5} {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time6} {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: $op_0;
+  }
+}
+@include keyframes(i2) {
+  #{$time0} {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time1} {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time2} {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time3} {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time4} {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time5} {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time6} {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: $op_5;
+  }
+}
+@include keyframes(i3) {
+  #{$time0} {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time1} {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time2} {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time3} {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time4} {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time5} {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time6} {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: $op_10;
+  }
+}
+@include keyframes(i4) {
+  #{$time0} {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time1} {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time2} {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time3} {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time4} {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time5} {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time6} {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: $op_10;
+  }
+}
+@include keyframes(i5) {
+  #{$time0} {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time1} {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time2} {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time3} {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time4} {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time5} {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time6} {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: $op_10;
+  }
+}
+@include keyframes(i6) {
+  #{$time0} {
+    @include transform(translate($distance * 8 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time1} {
+    @include transform(translate($distance * 0 + px, 0));
+    opacity: $op_0;
+  }
+  #{$time2} {
+    @include transform(translate($distance * 1 + px, 0));
+    opacity: $op_5;
+  }
+  #{$time3} {
+    @include transform(translate($distance * 3 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time4} {
+    @include transform(translate($distance * 4 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time5} {
+    @include transform(translate($distance * 5 + px, 0));
+    opacity: $op_10;
+  }
+  #{$time6} {
+    @include transform(translate($distance * 7 + px, 0));
+    opacity: $op_5;
+  }
+}

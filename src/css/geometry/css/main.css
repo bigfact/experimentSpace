@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/**
+ * 样式
+ * @author: bigfact
+ * @date: 2017.02.13
+ */
+/**
+ * 全局配置
+ * @author bigfact
+ * @date 2017.02.13
+ */
+.container {
+  text-align: center;
+}
+
+.box-container {
+  float: left;
+  position: relative;
+  width: 70.71068px;
+  height: 70.71068px;
+}
+
+@-webkit-keyframes box-container {
+  0% {
+    -webkit-transform: rotate(0deg) scale(0.1, 0.1);
+    transform: rotate(0deg) scale(0.1, 0.1);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(2, 2);
+    transform: rotate(180deg) scale(2, 2);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(0.1, 0.1);
+    transform: rotate(360deg) scale(0.1, 0.1);
+  }
+}
+
+@keyframes box-container {
+  0% {
+    -webkit-transform: rotate(0deg) scale(0.1, 0.1);
+    transform: rotate(0deg) scale(0.1, 0.1);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(2, 2);
+    transform: rotate(180deg) scale(2, 2);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(0.1, 0.1);
+    transform: rotate(360deg) scale(0.1, 0.1);
+  }
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 50px;
+  width: 50px;
+  border: 1px solid;
+}
+
+.box1 {
+  -webkit-transform: rotate(9deg);
+  transform: rotate(9deg);
+}
+
+.box2 {
+  -webkit-transform: rotate(18deg);
+  transform: rotate(18deg);
+}
+
+.box3 {
+  -webkit-transform: rotate(27deg);
+  transform: rotate(27deg);
+}
+
+.box4 {
+  -webkit-transform: rotate(36deg);
+  transform: rotate(36deg);
+}
+
+.box5 {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.box6 {
+  -webkit-transform: rotate(54deg);
+  transform: rotate(54deg);
+}
+
+.box7 {
+  -webkit-transform: rotate(63deg);
+  transform: rotate(63deg);
+}
+
+.box8 {
+  -webkit-transform: rotate(72deg);
+  transform: rotate(72deg);
+}
+
+.box9 {
+  -webkit-transform: rotate(81deg);
+  transform: rotate(81deg);
+}
+
+.box10 {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}

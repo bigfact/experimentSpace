@@ -1,0 +1,21 @@
+{
+  "name": "imageoperate",
+  "version": "1.2.0",
+  "description": "原生 js 图片预览操作的组件",
+  "main": "./src/imageoperate.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigfact/frontforge.git"
+  },
+  "keywords": [
+    "js",
+    "imageoperate",
+    "图片预览操作"
+  ],
+  "author": "bigfact <bigfact0@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigfact/frontforge/issues"
+  },
+  "homepage": "https://github.com/bigfact/frontforge/tree/master/src/components/imageoperate"
+}

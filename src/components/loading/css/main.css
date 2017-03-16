@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/**
+ * 测试页面样式
+ * @author: bigfact
+ * @date: 2016.04.05
+ */
+/**
+ * 全局配置
+ * @author bigfact
+ * @date 2017.02.08
+ */
+body {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  text-align: center;
+}

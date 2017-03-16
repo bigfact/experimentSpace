@@ -1,0 +1,56 @@
+/**
+ * 样式
+ * @author: bigfact
+ * @date: 2017.02.13
+ */
+
+// 导入全局配置文件
+@import "global";
+
+$box_size: 50px;
+$container_size: $box_size * 1.4142135623730951;
+
+.container {
+  text-align: center;
+}
+
+$time: 1s;
+$func: linear;
+.box-container {
+  // @include animation(box-container $time $func infinite);
+  float: left;
+  position: relative;
+  width: $container_size;
+  height: $container_size;
+}
+
+@include keyframes(box-container) {
+  0% {
+    @include transform(rotate(0deg) scale(.1, .1))
+  }
+  50% {
+    @include transform(rotate(180deg) scale(2, 2))
+  }
+  100% {
+    @include transform(rotate(360deg) scale(.1, .1))
+  }
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: $box_size;
+  width: $box_size;
+  border: 1px solid;
+}
+
+// 循环输出每个子元素单独的样式
+@for $i from 1 to 11 {
+  .box#{$i} {
+    @include transform(rotate(9deg * $i))
+  }
+}
