@@ -181,7 +181,6 @@ gulp.task('index', () => {
 		.pipe(gulpif('*.js', gulp.dest(function (file) {
 			var tmp = file.path.replace(/\/js\/.*/, '')
 			tmp = path.relative(root, tmp).replace(/^src\//, dist)
-			console.log(tmp)
 			return tmp
 		})))
 		.pipe(gulpif('*.html', gulp.dest(dist)));
