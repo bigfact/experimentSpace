@@ -1,11 +1,8 @@
 {
   "name": "imageoperate",
   "version": "1.2.0",
-  "description": "js 图片操作",
+  "description": "原生 js 图片预览操作的组件",
   "main": "./src/imageoperate.js",
-  "scripts": {
-    "build": "gulp"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bigfact/frontforge.git"
@@ -13,19 +10,12 @@
   "keywords": [
     "js",
     "imageoperate",
-    "图片操作"
+    "图片预览操作"
   ],
   "author": "bigfact <bigfact0@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bigfact/frontforge/issues"
   },
-  "homepage": "https://github.com/bigfact/frontforge/tree/master/things/imageoperate",
-  "dependencies": {
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.1"
-  },
-  "devDependencies": {}
+  "homepage": "https://github.com/bigfact/frontforge/tree/master/src/components/imageoperate"
 }
