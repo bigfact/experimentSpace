@@ -20,14 +20,24 @@ var htmlmin = require('gulp-htmlmin')
 var cssnano = require('gulp-cssnano')
 
 /**
- * 文件重命名插件
- */
-var rename = require('gulp-rename')
-
-/**
  * js 压缩器
  */
 var uglify = require('gulp-uglify')
+
+/**
+ * gulp if
+ */
+var gulpif = require('gulp-if')
+
+/**
+ * gulp useref
+ */
+var gulpuseref = require('gulp-useref')
+
+/**
+ * del
+ */
+var del = require('del')
 
 /**
  * 文件流操作
@@ -149,57 +159,33 @@ gulp.task('dev', gulp.series('sass', 'browser'), function (cb) {
  */
 var dist = root + 'dist/'
 
+/**
+ * 清空发布目录
+ */
+gulp.task('clean', del.bind(null, [dist + '**/*'], { force: true }));
 
 /**
- * html 文件处理
+ * 处理 index 文件
  */
-gulp.task('html', function () {
+gulp.task('index', () => {
 	return gulp.src(src + '**/**.html')
-		.pipe(htmlmin({
+		.pipe(gulpuseref())
+		.pipe(gulpif('*.js', uglify()))
+		.pipe(gulpif('*.css', cssnano()))
+		.pipe(gulpif('*.html', htmlmin({
 			collapseWhitespace: true,
 			minifyCSS: true,
 			minifyJS: true,
 			removeComments: true,
-		}))
-		.pipe(gulp.dest(dist))
-})
+		})))
+		.pipe(gulp.dest(dist));
+});
 
-/**
- * js 文件处理
- */
-gulp.task('js', function () {
-	return gulp.src([src + '**/**.js', '!' + src + '**/**.min.js'])
-		.pipe(uglify())
-		.pipe(gulp.dest(dist))
-})
-
-/**
- *  css 文件处理
- */
-gulp.task('css', function () {
-	return gulp.src([src + '**/**.css', '!' + src + '**/**.min.css'])
-		.pipe(cssnano())
-		.pipe(gulp.dest(dist))
-})
-
-/**
- * 图片文件处理
- */
-gulp.task('img', function () {
-	return gulp.src([src + '**/**.png', src + '**/**.jpg', src + '**/**.jpeg'])
-		.pipe(gulp.dest(dist))
-})
 
 /**
  * 发布任务
  */
-gulp.task('build', gulp.series(
-	'css',
-	'js',
-	'img',
-	'css',
-	'html'
-))
+gulp.task('build', gulp.series('sass', 'clean', 'index'))
 
 /**
  * 方法
@@ -230,10 +216,10 @@ function compileSass(inputPath) {
 			// console.log(error.column)
 			// console.log(error.message)
 			// console.log(error.line)
-		}	else {
+		} else {
 			fs.writeFile(outputFilePath.css, result.css)
 			// fs.writeFile(outputFilePath.map, JSON.stringify(result.map))
-			console.log(result.stats)
+			// console.log(result.stats)
 		}
 	})
 }
