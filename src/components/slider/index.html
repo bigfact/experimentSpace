@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <title>slider</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="./styles/slider.css">
-  <link rel="stylesheet" href="./styles/app.css">
+  
+  <!--build:css ./css/slider.min.css-->
+  <link rel="stylesheet" href="./css/slider.css">
+  <!--endbuild-->
+  
+  <!--build:css ./css/main.min.css-->
+  <link rel="stylesheet" href="./css/main.css">
+  <!--endbuild-->
+
 </head>
 <body>
-  <div class="slider" style="height: 100px;">
+  <div class="slider" style="height: 200px;">
     <div class="slider-item" data-index="1">1</div>
     <div class="slider-item" data-index="2">2</div>
     <div class="slider-item" data-index="3">3</div>
     <div class="slider-item" data-index="4">4</div>
   </div>
+
+  <!--build:js ./js/slider.min.js-->
   <script src="./js/slider.js"></script>
+  <!--endbuild-->
+
 </body>
 </html>

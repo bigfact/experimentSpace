@@ -86,7 +86,7 @@
    */
   function setAutoPlay(slider) {
     // 设置自动轮播
-    config.tid = setInterval(() => {
+    config.tid = setInterval(function () {
       if (++config.index > config.itemnum - 1) {
         // config.index = 0
         switchElement(slider, 1)
