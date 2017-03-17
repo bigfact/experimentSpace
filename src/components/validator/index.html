@@ -65,8 +65,15 @@
 		<button class="valid">验证</button>
 	</div>
 	<hr>
+
+	<!--build:js ./js/watch.min.js-->
 	<script src="./js/watch.js"></script>
+	<!--endbuild-->
+
+	<!--build:js ./js/validate.min.js-->
 	<script src="./js/validate.js"></script>
+	<!--endbuild-->
+	
 	<script>
 		// 监听输入值改变验证
 		Validator.watch(document.body);
