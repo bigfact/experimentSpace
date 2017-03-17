@@ -1,0 +1,17 @@
+@charset "UTF-8";
+/**
+ * 图片裁剪组件测试页面样式
+ * @author bigfact <bigfact0@gmail.com>
+ * @time 2016.05.01
+ */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  padding: 10px 50px;
+}

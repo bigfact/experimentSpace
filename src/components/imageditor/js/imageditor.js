@@ -1,4 +1,5 @@
 /**
+ * 图片裁剪组件
  * @author bigfact <bigfact0@gmail.com>
  * @time 2016.05.01
  */

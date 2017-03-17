@@ -13,66 +13,26 @@
   <!-- 禁止移动端网页自动识别手机号码 -->
   <meta name="format-detection" content="telephone=no" />
 
-  <title id="title">Imageditor</title>
+  <title>Imageditor</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    
-    .imageditor {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: #fff;
-      overflow: hidden;
-    }
-    
-    .imageditor img {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    
-    .imageditor canvas {
-      position: absolute;
-      top: 0;
-      z-index: 1;
-      border: 1px solid #f00;
-    }
-    
-    .imageditor .box {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      margin: auto;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.7);
-      border: 1px solid #666;
-    }
-    
-    button {
-      position: fixed;
-      bottom: 0;
-      z-index: 10;
-      padding: 10px 50px;
-    }
-  </style>
+  <!--build:css ./css/main.min.css-->
+  <link rel="stylesheet" href="./css/main.css">
+  <!--endbuild-->
+
+  <!--build:css ./css/imageditor.min.css-->
+  <link rel="stylesheet" href="./css/imageditor.css">
+  <!--endbuild-->
 
 </head>
 
 <body>
   <button id="cut">剪切</button>
-  <img id="himg" src="../public/img/11718965.png" style="display: block; width: 100%; position: absolute;">
-  <!--<script src="/bower/vConsole/dist/vconsole.min.js"></script>-->
+  <img id="himg" src="../../public/img/11718965.png" style="display: block; width: 100%; position: absolute;">
+
+  <!--build:js ./js/imageditor.min.js-->
   <script src="./js/imageditor.js"></script>
+  <!--endbuild-->
+
   <script>
     var img = document.getElementById('himg');
     var imgp;
