@@ -5,7 +5,11 @@
 	<meta charset="UTF-8">
 	<title>pop</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no minimal-ui" />
+
+	<!--build:css ./css/pop.min.css-->
 	<link rel="stylesheet" href="./css/pop.css">
+	<!--endbuild-->
+
 	<style>
 		html {
 			font-size: 100px;
@@ -30,29 +34,33 @@
 	<h2><a href="javascript:;" onclick="click_dialog()">对话框</a></h2>
 	<h2><a href="javascript:;" onclick="click_loading()">loading（点击隐藏）</a></h2>
 	<h2><a href="javascript:;" onclick="click_loading2()">loading（点击不隐藏，3 秒后自动隐藏）</a></h2>
+
+	<!--build:js ./js/pop.min.js-->
 	<script src="./js/pop.js"></script>
+	<!--endbuild-->
+	
 	<script>
 		// 对话框
 		function click_dialog() {
-			// dialog({
-    		//     title: '提示',
-    		//     content: '<p style="text-align: center;">内容</p>',
-    		//     clickhide: true,
-    		//     no: '取消',
-    		//     noclick: function (e) {
-    		//         console.log('no', e);
-    		//     },
-    		//     yes: '确定',
-    		//     yesclick: function (e) {
-    		//         console.log('yes', e);
-    		//     },
-			// 	parent: document.body,
-			// });
 			dialog({
-    		    content: '<p style="text-align: center;">内容</p>',
-				yes: true,
-				no: true,
+				title: '提示',
+				content: '<p style="text-align: center;">内容</p>',
+				clickhide: true,
+				no: '取消',
+				noclick: function (e) {
+					console.log('no', e);
+				},
+				yes: '确定',
+				yesclick: function (e) {
+					console.log('yes', e);
+				},
+				parent: document.body,
 			});
+			// dialog({
+			// 	content: '<p style="text-align: center;">内容</p>',
+			// 	yes: true,
+			// 	no: true,
+			// });
 		}
 		// loading
 		function click_loading() {
@@ -60,14 +68,14 @@
 		}
 		// loading
 		function click_loading2() {
-			var lo1 = loading({clickhide: false,});
-			lo1.show();
-			var tid = setTimeout(function(){
-				lo1.remove();
+			var loading1 = loading({ clickhide: false, });
+			loading1.show();
+			var tid = setTimeout(function () {
+				loading1.remove();
 				clearTimeout(tid);
 			}, 3000);
 		}
-  	</script>
+	</script>
 </body>
 
 </html>
