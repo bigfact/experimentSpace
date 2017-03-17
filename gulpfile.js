@@ -171,17 +171,21 @@ gulp.task('index', () => {
 	return gulp.src(src + '**/**.html')
 		.pipe(gulpuseref())
 		.pipe(gulpif('*.js', uglify()))
-		.pipe(gulpif('*.css', cssnano()))
+		.pipe(gulpif('*.css', cssnano({
+			reduceIdents: false,					// 不重命名 @keyframes 标识
+		})))
 		.pipe(gulpif('*.html', htmlmin({
 			collapseWhitespace: true,
 			minifyCSS: true,
 			minifyJS: true,
 			removeComments: true,
 		})))
-		.pipe(gulpif('*.js', gulp.dest(function (file) {
-			var tmp = file.path.replace(/\/js\/.*/, '')
-			tmp = path.relative(root, tmp).replace(/^src\//, dist)
-			return tmp
+		.pipe(gulpif(function (file) {
+			return /\.(js|css)$/.test(file.path);
+		}, gulp.dest(function (file) {
+			var tmp = file.path.replace(/\/(js|css)\/.+\.(js|css)$/, '');
+			tmp = path.relative(root, tmp).replace(/^src\//, dist);
+			return tmp;
 		})))
 		.pipe(gulpif('*.html', gulp.dest(dist)));
 });
