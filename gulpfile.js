@@ -204,6 +204,31 @@ gulp.task('img', function () {
 gulp.task('build', gulp.series('sass', 'clean', 'img', 'index'))
 
 /**
+ * 根据小项目的 package.json 文件生成小项目列表
+ */
+gulp.task('list', function () {
+	var listFilePath = './LIST.md';
+	fs.writeFileSync(listFilePath, '# 小项目列表\n\n');
+	return gulp.src(src + '**/package.json')
+		.pipe(through.obj(function (file, enc, cb) {
+			// 获取文件相对路径
+			var filePath = path.relative('./', file.path);
+			// 获取文件数据
+			var content = require('./' + filePath);
+			// 准备写入文件的内容
+			var tmp = '* '
+				+ content.description
+				+ ' - ' + content.name
+				+ ' - ' + content.version
+				+ ' - ' + '[homepage](https://github.com/bigfact/frontforge/tree/master/' + filePath.replace('/package.json', '') + ')'
+				+ ' - ' + '[example](http://bigfact.github.io/frontforge/dist/' + filePath.replace(/^src\/|package\.json$/g, '') + ')\n'
+			// 将内容写入文件
+			fs.appendFile(listFilePath, tmp);
+			cb();
+		}));
+})
+
+/**
  * 方法
  */
 
