@@ -205,11 +205,12 @@ gulp.task('img', function () {
 gulp.task('build', gulp.series('sass', 'clean', 'img', 'index'))
 
 /**
- * 根据小项目的 package.json 文件生成小项目列表
+ * 根据小项目的 package.json 文件生成小项目列表到 readme 文件中
  */
 gulp.task('list', function () {
-	var listFilePath = './LIST.md';
-	fs.writeFileSync(listFilePath, '# 小项目列表\n\n');
+	var listFilePath = './README.md';
+	var readmeData = fs.readFileSync('./README.main.md');
+	fs.writeFileSync(listFilePath, readmeData + '\n## 小项目列表\n\n');
 	return gulp.src(src + '**/package.json')
 		.pipe(through.obj(function (file, enc, cb) {
 			// 获取文件相对路径
@@ -222,11 +223,9 @@ gulp.task('list', function () {
 				+ ' - ' + content.name
 				+ ' - ' + content.version
 				+ ' - ' + '[主页](https://github.com/bigfact/frontforge/tree/master/' + filePath.replace('/package.json', '') + ')'
-				+ ' - ' + '示例（'
-				+ '[源码](http://bigfact.github.io/frontforge/src/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
-				+ '、'
-				+ '[发布代码](http://bigfact.github.io/frontforge/dist/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
-				+ '）\n'
+				+ ' - ' + '[示例源码](http://bigfact.github.io/frontforge/src/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
+				+ ' - ' + '[示例发布代码](http://bigfact.github.io/frontforge/dist/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
+				+ '\n';
 			// 将内容写入文件
 			fs.appendFile(listFilePath, tmp);
 			cb();
