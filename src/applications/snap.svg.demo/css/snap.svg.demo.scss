@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/**
+ * snap.svg.demo 主样式文件
+ * @author bigfact
+ * @date 2017.03.23
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.svg-wrap {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.svg {
+  border: 1px solid #fa8072;
+  box-sizing: border-box;
+  height: 300px;
+  width: 300px;
+}

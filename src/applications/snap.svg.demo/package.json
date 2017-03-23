@@ -1,0 +1,11 @@
+{
+  "name": "snap.svg.demo",
+  "version": "1.0.0",
+  "description": "snap svg 示例",
+  "keywords": [
+    "snap",
+    "svg"
+  ],
+  "author": "bigfact <bigfact0@gmail.com>",
+  "license": "MIT"
+}
