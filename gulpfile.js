@@ -223,8 +223,8 @@ gulp.task('list', function () {
 				+ ' - ' + content.name
 				+ ' - ' + content.version
 				+ ' - ' + '[主页](https://github.com/bigfact/frontforge/tree/master/' + filePath.replace('/package.json', '') + ')'
-				+ ' - ' + '[示例源码](http://bigfact.github.io/frontforge/src/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
-				+ ' - ' + '[示例发布代码](http://bigfact.github.io/frontforge/dist/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
+				+ ' - ' + '[源码](http://bigfact.github.io/frontforge/src/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
+				+ ' - ' + '[示例](http://bigfact.github.io/frontforge/dist/' + filePath.replace(/^src\/|package\.json$/g, '') + ')'
 				+ '\n';
 			// 将内容写入文件
 			fs.appendFile(listFilePath, tmp);
