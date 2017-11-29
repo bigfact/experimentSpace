@@ -1,0 +1,35 @@
+/**
+ * 测试页面样式
+ * @author bigfact
+ * @date 2017.05.03
+ */
+ 
+@import '_px2rem';
+
+html {
+  font-size: $html_font_size + px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: px2rem(14);
+}
+
+.container {
+  padding: px2rem(20) 0;
+}
+
+.border {
+  border: 1px solid #000;
+}
+
+.test-box-0 {
+  display: inline-block;
+  height: px2rem(100);
+  width: px2rem(100);
+}
+
+.tac {
+  text-align: center;
+}

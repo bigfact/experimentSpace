@@ -1,10 +1,10 @@
 {
   "name": "frontforge",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "前端实验环境",
   "main": "",
   "scripts": {
-    "dev": "gulp debug",
+    "dev": "gulp dev",
     "build": "gulp build"
   },
   "author": "bigfact <bigfact0@gmail.com>",

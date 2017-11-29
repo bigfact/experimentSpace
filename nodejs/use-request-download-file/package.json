@@ -1,0 +1,15 @@
+{
+  "name": "use-request-download-file",
+  "version": "1.0.0",
+  "description": "使用 request 模块下载文件保存到本地",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bigfact <bigfact@foxmail.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mobile-layout</title>
+
+  <!--build:js ./js/px2rem.min.js-->
+  <script src="./js/px2rem.js"></script>
+  <!--endbuild-->
+
+  <script>
+    // 设置根元素 html 字体大小
+    px2rem(0, 375);
+  </script>
+
+  <!--build:css ./css/main.min.css-->
+  <link rel="stylesheet" href="./css/main.css">
+  <!--endbuild-->
+
+</head>
+
+<body>
+
+  <div class="container tac">
+    <div class="test-box-0 border">test-box-0</div>
+  </div>
+
+</body>
+
+</html>
