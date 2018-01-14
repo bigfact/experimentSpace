@@ -1,0 +1,15 @@
+{
+  "name": "i-need-ticket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bigfact",
+  "license": "MIT",
+  "dependencies": {
+    "curlconverter": "^1.14.0",
+    "node-notifier": "^5.2.1"
+  }
+}

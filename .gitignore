@@ -4,3 +4,5 @@ example
 .sass-cache
 template
 dist
+*.log
+.tmp
