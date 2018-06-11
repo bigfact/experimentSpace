@@ -130,7 +130,7 @@ gulp.task('browser', function () {
 			directory: true
 		},
 		open: 'external',
-		port: 4001,
+		port: 1124,
 		startPath: src,
 		// 禁用、启用每个单独的功能
 		// ghostMode: {

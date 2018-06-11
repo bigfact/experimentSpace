@@ -16,13 +16,7 @@
 
 ## 环境配置
 
-* 全局
-
-```
-$ npm install -g gulp // 版本参照 ./package.json 文件中 gulp 的版本
-```
-
-* 项目
+* 安装
 
 ```
 $ npm install
@@ -30,25 +24,19 @@ $ npm install
 
 ## 开发
 
-* dev
-
 ```
-$ gulp dev
+$ npm run dev
 ```
 
 ## 发布
 
 ```
-$ gulp build
+$ npm run build
 ```
 
 ## 代码相关
 
 * 移动端调试引入 [vconsole](https://github.com/WechatFE/vConsole) (前端调试面板)
-
-```html
-<script src="/node_modules/vconsole/dist/vconsole.min.js"></script>
-```
 
 ## 参考
 

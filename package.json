@@ -5,17 +5,16 @@
   "main": "",
   "scripts": {
     "dev": "gulp dev",
-    "build": "gulp build"
+    "build": "gulp build",
+    "start.node": "pm2 start ecosystem.config.js --only node --env production",
+    "reload.node": "pm2 reload ecosystem.config.js --only node --env production",
+    "start.node.dev": "pm2 start ecosystem.config.js --only node.dev --env development",
+    "reload.node.dev": "pm2 reload ecosystem.config.js --only node.dev --env development"
   },
   "author": "bigfact <bigfact0@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.11.0"
-  },
-  "dependencies": {
-    "compass-mixins": "^0.12.10",
-    "del": "^2.2.2",
-    "include-media": "^1.4.2",
+    "browser-sync": "^2.11.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-htmlmin": "^3.0.0",
@@ -24,7 +23,14 @@
     "gulp-useref": "^3.1.2",
     "node-sass": "^4.1.1",
     "through2": "^2.0.1",
-    "vconsole": "wechatfe/vConsole"
+    "del": "^2.2.2"
+  },
+  "dependencies": {
+    "compass-mixins": "^0.12.10",
+    "include-media": "^1.4.2",
+    "vconsole": "wechatfe/vConsole",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
   },
   "directories": {
     "example": "example"

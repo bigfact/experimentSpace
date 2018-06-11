@@ -1,3 +1,7 @@
+*.log
+*.pid
+ecosystem.config.local.js
+
 node_modules
 bower
 example
