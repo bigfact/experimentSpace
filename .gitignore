@@ -4,3 +4,6 @@ example
 .sass-cache
 template
 dist
+logs
+.tmp
+downloans

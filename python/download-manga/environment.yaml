@@ -1,0 +1,5 @@
+name: onepiece
+channels:
+  - defaults
+prefix: /Users/bigfact/anaconda3/envs/onepiece
+
